@@ -1,0 +1,6 @@
+﻿UserID,UserName,Password,UserType
+1,staff1,abc123,Staff
+2,tenant1,def456,Tenant
+3,tenant2,afdak!121,Tenant
+4,tenant3,adfasfd55556,Tenant
+5,staff2,asfasfdas,Staff

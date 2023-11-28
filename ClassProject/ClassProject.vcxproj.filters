@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="BoundaryClasses">
+      <UniqueIdentifier>{ac107349-83a3-4ac2-aecb-deaccfd4f241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\GeneralUI">
+      <UniqueIdentifier>{3e9c8589-878d-4b30-9e44-21442f4ab47f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\TenantUI">
+      <UniqueIdentifier>{970d5332-3b42-448f-ab62-4d81f63ff015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\DisplayMaintenanceRequestInfo">
+      <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\StaffUI">
+      <UniqueIdentifier>{4ff15c90-fdaf-43ba-bff8-4d768b86721c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\ViewStaffInfo">
+      <UniqueIdentifier>{00a0ba79-0b53-46ab-ae3e-a080672bfa22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\ViewLease">
+      <UniqueIdentifier>{601b47b6-3461-4937-a319-0b7f152137f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses">
+      <UniqueIdentifier>{a0380da9-d56f-472e-9972-4d80374dad81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageLease">
+      <UniqueIdentifier>{28454b29-e61a-4706-913f-433c1a89e736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageMaintenance">
+      <UniqueIdentifier>{5b484862-0a6a-4d9f-8f3c-75481a488f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageRent">
+      <UniqueIdentifier>{a3d734a8-7ff6-4a41-978b-2b39d0e0f198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageStaff">
+      <UniqueIdentifier>{0538f841-f685-42d1-b3f6-8f0e70dddfc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageTenantAccount">
+      <UniqueIdentifier>{1d08f722-7d59-4b7a-a566-7b60df979aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses">
+      <UniqueIdentifier>{13f15bd9-19c7-40cf-914a-237605c0f7da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Lease">
+      <UniqueIdentifier>{6c5b7e20-6236-4bfd-aa02-90c929291b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Maintenance">
+      <UniqueIdentifier>{f21ed729-6505-4d03-baed-dd6511920871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Notifications">
+      <UniqueIdentifier>{a542a744-971b-4555-bf36-42d859bb09f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Rent">
+      <UniqueIdentifier>{bffa3ba3-26f7-4db6-8ba6-754cc046e229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Staff">
+      <UniqueIdentifier>{bfc6acbc-7487-4406-be66-28cc33199a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Tenant">
+      <UniqueIdentifier>{cfbdb0fe-1db6-46ff-86c2-b3a020a57a58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Apartment">
+      <UniqueIdentifier>{9ef1bec2-0018-4b9e-88fc-632267a1bf83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EntityClasses\Application">
+      <UniqueIdentifier>{9ffbc746-3e75-4b32-a4f1-900d862253ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GeneralUI.cpp">
+      <Filter>BoundaryClasses\GeneralUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralUIDriver.cpp">
+      <Filter>BoundaryClasses\GeneralUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TenantUI.cpp">
+      <Filter>BoundaryClasses\TenantUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TenantUIDriver.cpp">
+      <Filter>BoundaryClasses\TenantUI</Filter>
+    </ClCompile>
+    <ClCompile Include="StaffUI.cpp">
+      <Filter>BoundaryClasses\StaffUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewStaffInfo.cpp">
+      <Filter>BoundaryClasses\ViewStaffInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayMaintenanceRequestInfo.cpp">
+      <Filter>BoundaryClasses\DisplayMaintenanceRequestInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewLease.cpp">
+      <Filter>BoundaryClasses\ViewLease</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageLease.cpp">
+      <Filter>ControlClasses\ManageLease</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageMaintenance.cpp">
+      <Filter>ControlClasses\ManageMaintenance</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageRent.cpp">
+      <Filter>ControlClasses\ManageRent</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageStaff.cpp">
+      <Filter>ControlClasses\ManageStaff</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageTenantAccount.cpp">
+      <Filter>ControlClasses\ManageTenantAccount</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageTenantAccountDriver.cpp">
+      <Filter>ControlClasses\ManageTenantAccount</Filter>
+    </ClCompile>
+    <ClCompile Include="Lease.cpp">
+      <Filter>EntityClasses\Lease</Filter>
+    </ClCompile>
+    <ClCompile Include="Maintenance.cpp">
+      <Filter>EntityClasses\Maintenance</Filter>
+    </ClCompile>
+    <ClCompile Include="Notificaitons.cpp">
+      <Filter>EntityClasses\Notifications</Filter>
+    </ClCompile>
+    <ClCompile Include="Rent.cpp">
+      <Filter>EntityClasses\Rent</Filter>
+    </ClCompile>
+    <ClCompile Include="TenantDriver.cpp">
+      <Filter>EntityClasses\Tenant</Filter>
+    </ClCompile>
+    <ClCompile Include="Apartment.cpp">
+      <Filter>EntityClasses\Apartment</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>EntityClasses\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\UserRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneralUI.h">
+      <Filter>BoundaryClasses\GeneralUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TenantUI.h">
+      <Filter>BoundaryClasses\TenantUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayMaintenanceRequestInfo.h">
+      <Filter>BoundaryClasses\DisplayMaintenanceRequestInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="StaffUI.h">
+      <Filter>BoundaryClasses\StaffUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewStaffInfo.h">
+      <Filter>BoundaryClasses\ViewStaffInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewLease.h">
+      <Filter>BoundaryClasses\ViewLease</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageLease.h">
+      <Filter>ControlClasses\ManageLease</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageMaintenance.h">
+      <Filter>ControlClasses\ManageMaintenance</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageRent.h">
+      <Filter>ControlClasses\ManageRent</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageStaff.h">
+      <Filter>ControlClasses\ManageStaff</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageTenantAccount.h">
+      <Filter>ControlClasses\ManageTenantAccount</Filter>
+    </ClInclude>
+    <ClInclude Include="Lease.h">
+      <Filter>EntityClasses\Lease</Filter>
+    </ClInclude>
+    <ClInclude Include="Maintenance.h">
+      <Filter>EntityClasses\Maintenance</Filter>
+    </ClInclude>
+    <ClInclude Include="Notificaitons.h">
+      <Filter>EntityClasses\Notifications</Filter>
+    </ClInclude>
+    <ClInclude Include="Rent.h">
+      <Filter>EntityClasses\Rent</Filter>
+    </ClInclude>
+    <ClInclude Include="Staff.h">
+      <Filter>EntityClasses\Staff</Filter>
+    </ClInclude>
+    <ClInclude Include="Tenant.h">
+      <Filter>EntityClasses\Tenant</Filter>
+    </ClInclude>
+    <ClInclude Include="Apartment.h">
+      <Filter>EntityClasses\Apartment</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>EntityClasses\Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="FloorPlan.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

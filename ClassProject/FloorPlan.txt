@@ -1,0 +1,74 @@
+Common Amenities: Parking, Pool, Fitness, Laundry, Fireplace
+Special Amenities: Study/Built-in Desk*, Kitchen Island*, Bay Windows
+
+One Bedroom Floor Plans:
+
+A Floor Plan
+	Bedroom: 1
+	Bathroom: 1
+	Square Footage: 600 sq.ft.
+	Rent Amount: $700 per month
+	Amenities: Common
+
+B Floor Plan:
+	Bedroom: 1
+	Bathroom: 1
+	Square Footage: 700 sq.ft.
+	Rent Amount: $800 per month
+	Amenities: Common + Built-in Desk
+	
+C Floor Plan:
+	Bedroom: 1
+	Bathroom: 1.5
+	Square Footage: 800 sq.ft.
+	Rent Amount: $900 per month
+	Amenities: Common + Built-in Desk
+
+Two Bedroom Floor Plans:
+
+D Floor Plan:
+	Bedroom: 2
+	Bathroom: 1.5
+	Square Footage: 1100 sq.ft.
+	Rent Amount: $1200 per month
+	Amenities: Common 
+
+E Floor Plan:
+	Bedroom: 2
+	Bathroom: 2
+	Square Footage: 1200 sq.ft.
+	Rent Amount: $1400 per month
+	Amenities: Common + Study
+
+F Floor Plan:
+	Bedroom: 2
+	Bathroom: 2.5
+	Square Footage: 1250 sq.ft.
+	Rent Amount: $1500 per month
+	Amenities: Common +
+
+
+Three Bedroom Floor Plan:
+
+G Floor Plan:
+	Bedroom: 3
+	Bathroom: 2.5
+	Square Footage: 1300 sq.ft.
+	Rent Amount: $1550 per month
+	Amenities: Common
+
+H Floor Plan:
+	Bedroom: 3
+	Bathroom: 3
+	Square Footage: 1350 sq.ft.
+	Rent Amount: $1600 per month
+	Amenities: Parking, Pool, Fitness, Laundry,
+
+I Floor Plan:
+	Bedroom: 3
+	Bathroom: 3
+	Square Footage: 1375 sq.ft.
+	Rent Amount: $1700 per month
+	Amenities: Parking, Pool, Fitness, Laundry, Kitchen Island
+
+
