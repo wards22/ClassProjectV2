@@ -142,6 +142,7 @@
     <None Include="..\UserRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneralUI.h">
