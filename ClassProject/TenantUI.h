@@ -17,23 +17,23 @@
 using namespace std;
 
 
-class TenantUI {
+static class TenantUI {
 public:
-    void displayMainMenu();
+    static void displayMainMenu();
 
-    void displayTenantAccountMenu();
+    static void displayTenantAccountMenu();
 
-    void displayRentMenu();
+    static void displayRentMenu();
 
-    void displayMaintenanceRequestMenu();
+    static void displayMaintenanceRequestMenu();
 
-    void displayNotifications();
+    static void displayNotifications();
 
-    void displayLease();
+    static void displayLease();
 
-    void displayApplication();
+    static void displayApplication();
 
-    void exit();
+    static void exit();
 };
 
 #endif

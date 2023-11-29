@@ -1,0 +1,8 @@
+UserID = 0
+UserName = 1
+Password = 2
+UserType = 3
+Name = 4
+Phonenumber = 5
+Email = 6
+AptNumber = 7

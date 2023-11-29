@@ -18,11 +18,13 @@ public:
 
     static void displayGeneralUI();
 
-    static void displayUserLogin();
+    //static void displayUserLogin();
 
     static bool validateUser(string username, string password);
 
-    static int getUserType();
+    static int getUserID(string username);
+
+    static string getUserType(int userID);
 
     static void viewFloorPlans();
 

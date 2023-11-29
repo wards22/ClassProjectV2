@@ -148,6 +148,7 @@
     <ClCompile Include="ManageTenantAccountDriver.cpp" />
     <ClCompile Include="Notificaitons.cpp" />
     <ClCompile Include="Rent.cpp" />
+    <ClCompile Include="Staff.cpp" />
     <ClCompile Include="StaffUI.cpp" />
     <ClCompile Include="TenantDriver.cpp" />
     <ClCompile Include="TenantUI.cpp" />
@@ -177,11 +178,12 @@
     <ClInclude Include="ViewStaffInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\UserRecords.csv" />
     <None Include="ClassDiagram.cd" />
+    <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt" />
+    <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
