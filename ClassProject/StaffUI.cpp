@@ -11,6 +11,7 @@ using namespace std;
 #include "StaffUI.h"
 #include "Staff.h"
 #include "Tenant.h"
+#include "GeneralUI.h"
 
 void StaffUI::displayMainMenu(int user_ID) {
     Staff staff(user_ID);
@@ -26,8 +27,8 @@ void StaffUI::displayMainMenu(int user_ID) {
     cout << "[6] Applications" << endl;
     cout << "[7] Lease Editor" << endl;
     cout << "[8] Notifications" << endl;
-    cout << "[9] Exit" << endl << endl;
-    cout << "Enter a number 1 through 8: ";
+    cout << "[9] Logout" << endl << endl;
+    cout << "Enter a number 1 through 9: ";
 
     cin >> choice;
     cout << endl;
@@ -57,7 +58,7 @@ void StaffUI::displayMainMenu(int user_ID) {
         displayNotifications();
     }
     else if (choice == 9) {
-        exit();
+        logout();
     }
     else {
         cout << "Please enter a number 1 through 7." << endl << endl;
@@ -70,21 +71,21 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     Staff staff(user_ID);
 
     
-    cout << "Account\n";
-    cout << "--------------------------\n";
+    cout << staff.getName() << "'s Account" << endl;
+    cout << "--------------------------" << endl;
     // Have view account information as option 
     // or automatically display account info?
     cout << "[1] View Account Information\n";
-    cout << "[2] Change Username\n";
-    cout << "[3] Change Password\n";
-    cout << "[4] Change Phone Number\n";
-    cout << "[5] Change Email\n";
-    cout << "[6] Return to Main Menu\n";
-    cout << "[7] Exit\n";
+    cout << "[2] Change Username" << endl;
+    cout << "[3] Change Password" << endl;
+    cout << "[4] Change Phone Number" << endl;
+    cout << "[5] Change Email" << endl;
+    cout << "[6] Return to Main Menu" << endl;
+    cout << "[7] Logout" << endl;
     cout << "\nEnter a number 1 through 7: ";
 
     // Read in staff option
-    int option = -1;
+    int option = 0;
     cin >> option;
     cout << endl;
 
@@ -172,7 +173,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     }
     else if (option == 7) {
         cout << "Exiting program\n\n";
-        exit();
+        logout();
 
     }
     else {
@@ -210,6 +211,8 @@ void StaffUI::viewApplications() {
     cout << "This is where you will view applications." << endl << endl;
 }
 
-void StaffUI::exit() {
+void StaffUI::logout() {
+    cout << "You have successfully logged out." << endl << endl;
 
+    GeneralUI::displayGeneralUI();
 }

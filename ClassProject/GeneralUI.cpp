@@ -94,6 +94,7 @@ void GeneralUI::displayGeneralUI() {
     }
     else if (option == 5) {
         cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
+        exit(0);
     }
     else {
         cout << "Please enter a number 1 through 5." << endl << endl;

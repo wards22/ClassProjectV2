@@ -43,7 +43,7 @@ public:
 
     static void viewApplications();
 
-    static void exit();
+    static void logout();
 };
 
 #endif
