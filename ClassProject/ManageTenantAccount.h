@@ -5,7 +5,7 @@
  *              depending on userType
  * Contributors: Crischelle Polley
  * Date created: Nov 16 2023
- * Date last modified: Nov 21 2023
+ * Date last modified: Nov 28 2023
 */
 
 #pragma once
@@ -18,9 +18,13 @@ using namespace std;
 
 class ManageTenantAccount {
 public:
-    void manageTenantAccountForTenant(int, string);
+    static void manageTenantAccountForTenant(int, int, string);
 
+<<<<<<< HEAD
+    static void manageTenantAccountForStaff(int, int);
+=======
     void manageTenantAccountForStaff(int, int, string);
+>>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
 
 };
 

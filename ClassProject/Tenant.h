@@ -3,7 +3,7 @@
  * Description: Creates and modifies Tenant's file
  * Contributors: Crischelle Polley
  * Date created: Nov 13 2023
- * Date last modified: Nov 21 2023
+ * Date last modified: Nov 29 2023
 */
 
 
@@ -19,11 +19,7 @@
 
 using namespace std;
 
-
-// Should class be rewritten to read and write directly to 
-// file?
 class Tenant {
-    // Default values for the attributes can also be set here. That or constructor?
 private:
     string username;
     string password;
@@ -36,12 +32,24 @@ private:
 
 
 public:
+    Tenant(){
+        username = "";
+        password = "";
+        userType = "";
+        userID = -1;
+        name = "";
+        phoneNum = "";
+        email = "";
+        aptNum = -1;
+    }
+
     // Constructor will call readTenantInfo and
     // set all attributes to tenant info in 
     // sample-data-file based on username and 
     // password entered from user login 
-    Tenant() {
+    Tenant(int uid) {
         cout << "This is Tenant constructor\n";
+        userID = uid;
         readTenantInfo();
     }
 

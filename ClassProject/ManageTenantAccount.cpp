@@ -15,8 +15,8 @@
 
 using namespace std;
 
-void ManageTenantAccount::manageTenantAccountForTenant(int option, string s) {
-    Tenant tenant;
+void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, string s) {
+    Tenant tenant(uid);
 
     // [1] View Account Information
     // This will access ViewTenantAccount boundary class
@@ -50,7 +50,11 @@ void ManageTenantAccount::manageTenantAccountForTenant(int option, string s) {
 
 }
 
+<<<<<<< HEAD
+void ManageTenantAccount::manageTenantAccountForStaff(int uid, int option) {
+=======
 /*Scott: I'm adding options for the staff to read/write tenant data
+>>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
 
 
 */
