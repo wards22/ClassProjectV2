@@ -20,7 +20,7 @@ using namespace std;
 
 class ViewLease {
 
-public:
+    public:
 
     void displayLease();
 };

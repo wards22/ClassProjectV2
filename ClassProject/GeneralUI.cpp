@@ -6,6 +6,7 @@
  * Date last modified: Nov 29 2023
 */
 
+
 #include <iostream>
 #include <conio.h>
 #include <string>
@@ -58,14 +59,10 @@ void GeneralUI::displayGeneralUI() {
         if (userType == "Staff") {
             Staff staff(userID);
             StaffUI::displayMainMenu(staff.getUserID());
-        }
-        else if (userType == "Tenant")
-        {
+        } else if (userType == "Tenant") {
             //Tenant tenant();
-            //TenantUI::displayMainMenu();
-        }
-    }
-    else if (option == 2) {
+        //TenantUI::displayTenantMenu();
+    } else if (option == 2) {
         cout << endl;
         cout << "Here are the available floor plans" << endl << endl;
         viewFloorPlans();
@@ -74,8 +71,7 @@ void GeneralUI::displayGeneralUI() {
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 3) {
+    } else if (option == 3) {
         cout << endl;
         cout << "Enter your information to fill out an application." << endl << endl;
         viewApplication();
@@ -85,26 +81,24 @@ void GeneralUI::displayGeneralUI() {
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 4) {
+    } else if (option == 4) {
         cout << endl;
-        viewApartmentComplexInfo();
+        cout << "Apartment Information: Stuff goes here." << endl;
         cout << "Press any key to return to the main menu." << endl << endl;
         cin.clear();
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 5) {
+    } else if (option == 5) {
         cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
         exit(0);
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 5." << endl << endl;
         cin.clear();
         cin.ignore();
         displayGeneralUI();
     }
+}
 }
 
 bool GeneralUI::validateUser(string username, string password) {
@@ -135,8 +129,7 @@ bool GeneralUI::validateUser(string username, string password) {
 
     if (!found) {
         inputFile.close();
-        cout << endl;
-        cerr << "Login failed, do you wish to try again?. (Y/y) ";
+        cerr << "\nLogin failed, do you wish to try again?. (Y/y) ";
         cin >> choice;
 
         if (choice == 'Y' || choice == 'y') {
@@ -144,8 +137,7 @@ bool GeneralUI::validateUser(string username, string password) {
             cin.clear();
             cin.ignore();
             return false;
-        }
-        else {
+        } else {
             cout << endl;
             cout << "Returning you to the main menu. " << endl << endl;
             displayGeneralUI();

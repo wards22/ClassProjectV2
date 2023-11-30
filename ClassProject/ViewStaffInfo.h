@@ -20,7 +20,7 @@ using namespace std;
 
 class ViewStaffInfo {
 
-public:
+    public:
 
     void displayStaffInfo();
 };

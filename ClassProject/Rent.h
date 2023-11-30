@@ -3,7 +3,7 @@
  * Description: Creates and modifies tenant's Rent file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 15 2023
+ * Date last modified: Nov 29 2023
 */
 
 #pragma once
@@ -15,7 +15,7 @@
 using namespace std;
 
 class Rent {
-private:
+    private:
     string paymentMethod;
     string date;
     string referenceNum;
@@ -26,14 +26,30 @@ private:
 
     string getDate() const;
 
-    void setDate(const string& d);
+    string formatDate(const char* d) const;
 
-    string formatDate(const string& d);
-
-    float formatMoney(const float& m);
+    float formatMoney(float m) const;
 
 
-public:
+    public:
+    Rent() {
+        paymentMethod = "";
+        date = "";
+        referenceNum = "";
+        description = "";
+        // Set to NULL because it can be negative
+        amount = NULL;
+        // Set to NULL because it can be negative
+        balanceDue = NULL;
+        // Set to NULL because it can be negative
+        remainingBalanceDue = NULL;
+    }
+
+    Rent(int uid) {
+        balanceDue = -32.65;
+        readRentReceipt(uid);
+    }
+
     string getPaymentMethod() const
     {
         return paymentMethod;
@@ -64,37 +80,29 @@ public:
         description = d;
     }
 
-    float getAmount() const
-    {
-        return amount;
+    float getAmount() const {
+        return formatMoney(amount);
     }
 
-    void setAmount(const float& a)
-    {
+    void setAmount(const float& a) {
         amount = a;
     }
 
-    float getBalanceDue() const
-    {
-        return balanceDue;
+    float getBalanceDue() const {
+        return formatMoney(balanceDue);
     }
 
-    void setBalanceDue(const float& bd)
-    {
+    void setBalanceDue(const float& bd) {
         balanceDue = bd;
     }
 
-    float payRentReceipt(const float& r) {
-        remainingBalanceDue = balanceDue - r;
-        formatMoney(remainingBalanceDue);
-        return remainingBalanceDue;
-    }
+    float payRentReceipt(const float&);
 
     // Need to create files for this to get understanding
     // of how to code
-    void readRentReceipt();
+    void readRentReceipt(int);
 
-    void writeRentReceipt();
+    void writeRentReceipt(int);
 };
 
 #endif

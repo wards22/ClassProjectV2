@@ -15,8 +15,8 @@
 
 using namespace std;
 
-void ManageTenantAccount::manageTenantAccountForTenant(int option, string s) {
-    Tenant tenant;
+void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, string s) {
+    Tenant tenant(uid);
 
     // [1] View Account Information
     // This will access ViewTenantAccount boundary class
@@ -50,57 +50,37 @@ void ManageTenantAccount::manageTenantAccountForTenant(int option, string s) {
 
 }
 
-/*Scott: I'm adding options for the staff to read/write tenant data
-
-
-*/
 
 void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string str) {
-    //Tenant tenant(iD);
+        //Tenant tenant;
 
-    if (option == 1) {
+        if (option == 1) {
 
-        fstream inputFile;
+            fstream inputFile;
 
-        inputFile.open("UserRecords.csv", ios::in);
+            inputFile.open("UserRecords.csv", ios::in);
 
-        vector<string> row;
-        string line, data, temp;
+            vector<string> row;
+            string line, data, temp;
 
-        while (getline(inputFile, line)) {
-            row.clear();
-            stringstream s(line);
+            while (getline(inputFile, line)) {
+                row.clear();
+                stringstream s(line);
 
-            while (getline(s, data, ',')) {
-                row.push_back(data);
+                while (getline(s, data, ',')) {
+                    row.push_back(data);
+                }
+
+                if (row[3] == "Tenant") {
+                    cout << "Tenant Name: " << row[4] << endl;
+                    cout << "\tUser ID: " << row[0] << endl;
+                    cout << "\tUsername: " << row[1] << endl;
+                    cout << "\tPassword: " << row[2] << endl;
+                    cout << "\tPhone Number: " << row[5] << endl;
+                    cout << "\tEmail: " << row[6] << endl;
+                    cout << "\tApartment Number: " << row[7] << endl << endl;
+                }
             }
-
-            if (row[3] == "Tenant") {
-                cout << "Tenant Name: " << row[4] << endl;
-                cout << "\tUser ID: " << row[0] << endl;
-                cout << "\tUsername: " << row[1] << endl;
-                cout << "\tPassword: " << row[2] << endl;
-                cout << "\tPhone Number: " << row[5] << endl;
-                cout << "\tEmail: " << row[6] << endl;
-                cout << "\tApartment Number: " << row[7] << endl << endl;
-            }
+            inputFile.close();
         }
-        inputFile.close();
-    }
-    else if (option == 2) {
-        //tenant.setUsername(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getUsername());
-    }
-    else if (option == 3) {
-        //tenant.setPassword(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 2, tenant.getPassword());
-    }
-    else if (option == 4) {
-        //tenant.setPhoneNum(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getPhoneNum());
-    }
-    else if (option == 5) {
-        //tenant.setEmail(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getEmail());
-    }
-}
+   }
