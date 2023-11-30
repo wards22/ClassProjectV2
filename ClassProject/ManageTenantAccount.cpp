@@ -60,7 +60,7 @@ void ManageTenantAccount::manageTenantAccountForStaff(int uid, int option) {
 */
 
 void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string str) {
-    //Tenant tenant(iD);
+    //Tenant tenant;
 
     if (option == 1) {
         
@@ -90,21 +90,5 @@ void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string
             }
         }
         inputFile.close();
-    }
-    else if (option == 2) {
-        //tenant.setUsername(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getUsername());
-    }
-    else if (option == 3) {
-        //tenant.setPassword(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 2, tenant.getPassword());
-    }
-    else if (option == 4) {
-        //tenant.setPhoneNum(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getPhoneNum());
-    }
-    else if (option == 5) {
-        //tenant.setEmail(str);
-        //tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getEmail());
     }
 }
