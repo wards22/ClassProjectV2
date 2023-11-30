@@ -6,12 +6,12 @@
 using namespace std;
 
 class Application {
-private:
+    private:
     int month;
     int day;
     int year;
 
-public:
+    public:
     Application(int m, int d, int y) : month(m), day(d), year(y) {}
 
     bool isValidDate() const {
@@ -28,8 +28,7 @@ public:
             if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
                 if (day > 29)
                     return false;
-            }
-            else {
+            } else {
                 if (day > 28)
                     return false;
             }
@@ -49,7 +48,7 @@ public:
 };
 
 bool isApplicantAdult(const Application& dob) {
-    
+
     auto const now = chrono::system_clock::now();
     time_t now_c = chrono::system_clock::to_time_t(now);
 #pragma warning(suppress : 4996)

@@ -20,7 +20,7 @@ using namespace std;
 
 class DisplayMaintenanceRequestInfo {
 
-public:
+    public:
 
     void displayMaintenanceInfo();
 };

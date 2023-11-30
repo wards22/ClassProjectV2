@@ -24,7 +24,7 @@ using namespace std;
 
 
 class StaffUI {
-public:
+    public:
     static void displayMainMenu(int user_ID);
 
     static void displayStaffAccountMenu(int user_ID);

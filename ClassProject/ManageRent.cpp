@@ -14,8 +14,8 @@
 using namespace std;
 
 
-void ManageRent::manageRentForTenant(int option, string s) {
-    Rent rent;
+void ManageRent::manageRentForTenant(int uid, int option, string s) {
+    Rent rent(uid);
 
     // [1] View Rent Receipts
     // This will access View Rent Receipt boundary class
@@ -29,36 +29,36 @@ void ManageRent::manageRentForTenant(int option, string s) {
         if (s == "card") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "ACH") {
+        } else if (s == "ACH") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "eCheck") {
+        } else if (s == "eCheck") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "moneyOrder") {
+        } else if (s == "moneyOrder") {
             rent.setPaymentMethod(s);
             cout << "Once you have gotten your money order,\n"
                 << "please turn it in at the leasing office.\n\n";
         }
-
     }
 
     // [3] Pay Rent
     else if (option == 3) {
-        float remainingBalanceDue = rent.payRentReceipt(stof(s));
-        cout << "Remaining Balance Due: $" << remainingBalanceDue << endl;
+        if (rent.getBalanceDue() <= 0) {
+            cout << "You have no rent due at this time.\n\n";
+        } else {
+            float remainingBalanceDue = rent.payRentReceipt(stof(s));
+            cout << "Remaining Balance Due: $" << remainingBalanceDue << endl;
+        }
     }
 
     // To access balance due
     else if (option == NULL) {
-        cout << "Current Rent Due: " << rent.getBalanceDue() << endl;
+        cout << "Current Rent Due: $" << rent.getBalanceDue() << endl;
     }
 
 }
 
-void ManageRent::manageRentForStaff(int option) {
+void ManageRent::manageRentForStaff(int uid, int option) {
 
 }

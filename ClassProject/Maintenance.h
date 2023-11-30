@@ -18,7 +18,7 @@
 using namespace std;
 
 class MaintenanceRequest {
-private:
+    private:
     string date;
     string referenceNum;
     string description;
@@ -26,7 +26,7 @@ private:
     void setDate(const string& d);
     string formatDate(const string& d);
 
-public:
+    public:
 
     string getReferenceNum() const
     {

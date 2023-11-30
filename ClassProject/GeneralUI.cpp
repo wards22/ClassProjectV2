@@ -6,6 +6,7 @@
  * Date last modified: Nov 29 2023
 */
 
+
 #include <iostream>
 #include <conio.h>
 #include <string>
@@ -44,7 +45,7 @@ void GeneralUI::displayGeneralUI() {
         cout << endl;
         cout << "Enter your username and password to access you account." << endl;
         cin.ignore();
-        
+
         do {
             cout << "Username: ";
             cin.clear();
@@ -58,12 +59,10 @@ void GeneralUI::displayGeneralUI() {
         if (userType == "Staff") {
             Staff staff(userID);
             StaffUI::displayMainMenu(staff.getUserID());
-        }
-        else if (userType == "Tenant")
-            Tenant tenant();
-            TenantUI::displayMainMenu();
-    }
-    else if (option == 2) {
+        } else if (userType == "Tenant") {
+            //Tenant tenant();
+        //TenantUI::displayTenantMenu();
+    } else if (option == 2) {
         cout << endl;
         cout << "Here are the available floor plans" << endl << endl;
         viewFloorPlans();
@@ -72,8 +71,7 @@ void GeneralUI::displayGeneralUI() {
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 3) {
+    } else if (option == 3) {
         cout << endl;
         cout << "Enter your information to fill out an application." << endl << endl;
         viewApplication();
@@ -83,8 +81,7 @@ void GeneralUI::displayGeneralUI() {
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 4) {
+    } else if (option == 4) {
         cout << endl;
         cout << "Apartment Information: Stuff goes here." << endl;
         cout << "Press any key to return to the main menu." << endl << endl;
@@ -92,17 +89,16 @@ void GeneralUI::displayGeneralUI() {
         cin.ignore();
         getch();
         displayGeneralUI();
-    }
-    else if (option == 5) {
+    } else if (option == 5) {
         cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
         exit(0);
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 5." << endl << endl;
         cin.clear();
         cin.ignore();
         displayGeneralUI();
     }
+}
 }
 
 bool GeneralUI::validateUser(string username, string password) {
@@ -141,8 +137,7 @@ bool GeneralUI::validateUser(string username, string password) {
             cin.clear();
             cin.ignore();
             return false;
-        }
-        else {
+        } else {
             cout << endl;
             cout << "Returning you to the main menu. " << endl << endl;
             displayGeneralUI();
@@ -215,10 +210,9 @@ void GeneralUI::viewFloorPlans() {
 }
 
 void GeneralUI::viewApplication() {
-    
+
 }
 
 void GeneralUI::viewApartmentComplexInfo() {
     ViewApartmentInfo::displayApartmentComplexInfo();
 }
-

@@ -10,13 +10,13 @@
 using namespace std;
 
 class Application {
-private:
+    private:
     int month;
     int day;
     int year;
 
-public:
-    Application (int m, int d, int y) : month(m), day(d), year(y) {}
+    public:
+    Application(int m, int d, int y) : month(m), day(d), year(y) {}
 
     bool isValidDate() const {
         if (year > 2006 || year < 0 || month < 1 || month > 12)
@@ -32,8 +32,7 @@ public:
             if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
                 if (day > 29)
                     return false;
-            }
-            else {
+            } else {
                 if (day > 28)
                     return false;
             }

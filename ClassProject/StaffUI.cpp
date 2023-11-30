@@ -37,33 +37,24 @@ void StaffUI::displayMainMenu(int user_ID) {
 
     if (choice == 1) {
         displayStaffAccountMenu(staff.getUserID());
-    }
-    else if (choice == 2) {
+    } else if (choice == 2) {
         displayTenantInfoMenu(staff.getUserID());
-    }
-    else if (choice == 3) {
+    } else if (choice == 3) {
         displayApartmentInfoMenu();
-    }
-    else if (choice == 4) {
+    } else if (choice == 4) {
         displayRentMenu();
-    }
-    else if (choice == 5) {
+    } else if (choice == 5) {
         displayMaintenanceRequestMenu();
-    }
-    else if (choice == 6) {
+    } else if (choice == 6) {
         viewApplications();
-    }
-    else if (choice == 7) {
+    } else if (choice == 7) {
         displayLease();
-    }
-    else if (choice == 8) {
+    } else if (choice == 8) {
         displayNotifications();
-    }
-    else if (choice == 9) {
+    } else if (choice == 9) {
         cout << endl << endl;
         logout();
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 7." << endl << endl;
         cin.clear();
         cin.ignore();
@@ -72,10 +63,10 @@ void StaffUI::displayMainMenu(int user_ID) {
 }
 
 void StaffUI::displayStaffAccountMenu(int user_ID) {
-    
+
     Staff staff(user_ID);
 
-    
+
     cout << staff.getName() << "'s Account" << endl;
     cout << "--------------------------" << endl;
     cout << "[1] View Account Information\n";
@@ -119,8 +110,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
         displayStaffAccountMenu(staff.getUserID());
 
         // [3] Change Password
-    }
-    else if (option == 3) {
+    } else if (option == 3) {
         string password;
         cout << "Enter your new password: ";
         cin.ignore();
@@ -135,8 +125,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
         displayStaffAccountMenu(staff.getUserID());
 
         // [4] Change Phone Number
-    }
-    else if (option == 4) {
+    } else if (option == 4) {
         string phoneNum;
         cout << "Enter your new phone number: ";
         cin.ignore();
@@ -151,8 +140,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
         displayStaffAccountMenu(staff.getUserID());
 
         // [5] Change Email
-    }
-    else if (option == 5) {
+    } else if (option == 5) {
         string email;
         cout << "Enter your new email: ";
         cin.ignore();
@@ -167,19 +155,16 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
         displayStaffAccountMenu(staff.getUserID());
 
         // [6] Return to Main Menu
-    }
-    else if (option == 6) {
+    } else if (option == 6) {
         cout << "Returning to Main Menu" << endl << endl;
         displayMainMenu(staff.getUserID());
 
         // [7] Exit
-    }
-    else if (option == 7) {
+    } else if (option == 7) {
         cout << endl << endl;
         logout();
 
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 7." << endl << endl;
         cin.clear();
         cin.ignore();
@@ -239,8 +224,7 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         displayTenantInfoMenu(staff.getUserID());
 
         // [3] Change Tenant Password
-    }
-    else if (option == 3) {
+    } else if (option == 3) {
         string password;
         cout << "Enter the User ID of the tenant whose password you want to change: ";
         cin >> tenantID;
@@ -257,8 +241,7 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         displayTenantInfoMenu(staff.getUserID());
 
         // [4] Change Tenant Phone Number
-    }
-    else if (option == 4) {
+    } else if (option == 4) {
         string phoneNum;
         cout << "Enter the User ID of the tenant whose phone number you want to change: ";
         cin >> tenantID;
@@ -274,8 +257,7 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         displayTenantInfoMenu(staff.getUserID());
 
         // [5] Change Tenant Email
-    }
-    else if (option == 5) {
+    } else if (option == 5) {
         string email;
         cout << "Enter the User ID of the tenant whose username you want to change: ";
         cin >> tenantID;
@@ -291,19 +273,16 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         displayTenantInfoMenu(staff.getUserID());
 
         // [6] Return to Main Menu
-    }
-    else if (option == 6) {
+    } else if (option == 6) {
         cout << "Returning to Main Menu\n\n";
         displayMainMenu(staff.getUserID());
 
         // [7] Exit
-    }
-    else if (option == 7) {
+    } else if (option == 7) {
         cout << endl << endl;
         logout();
 
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 7." << endl << endl;
         cin.clear();
         cin.ignore();

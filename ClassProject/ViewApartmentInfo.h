@@ -12,7 +12,7 @@
 
 class ViewApartmentInfo {
 
-public:
+    public:
 
     static void displayFloorPlans();
 

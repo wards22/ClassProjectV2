@@ -1,15 +1,11 @@
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-
-using namespace std;
-
 #include "GeneralUI.h"
+#include "TenantUI.h"
+
 
 int main() {
 
-    GeneralUI::displayGeneralUI();
+        //GeneralUI::displayGeneralUI();
+        TenantUI::displayTenantMenu(1);
 
-    return 0;
+        return 0;
 }

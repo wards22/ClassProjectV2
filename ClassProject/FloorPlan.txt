@@ -70,5 +70,3 @@ I Floor Plan:
 	Square Footage: 1375 sq.ft.
 	Rent Amount: $1700 per month
 	Amenities: Parking, Pool, Fitness, Laundry, Kitchen Island
-
-

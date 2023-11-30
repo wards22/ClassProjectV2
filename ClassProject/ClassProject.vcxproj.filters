@@ -74,6 +74,9 @@
     <Filter Include="BoundaryClasses\ViewApartmentInfo">
       <UniqueIdentifier>{7845fc41-5962-45b3-9c00-a3db1fcbb0cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ControlClasses\ManageNotifications">
+      <UniqueIdentifier>{ff00dfbf-8e95-4008-845b-dc31e46b931c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -83,9 +86,6 @@
       <Filter>BoundaryClasses\GeneralUI</Filter>
     </ClCompile>
     <ClCompile Include="TenantUI.cpp">
-      <Filter>BoundaryClasses\TenantUI</Filter>
-    </ClCompile>
-    <ClCompile Include="TenantUIDriver.cpp">
       <Filter>BoundaryClasses\TenantUI</Filter>
     </ClCompile>
     <ClCompile Include="StaffUI.cpp">
@@ -124,7 +124,7 @@
     <ClCompile Include="Maintenance.cpp">
       <Filter>EntityClasses\Maintenance</Filter>
     </ClCompile>
-    <ClCompile Include="Notificaitons.cpp">
+    <ClCompile Include="Notifications.cpp">
       <Filter>EntityClasses\Notifications</Filter>
     </ClCompile>
     <ClCompile Include="Rent.cpp">
@@ -145,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="ViewApartmentInfo.cpp">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageNotifications.cpp">
+      <Filter>ControlClasses\ManageNotifications</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,7 +196,7 @@
     <ClInclude Include="Maintenance.h">
       <Filter>EntityClasses\Maintenance</Filter>
     </ClInclude>
-    <ClInclude Include="Notificaitons.h">
+    <ClInclude Include="Notifications.h">
       <Filter>EntityClasses\Notifications</Filter>
     </ClInclude>
     <ClInclude Include="Rent.h">
@@ -213,6 +216,9 @@
     </ClInclude>
     <ClInclude Include="ViewApartmentInfo.h">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageNotifications.h">
+      <Filter>ControlClasses\ManageNotifications</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
