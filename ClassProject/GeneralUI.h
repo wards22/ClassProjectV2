@@ -18,8 +18,6 @@ public:
 
     static void displayGeneralUI();
 
-    //static void displayUserLogin();
-
     static bool validateUser(string username, string password);
 
     static int getUserID(string username);
@@ -29,6 +27,8 @@ public:
     static void viewFloorPlans();
 
     static void viewApplication();
+
+    static void viewApartmentComplexInfo();
 };
 
 #endif

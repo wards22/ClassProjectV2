@@ -58,6 +58,7 @@ void StaffUI::displayMainMenu(int user_ID) {
         displayNotifications();
     }
     else if (choice == 9) {
+        cout << endl << endl;
         logout();
     }
     else {
@@ -172,7 +173,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
         // [7] Exit
     }
     else if (option == 7) {
-        cout << "Exiting program\n\n";
+        cout << endl << endl;
         logout();
 
     }

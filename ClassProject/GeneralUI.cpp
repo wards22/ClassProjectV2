@@ -20,6 +20,7 @@ using namespace std;
 #include "TenantUI.h"
 #include "Staff.h"
 #include "Tenant.h"
+#include "ViewApartmentInfo.h"
 
 void GeneralUI::displayGeneralUI() {
 
@@ -39,7 +40,6 @@ void GeneralUI::displayGeneralUI() {
     int option = 0;
     cin >> option;
     cout << endl;
-
     if (option == 1) {
         cout << endl;
         cout << "Enter your username and password to access you account." << endl;
@@ -98,105 +98,12 @@ void GeneralUI::displayGeneralUI() {
     }
     else {
         cout << "Please enter a number 1 through 5." << endl << endl;
+        cin.clear();
+        cin.ignore();
         displayGeneralUI();
     }
 }
 
-    /*
-    do {
-        cout << "Welcome to UHD Apartments!\n";
-        cout << "--------------------------\n";
-        cout << "[1] User Login" << endl;
-        cout << "[2] View Floor Plans" << endl;
-        cout << "[3] Fill Out An Application" << endl;
-        cout << "[4] View Apartment Complex Information" << endl;
-        cout << "[5] Quit" << endl << endl;
-        cout << "Please make a selection by entering a number 1 through 5: ";
-
-        cin >> choice;
-        switch (choice) {
-        case 1:
-            cout << endl;
-            cout << "Enter your username and password to access you account." << endl;
-            cin.ignore();
-            do {
-                cout << "Username: ";
-                cin.clear();
-                getline(cin, username);
-                cout << "\nPassword: ";
-                cin.clear();
-                getline(cin, password);
-            } while (!validateUser(username, password));
-            userID = getUserID(username);
-            userType = getUserType(userID);
-            if (userType == "Staff") {
-                
-                StaffUI::displayMainMenu(staff.getUserID());
-            }
-            else if (userType == "Tenant")
-                TenantUI::displayMainMenu();
-
-            break;
-        case 2:
-            cout << endl;
-            cout << "Here are the available floor plans" << endl << endl;
-            viewFloorPlans();
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            break;
-        case 3:
-            cout << endl;
-            cout << "Enter your information to fill out an application." << endl << endl;
-            viewApplication();
-            cout << endl;
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            break;
-        case 4:
-            cout << endl;
-            cout << "Apartment Information: Stuff goes here." << endl;
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            break;
-        case 5:
-            cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
-            break;
-        default:
-            cerr << "Invalid selection, please choose again." << endl << endl;
-            cin.clear();
-            cin.ignore();
-        }
-    } while (choice != 5);
-};
-
-*/
-
-/*
-* We might not need this function. I can't figure
-* out a clean way to pull the info to create an staff/tenant object with both this
-* and the validate user function.
-void GeneralUI::displayUserLogin() {
-
-    string username, password;
-
-    cout << "Enter your username and password to access you account." << endl;
-    cin.ignore();
-    do {
-        cout << "Username: ";
-        cin.clear();
-        getline(cin, username);
-        cout << "\nPassword: ";
-        cin.clear();
-        getline(cin, password);
-    } while (!validateUser(username, password));
-}
-*/
 bool GeneralUI::validateUser(string username, string password) {
 
     fstream inputFile;
@@ -237,7 +144,7 @@ int GeneralUI::getUserID(string username) {
     fstream inputFile;
     inputFile.open("UserRecords.csv", ios::in);
 
-    int user_ID;
+    int user_ID = 0;
     string user_name, line, data, temp;
     vector<string> row;
 
@@ -290,10 +197,14 @@ string GeneralUI::getUserType(int userID) {
 }
 
 void GeneralUI::viewFloorPlans() {
-    //floor plan class goes here
+    ViewApartmentInfo::displayFloorPlans();
 }
 
 void GeneralUI::viewApplication() {
-    //application class viewing goes here
+    
+}
+
+void GeneralUI::viewApartmentComplexInfo() {
+    ViewApartmentInfo::displayApartmentComplexInfo();
 }
 

@@ -153,6 +153,7 @@
     <ClCompile Include="TenantDriver.cpp" />
     <ClCompile Include="TenantUI.cpp" />
     <ClCompile Include="TenantUIDriver.cpp" />
+    <ClCompile Include="ViewApartmentInfo.cpp" />
     <ClCompile Include="ViewLease.cpp" />
     <ClCompile Include="ViewStaffInfo.cpp" />
   </ItemGroup>
@@ -174,6 +175,7 @@
     <ClInclude Include="StaffUI.h" />
     <ClInclude Include="Tenant.h" />
     <ClInclude Include="TenantUI.h" />
+    <ClInclude Include="ViewApartmentInfo.h" />
     <ClInclude Include="ViewLease.h" />
     <ClInclude Include="ViewStaffInfo.h" />
   </ItemGroup>

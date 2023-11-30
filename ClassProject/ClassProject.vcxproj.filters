@@ -71,6 +71,9 @@
     <Filter Include="EntityClasses\Application">
       <UniqueIdentifier>{9ffbc746-3e75-4b32-a4f1-900d862253ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BoundaryClasses\ViewApartmentInfo">
+      <UniqueIdentifier>{7845fc41-5962-45b3-9c00-a3db1fcbb0cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -140,6 +143,9 @@
     <ClCompile Include="Staff.cpp">
       <Filter>EntityClasses\Staff</Filter>
     </ClCompile>
+    <ClCompile Include="ViewApartmentInfo.cpp">
+      <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -204,6 +210,9 @@
     </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>EntityClasses\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewApartmentInfo.h">
+      <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

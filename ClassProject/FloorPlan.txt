@@ -3,7 +3,7 @@ Special Amenities: Study/Built-in Desk*, Kitchen Island*, Bay Windows
 
 One Bedroom Floor Plans:
 
-A Floor Plan
+A Floor Plan:
 	Bedroom: 1
 	Bathroom: 1
 	Square Footage: 600 sq.ft.

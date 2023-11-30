@@ -23,7 +23,7 @@ using namespace std;
 #include "ManageStaff.h"
 
 
-class StaffUI : public TenantUI {
+class StaffUI {
 public:
     static void displayMainMenu(int user_ID);
 

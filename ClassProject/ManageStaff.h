@@ -19,8 +19,10 @@
 using namespace std;
 
 class ManageStaff {
-public:
-    void manageStaff(int n, int user_ID, string str);
+
+    public:
+        
+        void manageStaff(int n, int user_ID, string str);
 
 };
 
