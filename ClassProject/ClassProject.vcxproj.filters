@@ -77,6 +77,9 @@
     <Filter Include="ControlClasses\ManageNotifications">
       <UniqueIdentifier>{ff00dfbf-8e95-4008-845b-dc31e46b931c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ControlClasses\ManageApartment">
+      <UniqueIdentifier>{bd0f9dd8-72e6-407a-b304-7599b844da4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -149,10 +152,16 @@
     <ClCompile Include="ManageNotifications.cpp">
       <Filter>ControlClasses\ManageNotifications</Filter>
     </ClCompile>
+    <ClCompile Include="ManageApartment.cpp">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="UserRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ApartmentRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -220,12 +229,21 @@
     <ClInclude Include="ManageNotifications.h">
       <Filter>ControlClasses\ManageNotifications</Filter>
     </ClInclude>
+    <ClInclude Include="ManageApartment.h">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="User-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ApartmentComplexInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Apartment-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
