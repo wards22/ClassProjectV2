@@ -86,7 +86,7 @@ void GeneralUI::displayGeneralUI() {
     }
     else if (option == 4) {
         cout << endl;
-        cout << "Apartment Information: Stuff goes here." << endl;
+        viewApartmentComplexInfo();
         cout << "Press any key to return to the main menu." << endl << endl;
         cin.clear();
         cin.ignore();
@@ -133,7 +133,8 @@ bool GeneralUI::validateUser(string username, string password) {
 
     if (!found) {
         inputFile.close();
-        cerr << "\nLogin failed, do you wish to try again?. (Y/y) ";
+        cout << endl;
+        cerr << "Login failed, do you wish to try again?. (Y/y) ";
         cin >> choice;
 
         if (choice == 'Y' || choice == 'y') {

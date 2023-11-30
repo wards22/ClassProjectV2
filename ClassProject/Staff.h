@@ -20,7 +20,7 @@ using namespace std;
 
 
 class Staff {
-    // Should probably use one of these as superclass for inheritance
+
 private:
     string username = "Default";
     string password = "password";
@@ -32,12 +32,12 @@ private:
 
 
 public:
-    //Modeled after tenant constructor/destructor. Need to figure out how to build one
-    //from information in spreadsheet. May need to pull something from when the user logins
+    
     Staff() {
         cout << "This is Staff's default constructor" << endl;
     }
-    
+    //pulls user ID upon login, passes it to constructor and uses read
+    //staff info to construct a staff object
     Staff(int user_ID) {
         userID = user_ID;
         readStaffInfo(userID);
