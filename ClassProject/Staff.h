@@ -25,7 +25,7 @@ private:
     string username = "Default";
     string password = "password";
     string userType = "Staff";
-    int userID = 1;
+    int userID = 0;
     string name = "My Name";
     string phoneNum = "123-456-7890";
     string email = "johndoe@uhdapartments.com";
@@ -44,7 +44,7 @@ public:
     }
     
     ~Staff() {
-        cout << "This is Staff destructor\n";
+        cout << "This is Staff destructor" << endl;
     }
 
     string getUsername() const
@@ -116,8 +116,6 @@ public:
     {
         email = e;
     }
-
-
 
     void writeStaffInfo(int user_ID, int index, string str);
 

@@ -6,13 +6,8 @@
 using namespace std;
 
 #include "GeneralUI.h"
-//#include "TenantUI.h"
 
 int main() {
-
-    //TenantUI tui;
-
-    //tui.displayMainMenu();
 
     GeneralUI::displayGeneralUI();
 

@@ -12,14 +12,16 @@ using namespace std;
 #include "Staff.h"
 #include "Tenant.h"
 #include "GeneralUI.h"
+#include "ManageStaff.h"
+#include "ManageTenantAccount.h"
 
 void StaffUI::displayMainMenu(int user_ID) {
     Staff staff(user_ID);
     int choice = 0;
 
-    cout << "Main Menu" << endl;
+    cout << "Main Menu - Staff" << endl;
     cout << "--------------------------" << endl;
-    cout << "[1] Account" << endl;
+    cout << "[1] Manage Your Account" << endl;
     cout << "[2] Tenant Info" << endl;
     cout << "[3] Apartment Info" << endl;
     cout << "[4] Tenant Rent" << endl;
@@ -37,7 +39,7 @@ void StaffUI::displayMainMenu(int user_ID) {
         displayStaffAccountMenu(staff.getUserID());
     }
     else if (choice == 2) {
-        displayTenantInfoMenu();
+        displayTenantInfoMenu(staff.getUserID());
     }
     else if (choice == 3) {
         displayApartmentInfoMenu();
@@ -63,6 +65,8 @@ void StaffUI::displayMainMenu(int user_ID) {
     }
     else {
         cout << "Please enter a number 1 through 7." << endl << endl;
+        cin.clear();
+        cin.ignore();
         displayMainMenu(staff.getUserID());
     }
 }
@@ -74,8 +78,6 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     
     cout << staff.getName() << "'s Account" << endl;
     cout << "--------------------------" << endl;
-    // Have view account information as option 
-    // or automatically display account info?
     cout << "[1] View Account Information\n";
     cout << "[2] Change Username" << endl;
     cout << "[3] Change Password" << endl;
@@ -113,7 +115,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
 
         manager.manageStaff(option, staff.getUserID(), username);
 
-        cout << "Your username has been changed successfully\n\n";
+        cout << "Your username has been changed successfully" << endl << endl;
         displayStaffAccountMenu(staff.getUserID());
 
         // [3] Change Password
@@ -129,7 +131,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
 
         manager.manageStaff(option, staff.getUserID(), password);
 
-        cout << "Your password has been changed successfully\n\n";
+        cout << "Your password has been changed successfully" << endl << endl;
         displayStaffAccountMenu(staff.getUserID());
 
         // [4] Change Phone Number
@@ -145,7 +147,7 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
 
         manager.manageStaff(option, staff.getUserID(), phoneNum);
 
-        cout << "Your phone number has been changed successfully\n\n";
+        cout << "Your phone number has been changed successfully" << endl << endl;
         displayStaffAccountMenu(staff.getUserID());
 
         // [5] Change Email
@@ -161,8 +163,132 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
 
         manager.manageStaff(option, staff.getUserID(), email);
 
-        cout << "Your email has been changed successfully\n\n";
+        cout << "Your email has been changed successfully" << endl << endl;
         displayStaffAccountMenu(staff.getUserID());
+
+        // [6] Return to Main Menu
+    }
+    else if (option == 6) {
+        cout << "Returning to Main Menu" << endl << endl;
+        displayMainMenu(staff.getUserID());
+
+        // [7] Exit
+    }
+    else if (option == 7) {
+        cout << endl << endl;
+        logout();
+
+    }
+    else {
+        cout << "Please enter a number 1 through 7." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayStaffAccountMenu(staff.getUserID());
+    }
+}
+
+
+void StaffUI::displayTenantInfoMenu(int user_ID) {
+    cout << "This is where you will view tenant info." << endl << endl;
+    Staff staff(user_ID);
+    int tenantID;
+
+    cout << "Tenant Information Window" << endl;
+    cout << "--------------------------" << endl;
+    cout << "[1] View Tenants" << endl;
+    cout << "[2] Change Tenant Username" << endl;
+    cout << "[3] Change Tenant Password" << endl;
+    cout << "[4] Change Tenant Phone Number" << endl;
+    cout << "[5] Change Tenant Email" << endl;
+    cout << "[6] Return to Main Menu" << endl;
+    cout << "[7] Logout" << endl;
+    cout << "\nEnter a number 1 through 7: ";
+
+    // Read in staff option
+    int option = 0;
+    cin >> option;
+    cout << endl;
+
+    // Create object to access ManageStaff class
+    ManageTenantAccount manager;
+
+    // [1] View Tenant Account Information
+    if (option == 1) {
+        cout << "Here is the list of tenants: " << endl << endl;
+        manager.manageTenantAccountForStaff(option, 0, "null");
+        cout << endl;
+        displayTenantInfoMenu(staff.getUserID());
+
+    }
+    // [2] Change Tenant Username
+    else if (option == 2) {
+        string username;
+        cout << "Enter the User ID of the tenant whose username you want to change: ";
+        cin >> tenantID;
+        cout << endl;
+        cout << "Enter the tenant's new username: ";
+        cin.ignore();
+        cin.clear();
+        getline(cin, username);
+
+        // Input validation to be added later
+
+        manager.manageTenantAccountForStaff(option, tenantID, username);
+
+        cout << "The tenant's username has been changed successfully" << endl << endl;
+        displayTenantInfoMenu(staff.getUserID());
+
+        // [3] Change Tenant Password
+    }
+    else if (option == 3) {
+        string password;
+        cout << "Enter the User ID of the tenant whose password you want to change: ";
+        cin >> tenantID;
+        cout << endl;
+        cout << "Enter the tenant's new password: ";
+        cin.ignore();
+        cin.clear();
+        getline(cin, password);
+
+
+        manager.manageTenantAccountForStaff(option, tenantID, password);
+
+        cout << "The tenant's password has been changed successfully" << endl << endl;
+        displayTenantInfoMenu(staff.getUserID());
+
+        // [4] Change Tenant Phone Number
+    }
+    else if (option == 4) {
+        string phoneNum;
+        cout << "Enter the User ID of the tenant whose phone number you want to change: ";
+        cin >> tenantID;
+        cout << endl;
+        cout << "Enter the tenant's new phone number: ";
+        cin.ignore();
+        cin.clear();
+        getline(cin, phoneNum);
+
+        manager.manageTenantAccountForStaff(option, tenantID, phoneNum);
+
+        cout << "The tenant's phone number has been changed successfully" << endl << endl;
+        displayTenantInfoMenu(staff.getUserID());
+
+        // [5] Change Tenant Email
+    }
+    else if (option == 5) {
+        string email;
+        cout << "Enter the User ID of the tenant whose username you want to change: ";
+        cin >> tenantID;
+        cout << endl;
+        cout << "Enter the tenant's new email: ";
+        cin.ignore();
+        cin.clear();
+        getline(cin, email);
+
+        manager.manageTenantAccountForStaff(option, tenantID, email);
+
+        cout << "The tenant's email has been changed successfully" << endl << endl;
+        displayTenantInfoMenu(staff.getUserID());
 
         // [6] Return to Main Menu
     }
@@ -178,14 +304,12 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
 
     }
     else {
-        cout << "Please enter a number 1 through 7. \n\n";
-        displayStaffAccountMenu(staff.getUserID());
+        cout << "Please enter a number 1 through 7." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayTenantInfoMenu(staff.getUserID());
     }
-}
 
-
-void StaffUI::displayTenantInfoMenu() {
-    cout << "This is where you will view tenant info." << endl << endl;
 }
 
 void StaffUI::displayApartmentInfoMenu() {

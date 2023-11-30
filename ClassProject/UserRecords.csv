@@ -1,5 +1,5 @@
-1,staff1,abc123,Staff,Stacy,(281)-555-0555,test@newemail.com
+1,staff1,abc123,Staff,Stacy,this is a test phone number,mynewemail@email.com
 2,tenant1,def456,Tenant,Tom,777-777-7777,tom@tenant.com,A13
 3,tenant2,afdak!121,Tenant,Jerry,111-111-1111,jerry@tenant.com,B4
 4,tenant3,adfasfd55556,Tenant,Minnie,333-333-3333,minnie@tenant.com,C69
-5,staff2,asfasfdas,Staff,John,this is a real phone number,john@uhdapartments.com
+5,staff2,asfasfdas,Staff,John,(281)555-5555,john@uhdapartments.com

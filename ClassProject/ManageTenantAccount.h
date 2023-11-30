@@ -20,7 +20,7 @@ class ManageTenantAccount {
 public:
     void manageTenantAccountForTenant(int, string);
 
-    void manageTenantAccountForStaff(int);
+    void manageTenantAccountForStaff(int, int, string);
 
 };
 

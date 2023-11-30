@@ -29,7 +29,7 @@ public:
 
     static void displayStaffAccountMenu(int user_ID);
 
-    static void displayTenantInfoMenu();
+    static void displayTenantInfoMenu(int user_ID);
 
     static void displayApartmentInfoMenu();
 

@@ -44,6 +44,7 @@ void GeneralUI::displayGeneralUI() {
         cout << endl;
         cout << "Enter your username and password to access you account." << endl;
         cin.ignore();
+        
         do {
             cout << "Username: ";
             cin.clear();
@@ -59,7 +60,7 @@ void GeneralUI::displayGeneralUI() {
             StaffUI::displayMainMenu(staff.getUserID());
         }
         else if (userType == "Tenant")
-            Tenant tenant;
+            Tenant tenant();
             TenantUI::displayMainMenu();
     }
     else if (option == 2) {
@@ -111,6 +112,7 @@ bool GeneralUI::validateUser(string username, string password) {
 
     bool found = false;
     string user_name, line, data, temp;
+    char choice;
     vector<string> row;
 
     while (getline(inputFile, line)) {
@@ -130,9 +132,21 @@ bool GeneralUI::validateUser(string username, string password) {
     }
 
     if (!found) {
-        cerr << "\nLogin failed, please try again." << endl;
         inputFile.close();
-        return false;
+        cerr << "\nLogin failed, do you wish to try again?. (Y/y) ";
+        cin >> choice;
+
+        if (choice == 'Y' || choice == 'y') {
+
+            cin.clear();
+            cin.ignore();
+            return false;
+        }
+        else {
+            cout << endl;
+            cout << "Returning you to the main menu. " << endl << endl;
+            displayGeneralUI();
+        }
     }
 
     return true;

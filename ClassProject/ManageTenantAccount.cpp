@@ -1,11 +1,15 @@
 /* Prologue
  * Name: Manage Tenant Account Methods
  * Description: Implementation file for ManageTenantAccount
- * Contributors: Crischelle Polley
+ * Contributors: Crischelle Polley/Scott Ward
  * Date created: Nov 16 2023
- * Date last modified: Nov 22 2023
+ * Date last modified: Nov 29 2023
 */
-
+#include <vector>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include "ManageTenantAccount.h"
 #include "Tenant.h"
 
@@ -46,6 +50,41 @@ void ManageTenantAccount::manageTenantAccountForTenant(int option, string s) {
 
 }
 
-void ManageTenantAccount::manageTenantAccountForStaff(int option) {
+/*Scott: I'm adding options for the staff to read/write tenant data
 
+
+*/
+
+void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string str) {
+    //Tenant tenant;
+
+    if (option == 1) {
+        
+        fstream inputFile;
+
+        inputFile.open("UserRecords.csv", ios::in);
+
+        vector<string> row;
+        string line, data, temp;
+
+        while (getline(inputFile, line)) {
+            row.clear();
+            stringstream s(line);
+
+            while (getline(s, data, ',')) {
+                row.push_back(data);
+            }
+
+            if (row[3] == "Tenant") {
+                cout << "Tenant Name: " << row[4] << endl;
+                cout << "\tUser ID: " << row[0] << endl;
+                cout << "\tUsername: " << row[1] << endl;
+                cout << "\tPassword: " << row[2] << endl;
+                cout << "\tPhone Number: " << row[5] << endl;
+                cout << "\tEmail: " << row[6] << endl;
+                cout << "\tApartment Number: " << row[7] << endl << endl;
+            }
+        }
+        inputFile.close();
+    }
 }
