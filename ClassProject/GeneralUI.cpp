@@ -44,7 +44,7 @@ void GeneralUI::displayGeneralUI() {
         cout << endl;
         cout << "Enter your username and password to access you account." << endl;
         cin.ignore();
-        
+
         do {
             cout << "Username: ";
             cin.clear();
@@ -60,8 +60,10 @@ void GeneralUI::displayGeneralUI() {
             StaffUI::displayMainMenu(staff.getUserID());
         }
         else if (userType == "Tenant")
-            Tenant tenant();
-            TenantUI::displayMainMenu();
+        {
+            //Tenant tenant();
+            //TenantUI::displayMainMenu();
+        }
     }
     else if (option == 2) {
         cout << endl;
@@ -86,7 +88,7 @@ void GeneralUI::displayGeneralUI() {
     }
     else if (option == 4) {
         cout << endl;
-        cout << "Apartment Information: Stuff goes here." << endl;
+        viewApartmentComplexInfo();
         cout << "Press any key to return to the main menu." << endl << endl;
         cin.clear();
         cin.ignore();
@@ -133,7 +135,8 @@ bool GeneralUI::validateUser(string username, string password) {
 
     if (!found) {
         inputFile.close();
-        cerr << "\nLogin failed, do you wish to try again?. (Y/y) ";
+        cout << endl;
+        cerr << "Login failed, do you wish to try again?. (Y/y) ";
         cin >> choice;
 
         if (choice == 'Y' || choice == 'y') {
@@ -215,10 +218,9 @@ void GeneralUI::viewFloorPlans() {
 }
 
 void GeneralUI::viewApplication() {
-    
+
 }
 
 void GeneralUI::viewApartmentComplexInfo() {
     ViewApartmentInfo::displayApartmentComplexInfo();
 }
-

@@ -74,6 +74,9 @@
     <Filter Include="BoundaryClasses\ViewApartmentInfo">
       <UniqueIdentifier>{7845fc41-5962-45b3-9c00-a3db1fcbb0cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ControlClasses\ManageApartment">
+      <UniqueIdentifier>{552b15f7-fd7c-4cfb-9146-a04150f52004}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -146,12 +149,16 @@
     <ClCompile Include="ViewApartmentInfo.cpp">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
     </ClCompile>
+    <ClCompile Include="ManageApartment.cpp">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="UserRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ApartmentRecords.csv" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneralUI.h">
@@ -214,6 +221,9 @@
     <ClInclude Include="ViewApartmentInfo.h">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
     </ClInclude>
+    <ClInclude Include="ManageApartment.h">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">
@@ -222,5 +232,7 @@
     <Text Include="User-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Apartment-Records-Header-Reference.txt" />
+    <Text Include="ApartmentComplexInfo.txt" />
   </ItemGroup>
 </Project>

@@ -148,6 +148,7 @@
     <ClCompile Include="ManageTenantAccountDriver.cpp" />
     <ClCompile Include="Notificaitons.cpp" />
     <ClCompile Include="Rent.cpp" />
+    <ClCompile Include="ManageApartment.cpp" />
     <ClCompile Include="Staff.cpp" />
     <ClCompile Include="StaffUI.cpp" />
     <ClCompile Include="TenantDriver.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="GeneralUI.h" />
     <ClInclude Include="Lease.h" />
     <ClInclude Include="Maintenance.h" />
+    <ClInclude Include="ManageApartment.h" />
     <ClInclude Include="ManageLease.h" />
     <ClInclude Include="ManageMaintenance.h" />
     <ClInclude Include="ManageRent.h" />
@@ -180,10 +182,13 @@
     <ClInclude Include="ViewStaffInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApartmentRecords.csv" />
     <None Include="ClassDiagram.cd" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Apartment-Records-Header-Reference.txt" />
+    <Text Include="ApartmentComplexInfo.txt" />
     <Text Include="FloorPlan.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
