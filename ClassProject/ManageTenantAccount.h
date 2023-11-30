@@ -20,7 +20,11 @@ class ManageTenantAccount {
 public:
     static void manageTenantAccountForTenant(int, int, string);
 
+<<<<<<< HEAD
     static void manageTenantAccountForStaff(int, int);
+=======
+    void manageTenantAccountForStaff(int, int, string);
+>>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
 
 };
 

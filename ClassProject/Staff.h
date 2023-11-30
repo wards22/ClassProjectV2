@@ -22,13 +22,13 @@ using namespace std;
 class Staff {
     // Should probably use one of these as superclass for inheritance
 private:
-    string username;
-    string password;
-    string userType;
-    int userID;
-    string name;
-    string phoneNum;
-    string email;
+    string username = "Default";
+    string password = "password";
+    string userType = "Staff";
+    int userID = 0;
+    string name = "My Name";
+    string phoneNum = "123-456-7890";
+    string email = "johndoe@uhdapartments.com";
 
 
 public:
@@ -36,12 +36,15 @@ public:
     //from information in spreadsheet. May need to pull something from when the user logins
     Staff() {
         cout << "This is Staff's default constructor" << endl;
-        readStaffInfo();
     }
-
+    
+    Staff(int user_ID) {
+        userID = user_ID;
+        readStaffInfo(userID);
+    }
+    
     ~Staff() {
-        cout << "This is Staff destructor\n";
-        writeStaffInfo();
+        cout << "This is Staff destructor" << endl;
     }
 
     string getUsername() const
@@ -114,12 +117,9 @@ public:
         email = e;
     }
 
-    void readStaffInfo() {
-    }
+    void writeStaffInfo(int user_ID, int index, string str);
 
-    void writeStaffInfo() {
-
-    }
+    void readStaffInfo(int user_ID);
 
 };
 

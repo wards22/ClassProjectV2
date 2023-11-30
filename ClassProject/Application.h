@@ -9,14 +9,14 @@
 #include <chrono>
 using namespace std;
 
-class DateOfBirth {
+class Application {
 private:
     int month;
     int day;
     int year;
 
 public:
-    DateOfBirth(int m, int d, int y) : month(m), day(d), year(y) {}
+    Application (int m, int d, int y) : month(m), day(d), year(y) {}
 
     bool isValidDate() const {
         if (year > 2006 || year < 0 || month < 1 || month > 12)

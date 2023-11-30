@@ -4,29 +4,22 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Apartment {
 private:
-    std::string apartmentName = " ";
-    int apartmentNumber = 0;
-    int numBedrooms = 0;
-    int numBathrooms = 0;
-    double squareFootage = 0;
-    double rentAmount = 0;
+    std::string apartmentName;
+    std::string apartmentAddress;
+    int numBedrooms;
+    int numBathrooms;
+    double squareFootage;
+    double rentAmount;
+    std::string contactPhone;
 
 public:
-    Apartment(std::string name, int number, int bedrooms, int bathrooms, double sqFootage, double rent) {
-        apartmentName = name;
-        apartmentNumber = number;
-        numBedrooms = bedrooms;
-        numBathrooms = bathrooms;
-        squareFootage = sqFootage;
-        rentAmount = rent;
-    }
+    Apartment(std::string name, std::string address, int bedrooms, int bathrooms, double sqFootage, double rent,
+              std::string phone, std::string plan);
 
-    static void displayDetails() {
-    }
+    void displayDetails() const;
 };
 
-#endif
+#endif /* APARTMENT_H */

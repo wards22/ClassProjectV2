@@ -105,11 +105,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,9 +149,15 @@
     <ClCompile Include="ManageTenantAccountDriver.cpp" />
     <ClCompile Include="Notifications.cpp" />
     <ClCompile Include="Rent.cpp" />
+    <ClCompile Include="Staff.cpp" />
     <ClCompile Include="StaffUI.cpp" />
     <ClCompile Include="TenantDriver.cpp" />
     <ClCompile Include="TenantUI.cpp" />
+<<<<<<< HEAD
+=======
+    <ClCompile Include="TenantUIDriver.cpp" />
+    <ClCompile Include="ViewApartmentInfo.cpp" />
+>>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
     <ClCompile Include="ViewLease.cpp" />
     <ClCompile Include="ViewStaffInfo.cpp" />
   </ItemGroup>
@@ -170,14 +180,17 @@
     <ClInclude Include="StaffUI.h" />
     <ClInclude Include="Tenant.h" />
     <ClInclude Include="TenantUI.h" />
+    <ClInclude Include="ViewApartmentInfo.h" />
     <ClInclude Include="ViewLease.h" />
     <ClInclude Include="ViewStaffInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\UserRecords.csv" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt" />
+    <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

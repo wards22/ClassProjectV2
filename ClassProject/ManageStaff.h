@@ -19,8 +19,15 @@
 using namespace std;
 
 class ManageStaff {
+<<<<<<< HEAD
 public:
     static void manageStaff();
+=======
+
+    public:
+        
+        void manageStaff(int n, int user_ID, string str);
+>>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
 
 };
 

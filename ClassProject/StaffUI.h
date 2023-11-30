@@ -19,28 +19,31 @@
 
 using namespace std;
 
+#include "TenantUI.h"
+#include "ManageStaff.h"
+
 
 class StaffUI {
 public:
-    void displayMainMenu();
+    static void displayMainMenu(int user_ID);
 
-    void displayStaffAccountMenu();
+    static void displayStaffAccountMenu(int user_ID);
 
-    void displayTenantInfoMenu();
+    static void displayTenantInfoMenu(int user_ID);
 
-    void displayApartmentInfoMenu();
+    static void displayApartmentInfoMenu();
 
-    void displayRentMenu();
+    static void displayRentMenu();
 
-    void displayMaintenanceRequestMenu();
+    static void displayMaintenanceRequestMenu();
 
-    void displayNotifications();
+    static void displayNotifications();
 
-    void displayLease();
+    static void displayLease();
 
-    void viewApplications();
+    static void viewApplications();
 
-    void exitMenu();
+    static void logout();
 };
 
 #endif
