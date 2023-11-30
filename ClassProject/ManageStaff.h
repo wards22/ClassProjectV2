@@ -20,7 +20,7 @@ using namespace std;
 
 class ManageStaff {
 public:
-    void manageStaff();
+    static void manageStaff();
 
 };
 

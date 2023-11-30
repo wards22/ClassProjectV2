@@ -4,7 +4,7 @@
  *              features of the Apartment Services System
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 16 2023
+ * Date last modified: Nov 29 2023
 */
 
 #pragma once
@@ -19,21 +19,21 @@ using namespace std;
 
 class TenantUI {
 public:
-    void displayMainMenu();
+    static void displayTenantMenu(int);
 
-    void displayTenantAccountMenu();
+    static void displayTenantAccountMenu(int);
 
-    void displayRentMenu();
+    static void displayRentMenu(int);
 
-    void displayMaintenanceRequestMenu();
+    static void displayMaintenanceMenu(int);
 
-    void displayNotifications();
+    static void displayNotificationsMenu(int);
 
-    void displayLease();
+    static void displayLeaseMenu(int);
 
-    void displayApplication();
+    static void displayApplicationMenu(int);
 
-    void exit();
+    static void exit();
 };
 
 #endif

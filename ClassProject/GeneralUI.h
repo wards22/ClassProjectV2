@@ -12,6 +12,10 @@
 #ifndef GENERAL_UI_H
 #define GENERAL_UI_H
 
+#include <string>
+
+using namespace std;
+
 class GeneralUI {
 
 public:

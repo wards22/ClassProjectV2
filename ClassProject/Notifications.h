@@ -3,7 +3,7 @@
  * Description: Creates and modifies notification file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 15 2023
+ * Date last modified: Nov 29 2023
 */
 
 
@@ -18,15 +18,12 @@ using namespace std;
 class Notifications {
 private:
     string title;
-    string dateTime;
     string content;
+    bool postNoteStatus;
 
-    string getDateTime() const
-    {
-        return dateTime;
-    }
+    string getDateTime() const;
 
-    string formatDateTime(const string& dt);
+    string formatDateTime(const char* dt) const;
 
 
 public:
@@ -50,9 +47,22 @@ public:
         content = c;
     }
 
+    bool getPostNoteStatus() const
+    {
+        return postNoteStatus;
+    }
+
     void readNotification();
 
     void writeNotification();
+
+    void createNotification();
+
+    void editNotification();
+
+    void deleteNotification();
+
+    void postNotification();
 };
 
 #endif

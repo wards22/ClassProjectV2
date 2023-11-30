@@ -1,20 +1,11 @@
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-
-using namespace std;
-
 #include "GeneralUI.h"
 #include "TenantUI.h"
 
+
 int main() {
 
-    //TenantUI tui;
-
-    //tui.displayMainMenu();
-
-    GeneralUI::displayGeneralUI();
+    //GeneralUI::displayGeneralUI();
+      TenantUI::displayTenantMenu(1);
 
     return 0;
 }
