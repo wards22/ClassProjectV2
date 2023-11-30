@@ -42,22 +42,22 @@ void StaffUI::displayMainMenu(int user_ID) {
         displayTenantInfoMenu(staff.getUserID());
     }
     else if (choice == 3) {
-        displayApartmentInfoMenu(staff.getUserID());
+        displayApartmentInfoMenu();
     }
     else if (choice == 4) {
-        displayRentMenu(staff.getUserID());
+        displayRentMenu();
     }
     else if (choice == 5) {
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu();
     }
     else if (choice == 6) {
-        viewApplications(staff.getUserID());
+        viewApplications();
     }
     else if (choice == 7) {
-        displayLease(staff.getUserID());
+        displayLease();
     }
     else if (choice == 8) {
-        displayNotifications(staff.getUserID());
+        displayNotifications();
     }
     else if (choice == 9) {
         cout << endl << endl;
@@ -84,8 +84,8 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     cout << "[4] Change Phone Number" << endl;
     cout << "[5] Change Email" << endl;
     cout << "[6] Return to Main Menu" << endl;
-    cout << "[7] Logout" << endl << endl;
-    cout << "Enter a number 1 through 7: ";
+    cout << "[7] Logout" << endl;
+    cout << "\nEnter a number 1 through 7: ";
 
     // Read in staff option
     int option = 0;
@@ -201,8 +201,8 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
     cout << "[4] Change Tenant Phone Number" << endl;
     cout << "[5] Change Tenant Email" << endl;
     cout << "[6] Return to Main Menu" << endl;
-    cout << "[7] Logout" << endl << endl;
-    cout << "Enter a number 1 through 7: ";
+    cout << "[7] Logout" << endl;
+    cout << "\nEnter a number 1 through 7: ";
 
     // Read in staff option
     int option = 0;
@@ -312,55 +312,28 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
 
 }
 
-void StaffUI::displayApartmentInfoMenu(int user_ID) {
+void StaffUI::displayApartmentInfoMenu() {
     cout << "This is where you will view apartment info." << endl << endl;
-    Staff staff(user_ID);
-
-    cout << "Apartment Information Window" << endl;
-    cout << "--------------------------" << endl;
-    cout << "[1] View Vacant Apartments" << endl;
-    cout << "[2] View Inhabited Apartments" << endl;
-    cout << "[3] Update Apartments" << endl;
-    cout << "[4] Return to Main Menu" << endl;
-    cout << "[5] Logout" << endl << endl;
-    cout << "Enter a number 1 through 5: ";
-
-    displayApartmentInfoMenu(staff.getUserID());
 }
 
-void StaffUI::displayRentMenu(int user_ID) {
+void StaffUI::displayRentMenu() {
     cout << "This is where you will view rent operations." << endl << endl;
-    Staff staff(user_ID);
-
-    displayRentMenu(staff.getUserID());
 }
 
-void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
+void StaffUI::displayMaintenanceRequestMenu() {
     cout << "This is where you will view maintenance requests." << endl << endl;
-    Staff staff(user_ID);
-
-    displayMaintenanceRequestMenu(staff.getUserID());
 }
 
-void StaffUI::displayNotifications(int user_ID) {
+void StaffUI::displayNotifications() {
     cout << "This is where you will view notifications." << endl << endl;
-    Staff staff(user_ID);
-
-    displayNotifications(staff.getUserID());
 }
 
-void StaffUI::displayLease(int user_ID) {
+void StaffUI::displayLease() {
     cout << "This is where you will view leases." << endl << endl;
-    Staff staff(user_ID);
-
-    displayLease(staff.getUserID());
 }
 
-void StaffUI::viewApplications(int user_ID) {
+void StaffUI::viewApplications() {
     cout << "This is where you will view applications." << endl << endl;
-    Staff staff(user_ID);
-
-    viewApplications(staff.getUserID());
 }
 
 void StaffUI::logout() {

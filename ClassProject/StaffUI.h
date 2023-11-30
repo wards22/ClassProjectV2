@@ -25,23 +25,23 @@ using namespace std;
 
 class StaffUI {
 public:
-    static void displayMainMenu(int);
+    static void displayMainMenu(int user_ID);
 
-    static void displayStaffAccountMenu(int);
+    static void displayStaffAccountMenu(int user_ID);
 
-    static void displayTenantInfoMenu(int);
+    static void displayTenantInfoMenu(int user_ID);
 
-    static void displayApartmentInfoMenu(int);
+    static void displayApartmentInfoMenu();
 
-    static void displayRentMenu(int);
+    static void displayRentMenu();
 
-    static void displayMaintenanceRequestMenu(int);
+    static void displayMaintenanceRequestMenu();
 
-    static void displayNotifications(int);
+    static void displayNotifications();
 
-    static void displayLease(int);
+    static void displayLease();
 
-    static void viewApplications(int);
+    static void viewApplications();
 
     static void logout();
 };
