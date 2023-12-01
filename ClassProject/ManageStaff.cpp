@@ -6,6 +6,8 @@
  * Date last modified: Nov 29 2023
 */
 
+#include <iostream>
+
 #include "ManageStaff.h"
 #include "Staff.h"
 

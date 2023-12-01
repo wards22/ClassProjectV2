@@ -47,75 +47,34 @@ public:
         cout << "This is Staff destructor" << endl;
     }
 
-    string getUsername() const
-    {
-        return username;
-    }
+    string getUsername() const { return username; }
 
-    void setUsername(const string& un)
-    {
-        username = un;
-    }
+    void setUsername(const string& un) { username = un; }
 
-    string getPassword() const
-    {
-        return password;
-    }
+    string getPassword() const { return password; }
 
-    void setPassword(const string& pw)
-    {
-        password = pw;
-    }
+    void setPassword(const string& pw) { password = pw; }
 
-    string getUserType() const
-    {
-        return userType;
-    }
+    string getUserType() const { return userType; }
 
-    void setUserType(const string& ut)
-    {
-        userType = ut;
-    }
+    void setUserType(const string& ut) { userType = ut; }
 
-    int getUserID() const
-    {
-        return userID;
-    }
+    int getUserID() const { return userID; }
 
-    void setUserID(const int& uid)
-    {
-        userID = uid;
-    }
+    void setUserID(const int& uid) { userID = uid; }
 
-    string getName() const
-    {
-        return name;
-    }
+    string getName() const { return name; }
 
-    void setName(const string& n)
-    {
-        name = n;
-    }
+    void setName(const string& n) { name = n; }
 
-    string getPhoneNum() const
-    {
-        return phoneNum;
-    }
+    string getPhoneNum() const { return phoneNum; }
 
     void setPhoneNum(const string& pn)
-    {
-        phoneNum = pn;
-    }
+    { phoneNum = pn; }
 
-    string getEmail() const
-    {
-        return email;
-    }
+    string getEmail() const { return email; }
 
-    void setEmail(const string& e)
-    {
-        email = e;
-    }
+    void setEmail(const string& e) { email = e; }
 
     void writeStaffInfo(int user_ID, int index, string str);
 

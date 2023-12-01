@@ -4,8 +4,7 @@
 
 int main() {
 
-        //GeneralUI::displayGeneralUI();
-        TenantUI::displayTenantMenu(1);
+    GeneralUI::displayGeneralUI();
 
-        return 0;
+    return 0;
 }

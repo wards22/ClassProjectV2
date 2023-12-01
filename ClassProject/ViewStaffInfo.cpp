@@ -1,5 +1,5 @@
 #include "ViewStaffInfo.h"
 
-void ViewStaffInfo::displayStaffInfo()
-{
+void ViewStaffInfo::displayStaffInfo() {
+
 }

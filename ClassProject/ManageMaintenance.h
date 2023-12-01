@@ -11,19 +11,15 @@
 #ifndef MANAGE_MAINTENANCE_H
 #define MANAGE_MAINTENANCE_H
 
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-
 using namespace std;
 
 
 class ManageMaintenance {
     public:
+    
     static void manageMaintenanceForTenant();
 
-    static void manageMaintenanceForStaff();
+    static void manageMaintenanceForStaff(int);
 
 };
 

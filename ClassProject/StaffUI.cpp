@@ -14,6 +14,7 @@ using namespace std;
 #include "GeneralUI.h"
 #include "ManageStaff.h"
 #include "ManageTenantAccount.h"
+#include "ManageMaintenance.h"
 
 void StaffUI::displayMainMenu(int user_ID) {
     Staff staff(user_ID);
@@ -187,7 +188,6 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     }
 }
 
-
 void StaffUI::displayTenantInfoMenu(int user_ID) {
     cout << "This is where you will view tenant info." << endl << endl;
     Staff staff(user_ID);
@@ -337,9 +337,67 @@ void StaffUI::displayRentMenu(int user_ID) {
 
 void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
     cout << "This is where you will view maintenance requests." << endl << endl;
+
     Staff staff(user_ID);
 
-    displayMaintenanceRequestMenu(staff.getUserID());
+
+    cout << "Maintenance Request Manager" << endl;
+    cout << "--------------------------" << endl;
+    cout << "[1] View All" << endl;
+    cout << "[2] View Open" << endl;
+    cout << "[3] View Closed" << endl;
+    cout << "[4] Update Status" << endl;
+    cout << "[5] Return to Main Menu" << endl;
+    cout << "[6] Logout" << endl << endl;
+    cout << "Enter a number 1 through 6: ";
+
+    int option = 0;
+    cin >> option;
+    cout << endl;
+
+    ManageMaintenance manager;
+
+    if (option == 1) {
+        cout << "Here is a list of all Maintenance Requests: " << endl << endl;
+        manager.manageMaintenanceForStaff(option);
+        cout << endl;
+        displayMaintenanceRequestMenu(staff.getUserID());
+
+    }
+    else if (option == 2) {
+        cout << "Here is a list of all Open Maintenance Requests: " << endl << endl;
+        manager.manageMaintenanceForStaff(option);
+        cout << endl;
+        displayMaintenanceRequestMenu(staff.getUserID());
+    }
+    else if (option == 3) {
+
+        cout << "Here is a list of all Closed Maintenance Requests: " << endl << endl;
+        manager.manageMaintenanceForStaff(option);
+        cout << endl;
+        displayMaintenanceRequestMenu(staff.getUserID());
+    }
+    else if (option == 4) {
+
+        cout << "Which Maintenance Requests would you like to update? " << endl << endl;
+        manager.manageMaintenanceForStaff(option);
+        cout << endl;
+        displayMaintenanceRequestMenu(staff.getUserID());
+    }
+    else if (option == 5) {
+        cout << "Returning to Main Menu" << endl << endl;
+        displayMainMenu(staff.getUserID());
+    }
+    else if (option == 6) {
+        cout << endl << endl;
+        logout();
+    }
+    else {
+        cout << "Please enter a number 1 through 6." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayMaintenanceRequestMenu(staff.getUserID());
+    }
 }
 
 void StaffUI::displayNotifications(int user_ID) {

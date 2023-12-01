@@ -185,12 +185,14 @@
   <ItemGroup>
     <None Include="ApartmentRecords.csv" />
     <None Include="ClassDiagram.cd" />
+    <None Include="MaintenanceRecords.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Apartment-Records-Header-Reference.txt" />
     <Text Include="ApartmentComplexInfo.txt" />
     <Text Include="FloorPlan.txt" />
+    <Text Include="Maintenance-Records-Header-Reference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
