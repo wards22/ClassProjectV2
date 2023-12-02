@@ -6,8 +6,8 @@
 int main() {
 
         //GeneralUI::displayGeneralUI();
-        TenantUI::displayTenantMenu(2);
-        //StaffUI::displayMainMenu(1);
+        //TenantUI::displayTenantMenu(2);
+        StaffUI::displayMainMenu(1);
 
         return 0;
 }

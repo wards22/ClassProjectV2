@@ -57,35 +57,51 @@ void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, stri
 
 
 void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string str) {
-        //Tenant tenant;
+    Tenant tenant(iD);
 
-        if (option == 1) {
+    if (option == 1) {
 
-            fstream inputFile;
+        fstream inputFile;
 
-            inputFile.open("UserRecords.csv", ios::in);
+        inputFile.open("UserRecords.csv", ios::in);
 
-            vector<string> row;
-            string line, data, temp;
+        vector<string> row;
+        string line, data, temp;
 
-            while (getline(inputFile, line)) {
-                row.clear();
-                stringstream s(line);
+        while (getline(inputFile, line)) {
+            row.clear();
+            stringstream s(line);
 
-                while (getline(s, data, ',')) {
-                    row.push_back(data);
-                }
-
-                if (row[3] == "Tenant") {
-                    cout << "Tenant Name: " << row[4] << endl;
-                    cout << "\tUser ID: " << row[0] << endl;
-                    cout << "\tUsername: " << row[1] << endl;
-                    cout << "\tPassword: " << row[2] << endl;
-                    cout << "\tPhone Number: " << row[5] << endl;
-                    cout << "\tEmail: " << row[6] << endl;
-                    cout << "\tApartment Number: " << row[7] << endl << endl;
-                }
+            while (getline(s, data, ',')) {
+                row.push_back(data);
             }
-            inputFile.close();
+
+            if (row[3] == "Tenant") {
+                cout << "Tenant Name: " << row[4] << endl;
+                cout << "\tUser ID: " << row[0] << endl;
+                cout << "\tUsername: " << row[1] << endl;
+                cout << "\tPassword: " << row[2] << endl;
+                cout << "\tPhone Number: " << row[5] << endl;
+                cout << "\tEmail: " << row[6] << endl;
+                cout << "\tApartment Number: " << row[7] << endl << endl;
+            }
         }
-   }
+        inputFile.close();
+
+    } else if (option == 2) {
+        tenant.setUsername(str);
+        tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getUsername());
+
+    } else if (option == 3) {
+        tenant.setPassword(str);
+        tenant.writeTenantInfo(tenant.getUserID(), 2, tenant.getPassword());
+
+    } else if (option == 4) {
+        tenant.setPhoneNum(str);
+        tenant.writeTenantInfo(tenant.getUserID(), 5, tenant.getPhoneNum());
+
+    } else if (option == 5) {
+        tenant.setEmail(str);
+        tenant.writeTenantInfo(tenant.getUserID(), 6, tenant.getEmail());
+    }
+}

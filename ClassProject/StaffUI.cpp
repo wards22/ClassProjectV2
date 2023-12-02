@@ -4,12 +4,9 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <chrono>       // For delay after display 
-#include <thread>       // For delay after display
+#include <limits>
 
 using namespace std;
-using namespace chrono;
-using namespace this_thread;
 
 #include "StaffUI.h"
 #include "Staff.h"
@@ -20,6 +17,7 @@ using namespace this_thread;
 #include "ManageMaintenance.h"
 #include "ManageLease.h"
 #include "ManageRent.h"
+#include "ManageNotifications.h"
 #include "ViewStaffInfo.h"
 
 
@@ -29,17 +27,17 @@ void StaffUI::displayMainMenu(int user_ID) {
 
     cout << "Main Menu - Staff" << endl;
     cout << "--------------------------" << endl;
-    cout << "[1] Manage Your Account" << endl;
-    cout << "[2] Tenant Info" << endl;
-    cout << "[3] Apartment Info" << endl;
-    cout << "[4] Tenant Rent" << endl;
-    cout << "[5] Maintenance Requests" << endl;
-    cout << "[6] Applications" << endl;
-    cout << "[7] Modify Lease" << endl;
-    cout << "[8] Notifications" << endl;
-    cout << "[9] View Staffing Information" << endl;
+    cout << "[1]  Manage Your Account" << endl;
+    cout << "[2]  Tenant Info" << endl;
+    cout << "[3]  Apartment Info" << endl;
+    cout << "[4]  Tenant Rent" << endl;
+    cout << "[5]  Maintenance Requests" << endl;
+    cout << "[6]  Applications" << endl;
+    cout << "[7]  Modify Lease" << endl;
+    cout << "[8]  Notifications" << endl;
+    cout << "[9]  View Staffing Information" << endl;
     cout << "[10] Logout" << endl << endl;
-    cout << "Enter a number 1 through 9: ";
+    cout << "Enter a number 1 through 10: ";
 
     cin >> choice;
     cout << endl;
@@ -67,12 +65,14 @@ void StaffUI::displayMainMenu(int user_ID) {
         cout << endl << endl;
         logout();
     } else {
-        cout << "Please enter a number 1 through 7." << endl << endl;
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Please enter a number 1 through 10." << endl << endl;
         displayMainMenu(staff.getUserID());
     }
 }
+
+//-------------------------------------------------------------------------------------------
 
 void StaffUI::displayStaffAccountMenu(int user_ID) {
 
@@ -184,14 +184,16 @@ void StaffUI::displayStaffAccountMenu(int user_ID) {
     }
 }
 
+//-------------------------------------------------------------------------------------------
+
 void StaffUI::displayTenantInfoMenu(int user_ID) {
     cout << "This is where you will view tenant info." << endl << endl;
     Staff staff(user_ID);
     int tenantID;
 
-    cout << "Tenant Information Window" << endl;
+    cout << "Tenant Accounts" << endl;
     cout << "--------------------------" << endl;
-    cout << "[1] View Tenants" << endl;
+    cout << "[1] View Tenant Accounts" << endl;
     cout << "[2] Change Tenant Username" << endl;
     cout << "[3] Change Tenant Password" << endl;
     cout << "[4] Change Tenant Phone Number" << endl;
@@ -205,18 +207,15 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
     cin >> option;
     cout << endl;
 
-    // Create object to access ManageStaff class
-    ManageTenantAccount manager;
 
     // [1] View Tenant Account Information
     if (option == 1) {
         cout << "Here is the list of tenants: " << endl << endl;
-        manager.manageTenantAccountForStaff(option, 0, "null");
+        ManageTenantAccount::manageTenantAccountForStaff(option, 0, "null");
         cout << endl;
         displayTenantInfoMenu(staff.getUserID());
 
-    }
-    // [2] Change Tenant Username
+    } // [2] Change Tenant Username    
     else if (option == 2) {
         string username;
         cout << "Enter the User ID of the tenant whose username you want to change: ";
@@ -229,13 +228,14 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
 
         // Input validation to be added later
 
-        manager.manageTenantAccountForStaff(option, tenantID, username);
+        ManageTenantAccount::manageTenantAccountForStaff(option, tenantID, username);
 
         cout << "The tenant's username has been changed successfully" << endl << endl;
         displayTenantInfoMenu(staff.getUserID());
 
-        // [3] Change Tenant Password
-    } else if (option == 3) {
+        
+    } // [3] Change Tenant Password
+    else if (option == 3) {
         string password;
         cout << "Enter the User ID of the tenant whose password you want to change: ";
         cin >> tenantID;
@@ -246,13 +246,13 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         getline(cin, password);
 
 
-        manager.manageTenantAccountForStaff(option, tenantID, password);
+        ManageTenantAccount::manageTenantAccountForStaff(option, tenantID, password);
 
         cout << "The tenant's password has been changed successfully" << endl << endl;
         displayTenantInfoMenu(staff.getUserID());
 
-        // [4] Change Tenant Phone Number
-    } else if (option == 4) {
+    } // [4] Change Tenant Phone Number
+    else if (option == 4) {
         string phoneNum;
         cout << "Enter the User ID of the tenant whose phone number you want to change: ";
         cin >> tenantID;
@@ -262,13 +262,13 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         cin.clear();
         getline(cin, phoneNum);
 
-        manager.manageTenantAccountForStaff(option, tenantID, phoneNum);
+        ManageTenantAccount::manageTenantAccountForStaff(option, tenantID, phoneNum);
 
         cout << "The tenant's phone number has been changed successfully" << endl << endl;
         displayTenantInfoMenu(staff.getUserID());
-
-        // [5] Change Tenant Email
-    } else if (option == 5) {
+        
+    } // [5] Change Tenant Email
+    else if (option == 5) {
         string email;
         cout << "Enter the User ID of the tenant whose username you want to change: ";
         cin >> tenantID;
@@ -278,29 +278,32 @@ void StaffUI::displayTenantInfoMenu(int user_ID) {
         cin.clear();
         getline(cin, email);
 
-        manager.manageTenantAccountForStaff(option, tenantID, email);
+        ManageTenantAccount::manageTenantAccountForStaff(option, tenantID, email);
 
         cout << "The tenant's email has been changed successfully" << endl << endl;
         displayTenantInfoMenu(staff.getUserID());
-
-        // [6] Return to Main Menu
-    } else if (option == 6) {
+   
+    } // [6] Return to Main Menu
+    else if (option == 6) {
         cout << "Returning to Main Menu\n\n";
         displayMainMenu(staff.getUserID());
 
-        // [7] Exit
-    } else if (option == 7) {
+        
+    } // [7] Exit
+    else if (option == 7) {
         cout << endl << endl;
         logout();
 
     } else {
-        cout << "Please enter a number 1 through 7." << endl << endl;
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Please enter a number 1 through 7." << endl << endl;
         displayTenantInfoMenu(staff.getUserID());
     }
 
 }
+
+//-------------------------------------------------------------------------------------------
 
 void StaffUI::displayApartmentInfoMenu(int user_ID) {
     cout << "This is where you will view apartment info." << endl << endl;
@@ -322,7 +325,6 @@ void StaffUI::displayApartmentInfoMenu(int user_ID) {
 
 void StaffUI::displayRentMenu(int user_ID) {
     cout << "This is where you will view rent operations." << endl << endl;
-    Staff staff(user_ID);
 
     // Display Rent features for staff
     cout << "Tenant Rent Information\n";
@@ -333,12 +335,12 @@ void StaffUI::displayRentMenu(int user_ID) {
     cout << "[4] Delete Rent Receipt\n";
     cout << "[5] Submit Rent Receipt\n";
     cout << "[6] Return to Staff Menu\n";
+    // Did not include logout option since it takes you back to GeneralUI
     cout << "[7] Return to Start Menu\n";
-    cout << "[8] Exit\n";
-    cout << "\nEnter a number 1 through 8: ";
+    cout << "\nEnter a number 1 through 7: ";
 
 
-    // Read in tenant option
+    // Read in staff option
     int option = -1;
     cin >> option;
     cout << endl;
@@ -347,62 +349,50 @@ void StaffUI::displayRentMenu(int user_ID) {
     // [1] View Rent Receipts
     if (option == 1) {
         ManageRent::manageRentForStaff(NULL, option);
-        sleep_for(seconds(1));
-        displayRentMenu(staff.getUserID());
+        displayRentMenu(user_ID);
 
     } // [2] Create Rent Receipt
     else if (option == 2) {
-        int userid;
+        int tenant_id;
         cout << "Enter the user ID of the tenant you want to create a rent receipt for: ";
-        cin >> userid;    
+        cin >> tenant_id;    
 
-        ManageRent::manageRentForStaff(userid, option);
-    }/*
+        ManageRent::manageRentForStaff(tenant_id, option);
+
     } // [3] Edit Rent Receipt
     else if (option == 3) {
-        // Display balance due
-        ManageRent::manageRentForTenant(uid, NULL, "NULL");
+        displayRentMenu(user_ID);
 
-        string paymentAmount;
-        cout << "Enter how much you want to pay: $";
-        cin >> paymentAmount;
-
-        // Input validation to be added later
-
-        ManageRent::manageRentForTenant(uid, option, paymentAmount);
-        cout << "Your rent has been paid successfully.\n\n";
-        displayRentMenu(uid);
-
-    } // [4] Return to Tenant Menu
+    } // [4] Delete Rent Receipt
     else if (option == 4) {
-        cout << "Returning to Tenant Menu\n\n";
-        displayTenantMenu(uid);
+        displayRentMenu(user_ID);
 
-    } // [5] Return to General UI
+    } // [5] Submit Rent Receipt
+    else if (option == 5) {
+        displayRentMenu(user_ID);
+
+    } // [6] Return to Staff Menu
+    else if (option == 6) {
+        cout << "Returning to Staff Menu\n\n";
+        displayMainMenu(user_ID);
+
+    } // [7] Return to General UI
     else if (option == 7) {
+        cout << "Returning to Main Menu\n\n";
         GeneralUI::displayGeneralUI();
 
-    } // [6] Exit
-    else if (option == 5) {
-        cout << "Exiting program\n\n";
-        exit();
-
     } else {
-        cout << "Please enter a number 1 through 6. \n\n";
-        displayRentMenu(uid);
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Please enter a number 1 through 7. \n\n";
+        displayRentMenu(user_ID);
     }
-    */
-    
-    displayRentMenu(staff.getUserID());
 }
 
 //-------------------------------------------------------------------------------------------
 
 void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
     cout << "This is where you will view maintenance requests." << endl << endl;
-
-    Staff staff(user_ID);
-
 
     cout << "Maintenance Request Manager" << endl;
     cout << "--------------------------" << endl;
@@ -424,28 +414,28 @@ void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
         cout << "Here is a list of all Maintenance Requests: " << endl << endl;
         manager.manageMaintenanceForStaff(option);
         cout << endl;
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu(user_ID);
 
     } else if (option == 2) {
         cout << "Here is a list of all Open Maintenance Requests: " << endl << endl;
         manager.manageMaintenanceForStaff(option);
         cout << endl;
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu(user_ID);
     } else if (option == 3) {
 
         cout << "Here is a list of all Closed Maintenance Requests: " << endl << endl;
         manager.manageMaintenanceForStaff(option);
         cout << endl;
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu(user_ID);
     } else if (option == 4) {
 
         cout << "Which Maintenance Requests would you like to update? " << endl << endl;
         manager.manageMaintenanceForStaff(option);
         cout << endl;
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu(user_ID);
     } else if (option == 5) {
         cout << "Returning to Main Menu" << endl << endl;
-        displayMainMenu(staff.getUserID());
+        displayMainMenu(user_ID);
     } else if (option == 6) {
         cout << endl << endl;
         logout();
@@ -453,16 +443,79 @@ void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
         cout << "Please enter a number 1 through 6." << endl << endl;
         cin.clear();
         cin.ignore();
-        displayMaintenanceRequestMenu(staff.getUserID());
+        displayMaintenanceRequestMenu(user_ID);
     }
 }
 
+//-------------------------------------------------------------------------------------------
+
 void StaffUI::displayNotifications(int user_ID) {
     cout << "This is where you will view notifications." << endl << endl;
-    Staff staff(user_ID);
 
-    displayNotifications(staff.getUserID());
+    // Display Notifications features for staff
+    cout << "Tenant Rent Information\n";
+    cout << "--------------------------\n";
+    cout << "[1] View Notifications\n";
+    cout << "[2] Create Notification\n";
+    cout << "[3] Edit Notification\n";
+    cout << "[4] Delete Notification\n";
+    cout << "[5] Submit Notification\n";
+    cout << "[6] Return to Staff Menu\n";
+    // Did not include logout option since it takes you back to GeneralUI
+    cout << "[7] Return to Start Menu\n";
+    cout << "\nEnter a number 1 through 7: ";
+
+
+    // Read in staff option
+    int option = -1;
+    cin >> option;
+    cout << endl;
+
+
+    // [1] View Notifications
+    if (option == 1) {
+        ManageNotifications::manageNotifications(user_ID, option);
+        displayNotifications(user_ID);
+
+    } // [2] Create Notifications
+    else if (option == 2) {
+        int tenant_id;
+        cout << "Enter the user ID of the tenant you want to create a rent receipt for: ";
+        cin >> tenant_id;
+
+        ManageRent::manageRentForStaff(tenant_id, option);
+
+    } // [3] Edit Notifications
+    else if (option == 3) {
+        displayRentMenu(user_ID);
+
+    } // [4] Delete Notifications
+    else if (option == 4) {
+        displayRentMenu(user_ID);
+
+    } // [5] Submit Notifications
+    else if (option == 5) {
+        displayRentMenu(user_ID);
+
+    } // [6] Return to Staff Menu
+    else if (option == 6) {
+        cout << "Returning to Staff Menu\n\n";
+        displayMainMenu(user_ID);
+
+    } // [7] Return to General UI
+    else if (option == 7) {
+        cout << "Returning to Main Menu\n\n";
+        GeneralUI::displayGeneralUI();
+
+    } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Please enter a number 1 through 7. \n\n";
+        displayRentMenu(user_ID);
+    }
 }
+
+//-------------------------------------------------------------------------------------------
 
 void StaffUI::displayLease(int user_ID) {
     cout << "This is where you will view leases." << endl << endl;
@@ -503,12 +556,16 @@ void StaffUI::displayLease(int user_ID) {
     }
 }
 
+//-------------------------------------------------------------------------------------------
+
 void StaffUI::viewApplications(int user_ID) {
     cout << "This is where you will view applications." << endl << endl;
     Staff staff(user_ID);
 
     viewApplications(staff.getUserID());
 }
+
+//-------------------------------------------------------------------------------------------
 
 void StaffUI::logout() {
     cout << "You have successfully logged out." << endl << endl;

@@ -3,7 +3,7 @@
  * Description: Creates and modifies Tenant's file
  * Contributors: Crischelle Polley
  * Date created: Nov 13 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 2 2023
 */
 
 
@@ -12,9 +12,6 @@
 #define TENANT_H
 
 #include <string>
-#include <fstream>
-#include <iostream>
-#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -32,117 +29,47 @@ class Tenant {
 
 
     public:
-    Tenant() {
-        username = "";
-        password = "";
-        userType = "";
-        userID = -1;
-        name = "";
-        phoneNum = "";
-        email = "";
-        aptNum = "";
-    }
+    Tenant();
 
-    // Constructor will call readTenantInfo and
-    // set all attributes to tenant info in 
-    // sample-data-file based on username and 
-    // password entered from user login 
-    Tenant(int uid) {
-        userID = uid;
-        readTenantInfo();
-    }
+    Tenant(int);
 
-    // Destructor will call writeTenantInfo and write all
-    // attributes to sample-data-file and is evoked by 
-    // exitMenu() in TenantUI::displayTenantAccountMenu
-    ~Tenant() {
-        cout << "This is Tenant destructor\n";
-        writeTenantInfo();
-    }
+    //~Tenant();
 
-    string getUsername() const
-    {
-        return username;
-    }
+    string getUsername() const;
 
-    void setUsername(const string& un)
-    {
-        username = un;
-    }
+    void setUsername(const string&);
 
-    string getPassword() const
-    {
-        return password;
-    }
+    string getPassword() const;
 
-    void setPassword(const string& pw)
-    {
-        password = pw;
-    }
+    void setPassword(const string&);
 
-    string getUserType() const
-    {
-        return userType;
-    }
+    string getUserType() const;
 
-    void setUserType(const string& ut)
-    {
-        userType = ut;
-    }
+    void setUserType(const string&);
 
-    int getUserID() const
-    {
-        return userID;
-    }
+    int getUserID() const;
 
-    void setUserID(const int& uid)
-    {
-        userID = uid;
-    }
+    void setUserID(const int&);
 
-    string getName() const
-    {
-        return name;
-    }
+    string getName() const;
 
-    void setName(const string& n)
-    {
-        name = n;
-    }
+    void setName(const string&);
 
-    string getPhoneNum() const
-    {
-        return phoneNum;
-    }
+    string getPhoneNum() const;
 
-    void setPhoneNum(const string& pn)
-    {
-        phoneNum = pn;
-    }
+    void setPhoneNum(const string&);
 
-    string getEmail() const
-    {
-        return email;
-    }
+    string getEmail() const;
 
-    void setEmail(const string& e)
-    {
-        email = e;
-    }
+    void setEmail(const string&);
 
-    string getAptNum() const
-    {
-        return aptNum;
-    }
+    string getAptNum() const;
 
-    string setAptNum(const string& an)
-    {
-        aptNum = an;
-    }
+    void setAptNum(const string&);
 
     void readTenantInfo();
 
-    void writeTenantInfo();
+    void writeTenantInfo(int, int, string);
 
 };
 

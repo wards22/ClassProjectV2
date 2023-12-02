@@ -157,6 +157,7 @@
     <ClCompile Include="ViewNotifications.cpp" />
     <ClCompile Include="ViewRentReceipts.cpp" />
     <ClCompile Include="ViewStaffInfo.cpp" />
+    <ClCompile Include="ViewTenantInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apartment.h" />
@@ -188,6 +189,7 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Notifications.csv" />
     <None Include="RentReceipts.csv" />
+    <None Include="Test.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>

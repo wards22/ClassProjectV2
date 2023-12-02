@@ -161,6 +161,9 @@
     <ClCompile Include="ViewRentReceipts.cpp">
       <Filter>BoundaryClasses\ViewRentReceipts</Filter>
     </ClCompile>
+    <ClCompile Include="ViewTenantInfo.cpp">
+      <Filter>BoundaryClasses\ViewTenantInfo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -171,6 +174,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Notifications.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Test.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
