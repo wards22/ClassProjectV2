@@ -88,6 +88,7 @@ vector<string> ViewLease::modifyLease()
     cout << "What would you like to change? " << endl;
     cout << "[1] Move-Out Date" << endl;
     cout << "[2] Rent" << endl;
+    cout << "Enter a number 1 - 2";
     cin >> choice;
 
     while (choice < 1 || choice > 2) {

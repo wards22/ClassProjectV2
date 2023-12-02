@@ -51,6 +51,7 @@ class Application {
     int getYear() const { return year; }
 };
 
-bool isApplicantAdult(const DateOfBirth& dob);
+//there's an error in the method below
+//bool isApplicantAdult(const DateOfBirth& dob);
 
 #endif

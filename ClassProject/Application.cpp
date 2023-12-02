@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
-#include <chrono>
+#include <ctime>
 using namespace std;
 
 class Application {
@@ -49,10 +49,9 @@ class Application {
 
 bool isApplicantAdult(const Application& dob) {
 
-    auto const now = chrono::system_clock::now();
-    time_t now_c = chrono::system_clock::to_time_t(now);
-#pragma warning(suppress : 4996)
-    tm current_time = *localtime(&now_c);
+    struct tm current_time;
+    time_t now = time(0);
+    localtime_s(&current_time, &now);
 
     int currentMonth = current_time.tm_mon + 1;
     int currentDay = current_time.tm_mday;
