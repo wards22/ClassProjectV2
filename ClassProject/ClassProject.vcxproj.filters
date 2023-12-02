@@ -115,9 +115,6 @@
     <ClCompile Include="ManageTenantAccount.cpp">
       <Filter>ControlClasses\ManageTenantAccount</Filter>
     </ClCompile>
-    <ClCompile Include="ManageTenantAccountDriver.cpp">
-      <Filter>ControlClasses\ManageTenantAccount</Filter>
-    </ClCompile>
     <ClCompile Include="Lease.cpp">
       <Filter>EntityClasses\Lease</Filter>
     </ClCompile>
@@ -129,9 +126,6 @@
     </ClCompile>
     <ClCompile Include="Rent.cpp">
       <Filter>EntityClasses\Rent</Filter>
-    </ClCompile>
-    <ClCompile Include="TenantDriver.cpp">
-      <Filter>EntityClasses\Tenant</Filter>
     </ClCompile>
     <ClCompile Include="Apartment.cpp">
       <Filter>EntityClasses\Apartment</Filter>
@@ -151,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="ManageApartment.cpp">
       <Filter>ControlClasses\ManageApartment</Filter>
+    </ClCompile>
+    <ClCompile Include="Tenant.cpp">
+      <Filter>EntityClasses\Tenant</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +232,7 @@
     <ClInclude Include="ManageApartment.h">
       <Filter>ControlClasses\ManageApartment</Filter>
     </ClInclude>
+    <ClInclude Include="ViewNotifications.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">

@@ -17,10 +17,13 @@
 
 using namespace std;
 
+
 class ViewNotifications {
 	public:
+	
 	static void displayNotifications()
 	{
+		/*
 		cout << left << setw(40) << "Rent Receipts" << endl;
 		cout << left << setw(40) << "-------------------------------" << endl;
 
@@ -35,8 +38,10 @@ class ViewNotifications {
 			}
 			cout << endl;
 		}
-
+		
+		*/
 	}
+	
 };
 
 #endif

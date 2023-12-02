@@ -81,7 +81,7 @@ void Notifications::readNotification() {
 
         i = 0;
         while (getline(s, data, ',')) {
-            if(
+            //if(
             row.push_back(data);
         }
 
