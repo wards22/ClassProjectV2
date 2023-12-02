@@ -24,6 +24,10 @@ class DisplayMaintenanceRequestInfo {
 
     static void displayMaintenanceForTenant(int);
 
+    static vector<string> createMaintenanceRequest(int);
+
+    static vector<string> editMaintenanceRequest(int);
+
     static void displayAllMaintenanceForStaff();
 
     static void displayOpenMaintenceForStaff();

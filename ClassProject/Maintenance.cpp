@@ -109,3 +109,23 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
     remove("MaintenanceRecords.csv");
     rename("NewMaintenanceRecords.csv", "MaintenanceRecords.csv");
 }
+
+void MaintenanceRequest::writeStatus(string user_ID, string tenant_name, string refNum, string date, string description, string status) {
+    fstream outputFile;
+
+    outputFile.open("MaintenanceRecords.csv", ios::out | ios::app);
+
+    vector<string> row;
+
+    row.push_back(user_ID);
+    row.push_back(tenant_name);
+    row.push_back(refNum);
+    row.push_back(date);
+    row.push_back(description);
+    row.push_back(status);
+
+    outputFile << "\n" << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << "," << row[4] << "," << row[5];
+
+    outputFile.close();
+
+}

@@ -14,3 +14,4 @@ Status Options :
 	
 	Closed:	Completed
 			Denied	
+			Canceled

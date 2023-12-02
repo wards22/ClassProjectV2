@@ -40,6 +40,10 @@ class MaintenanceRequest {
         ~MaintenanceRequest() {
             cout << "This is Maintenance Request's destructor" << endl;
         }
+        
+        string getDate() const { return date; }
+
+        void setDate(const string& dt) { date = dt; }
 
         string getReferenceNum() const { return referenceNum; }
 
@@ -49,9 +53,9 @@ class MaintenanceRequest {
 
         void setDescription(const string& d) { description = d; }
 
-        string getUserID() const { return tenantUserID; }
+        string getTenantUserID() const { return tenantUserID; }
 
-        void setUserID(const int& uid) { tenantUserID = uid; }
+        void setTenantUserID(const string& uid) { tenantUserID = uid; }
 
         string getTenantName() const { return tenantName; }
 
@@ -64,6 +68,8 @@ class MaintenanceRequest {
         void readStatus(string);
 
         void writeStatus(string, string);
+
+        void writeStatus(string, string, string, string, string, string);
 };
 
 #endif

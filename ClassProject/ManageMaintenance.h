@@ -17,7 +17,7 @@ using namespace std;
 class ManageMaintenance {
     public:
     
-    static void manageMaintenanceForTenant();
+    static void manageMaintenanceForTenant(int, int);
 
     static void manageMaintenanceForStaff(int);
 

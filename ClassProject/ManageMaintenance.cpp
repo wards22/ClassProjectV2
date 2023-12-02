@@ -8,8 +8,33 @@ using namespace std;
 #include "ManageMaintenance.h"
 #include "DisplayMaintenanceRequestInfo.h"
 
-void ManageMaintenance::manageMaintenanceForTenant() {
+void ManageMaintenance::manageMaintenanceForTenant(int n, int uID) {
+	if (n == 1) {
+		DisplayMaintenanceRequestInfo::displayMaintenanceForTenant(uID);
+	}
+	else if (n == 2) {
+		//create maintenance request
+		vector<string> maintenanceUpdates;
+		maintenanceUpdates = DisplayMaintenanceRequestInfo::createMaintenanceRequest(uID);
+		MaintenanceRequest maintenance(maintenanceUpdates[2]);
+		maintenance.setTenantUserID(maintenanceUpdates[0]);
+		maintenance.setTenantName(maintenanceUpdates[1]);
+		maintenance.setReferenceNum(maintenanceUpdates[2]);
+		maintenance.setDate(maintenanceUpdates[3]);
+		maintenance.setDescription(maintenanceUpdates[4]);
+		maintenance.setStatus(maintenanceUpdates[5]);
+		maintenance.writeStatus(maintenance.getTenantUserID(), maintenance.getTenantName(), maintenance.getReferenceNum(),
+			maintenance.getDate(), maintenance.getDescription(), maintenance.getStatus());
 
+	}
+	else if (n == 3) {
+		//Cancel maintenance requests
+		vector<string> maintenanceUpdates;
+		maintenanceUpdates = DisplayMaintenanceRequestInfo::editMaintenanceRequest(uID);
+		MaintenanceRequest maintenance(maintenanceUpdates[0]);
+		maintenance.setStatus(maintenanceUpdates[1]);
+		maintenance.writeStatus(maintenance.getReferenceNum(), maintenance.getStatus());
+	}
 }
 
 void ManageMaintenance::manageMaintenanceForStaff(int n) {

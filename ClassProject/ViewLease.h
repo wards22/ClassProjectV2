@@ -22,7 +22,7 @@ class ViewLease {
 
     public:
 
-    void displayLeaseForTenant(int);
+    static void displayLeaseForTenant(int);
 
     static vector<string> modifyLease();
 };

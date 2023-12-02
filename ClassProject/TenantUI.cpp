@@ -327,17 +327,20 @@ void TenantUI::displayMaintenanceMenu(int uid) {
 
     // [1] View Maintenance Requests
     if (option == 1) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
+        displayMaintenanceMenu(uid);
 
     } // [2] Request Maintenance
     else if (option == 2) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
         cout << "You have requested maintenance successfully.\n\n";
+        displayMaintenanceMenu(uid);
 
     } // [3] Edit Maintenance Request
     else if (option == 3) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
         cout << "You have changed your maintenance request successfully.\n\n";
+        displayMaintenanceMenu(uid);
 
     } // [4] Return to Tenant Menu
     else if (option == 4) {
@@ -345,12 +348,12 @@ void TenantUI::displayMaintenanceMenu(int uid) {
         displayTenantMenu(uid);
 
     } // [5] Return to General UI
-    else if (option == 7) {
+    else if (option == 5) {
         cout << "Returning to Start Menu\n\n";
         GeneralUI::displayGeneralUI();
 
     } // [6] Exit
-    else if (option == 5) {
+    else if (option == 6) {
         cout << "Exiting program\n\n";
         exit();
 
@@ -411,13 +414,16 @@ void TenantUI::displayNotificationsMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayLeaseMenu(int uid) {
-    cout << "This is Lease" << endl;
+    ManageLease::manageLeaseForTenant(uid);
+    cout << endl << endl;
+    displayTenantMenu(uid);
 }
 
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayApplicationMenu(int uid) {
     cout << "This is Application" << endl;
+
 }
 
 //-------------------------------------------------------------------------------------------
