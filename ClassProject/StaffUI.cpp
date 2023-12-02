@@ -16,6 +16,7 @@ using namespace std;
 #include "ManageTenantAccount.h"
 #include "ManageMaintenance.h"
 #include "ManageLease.h"
+#include "ViewStaffInfo.h"
 
 void StaffUI::displayMainMenu(int user_ID) {
     Staff staff(user_ID);
@@ -31,7 +32,8 @@ void StaffUI::displayMainMenu(int user_ID) {
     cout << "[6] Applications" << endl;
     cout << "[7] Modify Lease" << endl;
     cout << "[8] Notifications" << endl;
-    cout << "[9] Logout" << endl << endl;
+    cout << "[9] View Staffing Information" << endl;
+    cout << "[10] Logout" << endl << endl;
     cout << "Enter a number 1 through 9: ";
 
     cin >> choice;
@@ -62,6 +64,10 @@ void StaffUI::displayMainMenu(int user_ID) {
         displayNotifications(staff.getUserID());
     }
     else if (choice == 9) {
+        ViewStaffInfo::displayStaffInfo();
+        displayMainMenu(staff.getUserID());
+    }
+    else if (choice == 10) {
         cout << endl << endl;
         logout();
     }

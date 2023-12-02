@@ -85,9 +85,6 @@
     <ClCompile Include="GeneralUI.cpp">
       <Filter>BoundaryClasses\GeneralUI</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralUIDriver.cpp">
-      <Filter>BoundaryClasses\GeneralUI</Filter>
-    </ClCompile>
     <ClCompile Include="TenantUI.cpp">
       <Filter>BoundaryClasses\TenantUI</Filter>
     </ClCompile>

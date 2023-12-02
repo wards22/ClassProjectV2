@@ -6,7 +6,6 @@
  * Date last modified: Nov 29 2023
 */
 
-
 #include <iostream>
 #include <conio.h>
 #include <string>
@@ -61,8 +60,8 @@ void GeneralUI::displayGeneralUI() {
             StaffUI::displayMainMenu(staff.getUserID());
         }
         else if (userType == "Tenant") {
-            //Tenant tenant();
-        //TenantUI::displayTenantMenu();
+            //Tenant tenant(userID);
+            //TenantUI::displayTenantMenu(tenant.getUserID());
         }
     }
         else if (option == 2) {
