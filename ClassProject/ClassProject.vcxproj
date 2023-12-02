@@ -185,6 +185,7 @@
   <ItemGroup>
     <None Include="ApartmentRecords.csv" />
     <None Include="ClassDiagram.cd" />
+    <None Include="LeaseRecords.csv" />
     <None Include="MaintenanceRecords.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
@@ -192,6 +193,7 @@
     <Text Include="Apartment-Records-Header-Reference.txt" />
     <Text Include="ApartmentComplexInfo.txt" />
     <Text Include="FloorPlan.txt" />
+    <Text Include="Lease-Records-Header-Reference.txt" />
     <Text Include="Maintenance-Records-Header-Reference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>

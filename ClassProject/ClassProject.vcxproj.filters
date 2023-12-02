@@ -164,6 +164,12 @@
     <None Include="ApartmentRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="MaintenanceRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="LeaseRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneralUI.h">
@@ -244,6 +250,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="Apartment-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Maintenance-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Lease-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

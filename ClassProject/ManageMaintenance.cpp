@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 #include "Maintenance.h"
 #include "ManageMaintenance.h"
 #include "DisplayMaintenanceRequestInfo.h"
@@ -36,5 +38,4 @@ void ManageMaintenance::manageMaintenanceForStaff(int n) {
 		maintenance.setStatus(maintenanceUpdates[1]);
 		maintenance.writeStatus(maintenance.getReferenceNum(), maintenance.getStatus());
 	}
-
 }

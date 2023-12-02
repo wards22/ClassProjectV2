@@ -1,0 +1,9 @@
+Tenant User ID = 0
+Tenant Name = 1
+Reference Number = 2
+Beginning Date = 3
+Ending Date = 4
+Date Last Modified = 5
+Apartment Number = 6
+Rent Amount = 7
+Lease Text = 8

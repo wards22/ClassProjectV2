@@ -3,7 +3,7 @@
  * Description: Stores long term information pertatining to leases
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Nov 26 2023
+ * Date last modified: Dec 1 2023
 */
 
 #pragma once
@@ -19,44 +19,68 @@ using namespace std;
 
 class Lease {
     private:
-    string date;
-    string referenceNum;
-    string description;
-    string getDate() const;
-    void setDate(const string& d);
-    string formatDate(const string& d);
+        string beginningDate = "11/11/11";
+        string endingDate = "11/11/11";
+        string dateLastModified = "11/11/11/";
+        string referenceNum = "6969";
+        string leaseText = "Stuff's broke";
+        string tenantName = "John Doe";
+        string tenantUserID = "0";
+        string aptNumber = "A1";
+        string rentAmt = "100";
 
     public:
 
-    string getReferenceNum() const
-    {
-        return referenceNum;
-    }
+        Lease() {
+            cout << "This is the Lease's default constructor" << endl;
+        }
 
-    void setReferenceNum(const string& rn)
-    {
-        referenceNum = rn;
-    }
+        Lease(string refNum) {
+            referenceNum = refNum;
+            readLease(referenceNum);
+        }
 
-    string getDescription() const
-    {
-        return description;
-    }
+        ~Lease() {
+            cout << "This is the Lease's destructor" << endl;
+        }
 
-    void setDescription(const string& d)
-    {
-        description = d;
-    }
+        string getBeginningDate() const { return beginningDate; }
 
-    void createNewLease();
+        void setBeginningDate(const string& bd) { beginningDate = bd; }
 
-    void modifyExistingLease();
+        string getEndingDate() const { return endingDate; }
 
-    void updateTenantLease();
+        void setEndingDate(const string& ed) { endingDate = ed; }
 
-    void readLease();
+        string getDateLastModified() const { return dateLastModified; }
 
-    void writeLease();
+        void setDateLastModified(const string& dlm) { beginningDate = dlm; }
+
+        string getReferenceNum() const { return referenceNum; }
+
+        void setReferenceNum(const string& rn) { referenceNum = rn; }
+
+        string getLeaseText() const { return leaseText; }
+
+        void setLeaseText(const string& lt) { leaseText = lt; }
+
+        string getTenantName() const { return tenantName; }
+
+        void setTenantName(const string& tn) { tenantName = tn; }
+
+        string getTenantUserID() const { return tenantUserID; }
+
+        string getApartmentNum() const { return aptNumber; }
+
+        void setApartmentNum(const string& apt) { aptNumber = apt; }
+
+        string getRentAmount() const { return rentAmt; }
+
+        void setRentAmount(const string& rnt) { rentAmt = rnt; }
+
+        void readLease(string);
+
+        void writeLease(string, string);
 };
 
 #endif

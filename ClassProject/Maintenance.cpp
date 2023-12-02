@@ -22,7 +22,6 @@ void MaintenanceRequest::readStatus(string refID) {
 
     string line, data, ref_ID_in_file;
     vector<string> row;
-    int user_ID_in_file;
 
     while (getline(inputFile, line)) {
         row.clear();
@@ -31,8 +30,6 @@ void MaintenanceRequest::readStatus(string refID) {
         while (getline(s, data, ',')) {
             row.push_back(data);
         }
-
-       
 
         if (refID == row[2]) {
             this->tenantUserID = row[0];

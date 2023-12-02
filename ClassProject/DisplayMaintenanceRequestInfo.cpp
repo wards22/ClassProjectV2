@@ -227,7 +227,7 @@ vector<string> DisplayMaintenanceRequestInfo::updateMaintenanceStatusForStaff() 
         newStatus = "In Progress";
     }
     else if (choice == 4) {
-        newStatus == "Completed";
+        newStatus = "Completed";
     }
 
     updatedStatus.push_back(newStatus);

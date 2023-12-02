@@ -36,9 +36,11 @@ class MaintenanceRequest {
             referenceNum = refNum;
             readStatus(referenceNum);
         }
+
         ~MaintenanceRequest() {
             cout << "This is Maintenance Request's destructor" << endl;
         }
+
         string getReferenceNum() const { return referenceNum; }
 
         void setReferenceNum(const string& rn) { referenceNum = rn; }

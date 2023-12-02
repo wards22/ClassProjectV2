@@ -15,6 +15,7 @@ using namespace std;
 #include "ManageStaff.h"
 #include "ManageTenantAccount.h"
 #include "ManageMaintenance.h"
+#include "ManageLease.h"
 
 void StaffUI::displayMainMenu(int user_ID) {
     Staff staff(user_ID);
@@ -28,7 +29,7 @@ void StaffUI::displayMainMenu(int user_ID) {
     cout << "[4] Tenant Rent" << endl;
     cout << "[5] Maintenance Requests" << endl;
     cout << "[6] Applications" << endl;
-    cout << "[7] Lease Editor" << endl;
+    cout << "[7] Modify Lease" << endl;
     cout << "[8] Notifications" << endl;
     cout << "[9] Logout" << endl << endl;
     cout << "Enter a number 1 through 9: ";
@@ -409,9 +410,44 @@ void StaffUI::displayNotifications(int user_ID) {
 
 void StaffUI::displayLease(int user_ID) {
     cout << "This is where you will view leases." << endl << endl;
+
     Staff staff(user_ID);
 
-    displayLease(staff.getUserID());
+
+    cout << "Lease Editor" << endl;
+    cout << "--------------------------" << endl;
+    cout << "[1] Modify Tenant's Lease" << endl;
+    cout << "[2] Return To Main menu" << endl;
+    cout << "[3] Logout" << endl << endl;
+    cout << "Enter a number 1 through 3: ";
+
+    int option = 0;
+    cin >> option;
+    cout << endl;
+
+    ManageLease manager;
+
+    if (option == 1) {
+        cout << "Here is a list of all Maintenance Requests: " << endl << endl;
+        manager.manageLeaseForStaff(option);
+        cout << endl;
+        displayLease(staff.getUserID());
+
+    }
+    else if (option == 2) {
+        cout << "Returning to Main Menu" << endl << endl;
+        displayMainMenu(staff.getUserID());
+    }
+    else if (option == 3) {
+        cout << endl << endl;
+        logout();
+    }
+    else {
+        cout << "Please enter a number 1 through 3." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayLease(staff.getUserID());
+    }
 }
 
 void StaffUI::viewApplications(int user_ID) {
