@@ -3,17 +3,20 @@
  * Description: Implementation file for ManageTenantAccount
  * Contributors: Crischelle Polley/Scott Ward
  * Date created: Nov 16 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 1 2023
 */
+
+#include "ManageTenantAccount.h"
+#include "Tenant.h"
+#include "ViewTenantInfo.h"
 #include <vector>
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "ManageTenantAccount.h"
-#include "Tenant.h"
 
 using namespace std;
+
 
 void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, string s) {
     Tenant tenant(uid);
@@ -21,7 +24,9 @@ void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, stri
     // [1] View Account Information
     // This will access ViewTenantAccount boundary class
     if (option == 1) {
-        // Print TenantAccount
+        ViewTenantInfo::displayTenantAccount(tenant.getUsername(), tenant.getPassword(), tenant.getName(), 
+                                             tenant.getPhoneNum(), tenant.getEmail(), tenant.getAptNum());
+
     }
 
     // [2] Change Username

@@ -3,11 +3,12 @@
  * Description: Implementation file for ManageTenantAccount
  * Contributors: Crischelle Polley
  * Date created: Nov 27 2023
- * Date last modified: Nov 27 2023
+ * Date last modified: Dec 1 2023
 */
 
 #include "ManageRent.h"
 #include "Rent.h"
+#include "ViewRentReceipts.h"
 #include <string>
 #include <iostream>
 
@@ -20,7 +21,7 @@ void ManageRent::manageRentForTenant(int uid, int option, string s) {
     // [1] View Rent Receipts
     // This will access View Rent Receipt boundary class
     if (option == 1) {
-        // Print Rent Receipts
+        ViewRentReceipts::displayRentReceipts(rent.getRentReceipts());
     }
 
     // [2] Set Payment Method

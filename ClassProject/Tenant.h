@@ -3,7 +3,7 @@
  * Description: Creates and modifies Tenant's file
  * Contributors: Crischelle Polley
  * Date created: Nov 13 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 1 2023
 */
 
 
@@ -28,7 +28,7 @@ class Tenant {
     string name;            // Cannot be changed by tenant
     string phoneNum;
     string email;
-    int aptNum;             // Cannot be changed by tenant
+    string aptNum;             // Cannot be changed by tenant
 
 
     public:
@@ -40,7 +40,7 @@ class Tenant {
         name = "";
         phoneNum = "";
         email = "";
-        aptNum = -1;
+        aptNum = "";
     }
 
     // Constructor will call readTenantInfo and
@@ -48,7 +48,6 @@ class Tenant {
     // sample-data-file based on username and 
     // password entered from user login 
     Tenant(int uid) {
-        cout << "This is Tenant constructor\n";
         userID = uid;
         readTenantInfo();
     }
@@ -131,70 +130,19 @@ class Tenant {
         email = e;
     }
 
-    int getAptNum() const
+    string getAptNum() const
     {
         return aptNum;
     }
 
-    void setAptNum(const int& an)
+    string setAptNum(const string& an)
     {
         aptNum = an;
     }
 
-    void readTenantInfo() {
-        ifstream readFile;
-        readFile.open("../../../ClassProject/Sample-data-file.csv");
+    void readTenantInfo();
 
-        if (readFile) {
-            cout << "File was opened\n\n";
-
-            // Hard coding username and password into function
-            // until User Login implementation done
-            setUsername("tenant2");
-            setPassword("afdak!121");
-
-            // Create 2d vector to store sample data
-            vector<vector<string>> sampleData;
-            vector<string> str;
-            string line;
-            string s;
-
-            // Read Sample-data-file into vector 
-            while (getline(readFile, line, '\n')) {
-
-                // Convert line to istream to use getline
-                istringstream iss(line);
-
-                while (getline(iss, s, ',')) {
-                    str.push_back(s);
-                }
-
-                sampleData.push_back(str);
-                str.clear();
-            }
-
-            // Display sampleData vector
-            /*for(int i = 0; i < sampleData.size(); i++) {
-                for(int j = 0; j < sampleData[i].size(); j++) {
-                    if(sampleData[i][j] == username) {
-                        cout << endl << "Found you, " << sampleData[i][j] << endl;
-                    }
-                    cout << sampleData[i][j] << "\t";
-                }
-                cout << endl << endl;
-            }*/
-
-        } else {
-            cout << "File could not open\n";
-        }
-
-        cout << "File is closing\n\n";
-        readFile.close();
-    }
-
-    void writeTenantInfo() {
-        cout << "This is writeTenantInfo\n";
-    }
+    void writeTenantInfo();
 
 };
 

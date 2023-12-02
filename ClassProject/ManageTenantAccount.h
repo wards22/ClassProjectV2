@@ -5,7 +5,7 @@
  *              depending on userType
  * Contributors: Crischelle Polley
  * Date created: Nov 16 2023
- * Date last modified: Nov 28 2023
+ * Date last modified: Dec 1 2023
 */
 
 #pragma once
@@ -20,9 +20,7 @@ class ManageTenantAccount {
     public:
     static void manageTenantAccountForTenant(int, int, string);
 
-     static void manageTenantAccountForStaff(int, int);
-
-     void manageTenantAccountForStaff(int, int, string);
+    static void manageTenantAccountForStaff(int, int, string);
 
 };
 

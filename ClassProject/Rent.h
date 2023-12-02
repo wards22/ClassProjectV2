@@ -3,14 +3,15 @@
  * Description: Creates and modifies tenant's Rent file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 29 2023
-*/
+ * Date last modified: Dec 1 2023
+ */
 
 #pragma once
 #ifndef RENT_H
 #define RENT_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ class Rent {
     float amount;
     float balanceDue;
     float remainingBalanceDue;
+    vector<vector<string>> rentReceipts;
 
     string getDate() const;
 
@@ -96,13 +98,25 @@ class Rent {
         balanceDue = bd;
     }
 
+    vector<vector<string>> getRentReceipts() const {
+        return rentReceipts;
+    }
+
+    void setRentReceipts(const vector<vector<string>>& rr) {
+        rentReceipts = rr;
+    }
+
     float payRentReceipt(const float&);
 
-    // Need to create files for this to get understanding
-    // of how to code
     void readRentReceipt(int);
 
     void writeRentReceipt(int);
+
+    void createRentReceipt();
+
+    void editRentReceipt();
+
+    void deleteRentReceipt();
 };
 
 #endif

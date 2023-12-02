@@ -9,6 +9,7 @@
 
 #include "ManageNotifications.h"
 #include "Notifications.h"
+#include "ViewNotifications.h"
 #include <iostream>
 
 using namespace std;
@@ -19,7 +20,7 @@ void ManageNotifications::manageNotifications(int uid, int option) {
     // [1] View Notifications
     // This will access View Notifications boundary class
     if (option == 1) {
-        // Print Notifications
+        ViewNotifications::displayNotifications();
     }
 
     // Rest of options are only for staff

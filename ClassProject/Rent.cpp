@@ -9,6 +9,9 @@
 #include "Rent.h"
 #include <chrono>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
 
 using namespace std;
 using chrono::system_clock;
@@ -89,9 +92,59 @@ float Rent::payRentReceipt(const float& r) {
 }
 
 void Rent::readRentReceipt(int uid) {
+    fstream inputFile;
+    inputFile.open("RentReceipts.csv", ios::in);
 
+    string line, data, receipt, record, field;
+    int user_ID_in_file;
+    vector<string> row, rent;
+
+    while (getline(inputFile, line)) {
+        row.clear();
+        stringstream s(line);
+
+        while (getline(s, data, ',')) {
+            row.push_back(data);
+        }
+
+        user_ID_in_file = stoi(row[0]);
+
+        if (uid == user_ID_in_file) {
+            this->paymentMethod = row[1];
+            receipt = row[2];
+            stringstream r(receipt);
+
+            // Get each rent receipt and store it in rentReceipts vector
+            while(getline(r, record, '&')) {
+                rent.clear();
+                stringstream rec(record);
+
+                while(getline(rec, field, ';')) {
+                    rent.push_back(field);
+                }
+
+                rentReceipts.push_back(rent);
+
+            }
+
+            inputFile.close();
+            break;
+        }
+    }
 }
 
 void Rent::writeRentReceipt(int uid) {
+
+}
+
+void Rent::createRentReceipt() {
+
+}
+
+void Rent::editRentReceipt() {
+
+}
+
+void Rent::deleteRentReceipt() {
 
 }

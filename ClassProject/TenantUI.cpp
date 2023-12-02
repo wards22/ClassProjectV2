@@ -32,6 +32,21 @@ void TenantUI::displayTenantMenu(int uid) {
     cout << "[8] Exit\n";
     cout << "\nEnter a number 1 through 8: ";
 
+    /*
+    cin.ignore();
+    char option = -1;
+    cin.get(option);
+    cout << endl;
+
+    // Input validation
+    if(!isdigit(option)) {
+        cout << "Please enter a number 1 through 8.\n\n";
+        // Discard rest of input buffer
+        cin.ignore('\n');
+        displayTenantMenu(uid);
+    }
+    */
+
     int option = -1;
     cin >> option;
     cout << endl;
@@ -67,7 +82,9 @@ void TenantUI::displayTenantMenu(int uid) {
     } // [8] Exit
     else if (option == 8) {
         exit();
-    } else {
+
+    } else // Only catches int outside of 1-8 
+    {
         cout << "Please enter a number 1 through 8.\n\n";
         displayTenantMenu(uid);
     }

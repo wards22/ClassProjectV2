@@ -146,12 +146,11 @@
     <ClCompile Include="ManageRent.cpp" />
     <ClCompile Include="ManageStaff.cpp" />
     <ClCompile Include="ManageTenantAccount.cpp" />
-    <ClCompile Include="ManageTenantAccountDriver.cpp" />
     <ClCompile Include="Notifications.cpp" />
     <ClCompile Include="Rent.cpp" />
     <ClCompile Include="Staff.cpp" />
     <ClCompile Include="StaffUI.cpp" />
-    <ClCompile Include="TenantDriver.cpp" />
+    <ClCompile Include="Tenant.cpp" />
     <ClCompile Include="TenantUI.cpp" />
     <ClCompile Include="ViewApartmentInfo.cpp" />
     <ClCompile Include="ViewLease.cpp" />
@@ -178,10 +177,15 @@
     <ClInclude Include="TenantUI.h" />
     <ClInclude Include="ViewApartmentInfo.h" />
     <ClInclude Include="ViewLease.h" />
+    <ClInclude Include="ViewNotifications.h" />
+    <ClInclude Include="ViewRentReceipts.h" />
     <ClInclude Include="ViewStaffInfo.h" />
+    <ClInclude Include="ViewTenantInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Notifications.csv" />
+    <None Include="RentReceipts.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
