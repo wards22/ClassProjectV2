@@ -155,6 +155,12 @@
     <ClCompile Include="Tenant.cpp">
       <Filter>EntityClasses\Tenant</Filter>
     </ClCompile>
+    <ClCompile Include="ViewNotifications.cpp">
+      <Filter>BoundaryClasses\ViewNotifications</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewRentReceipts.cpp">
+      <Filter>BoundaryClasses\ViewRentReceipts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

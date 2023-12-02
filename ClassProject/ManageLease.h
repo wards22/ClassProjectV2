@@ -21,7 +21,8 @@ using namespace std;
 
 class ManageLease {
     public:
-    static void manageLeaseForTenant();
+
+    static void manageLeaseForTenant(int);
 
     static void manageLeaseForStaff(int);
 

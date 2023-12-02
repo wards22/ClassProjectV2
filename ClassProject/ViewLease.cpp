@@ -1,7 +1,34 @@
 #include "ViewLease.h"
 
 void ViewLease::displayLeaseForTenant(int id) {
-    //Takes tenant userId and displays their lease
+
+    fstream leaseFile;
+
+    leaseFile.open("LeaseRecords.csv", ios::in);
+
+    vector<string> row;
+    string line, data;
+
+
+    while (getline(leaseFile, line)) {
+        row.clear();
+        stringstream s(line);
+
+        while (getline(s, data, ',')) {
+            row.push_back(data);
+        }
+
+        if (row[0] == to_string(id)) {
+            cout << "Tenant's Name: " << row[1] << endl;
+            cout << "Apartment Number: " << row[6] << endl;
+            cout << "Rent: $" << row[7] << endl;
+            cout << "Move-In Date: " << row[3] << endl;
+            cout << "Move-Out Date: " << row[4] << endl;
+            cout << "Date Last Modified: " << row[5] << endl << endl;
+        }
+
+    }
+    leaseFile.close();
 
 }
 

@@ -8,8 +8,8 @@ using namespace std;
 #include "ManageLease.h"
 #include "ViewLease.h"
 
-void ManageLease::manageLeaseForTenant()
-{
+void ManageLease::manageLeaseForTenant(int uid) {
+	ViewLease::displayLeaseForTenant(uid);
 }
 
 void ManageLease::manageLeaseForStaff(int n) {

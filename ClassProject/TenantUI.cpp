@@ -6,6 +6,10 @@
  * Date last modified: Dec 2 2023
 */
 
+/* References:
+ * https://stackoverflow.com/questions/5131647/why-would-we-call-cin-clear-and-cin-ignore-after-reading-input 
+ */ 
+
 #include "TenantUI.h"
 #include "GeneralUI.h"
 #include "ManageTenantAccount.h"
@@ -15,7 +19,8 @@
 #include "ManageMaintenance.h"
 #include <iostream>
 #include <chrono>       // For delay after display
-#include <thread>       // For display after display
+#include <thread>       // For delay after display
+#include <limits>       // For input validation
 
 using namespace std;
 using namespace chrono;
@@ -34,27 +39,14 @@ void TenantUI::displayTenantMenu(int uid) {
     cout << "[5] Lease\n";
     cout << "[6] Application\n";
     cout << "[7] Return to Start Menu\n";
-    cout << "[8] Exit\n";
+    cout << "[8] Quit\n";
     cout << "\nEnter a number 1 through 8: ";
 
-    /*
-    cin.ignore();
-    char option = -1;
-    cin.get(option);
-    cout << endl;
-
-    // Input validation
-    if(!isdigit(option)) {
-        cout << "Please enter a number 1 through 8.\n\n";
-        // Discard rest of input buffer
-        cin.ignore('\n');
-        displayTenantMenu(uid);
-    }
-    */
 
     int option = -1;
     cin >> option;
     cout << endl;
+
 
     // [1] Account
     if (option == 1) {
@@ -85,12 +77,15 @@ void TenantUI::displayTenantMenu(int uid) {
         sleep_for(microseconds(1000));
         GeneralUI::displayGeneralUI();
 
-    } // [8] Exit
+    } // [8] Quit
     else if (option == 8) {
-        exit();
+        quit();
 
-    } else // Only catches int outside of 1-8 
-    {
+    } else {
+        // cin fails when reading non-int into int and sets fail flag
+        // Flag has to be removed and buffer cleared (ignore needs size to work)
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 8.\n\n";
         displayTenantMenu(uid);
     }
@@ -112,7 +107,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
     cout << "[5] Change Email\n";
     cout << "[6] Return to Tenant Menu\n";
     cout << "[7] Return to Start Menu\n";
-    cout << "[8] Exit\n";
+    cout << "[8] Quit\n";
     cout << "\nEnter a number 1 through 8: ";
 
 
@@ -189,12 +184,13 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         cout << "Returning to Start Menu\n\n";
         GeneralUI::displayGeneralUI();
 
-    } // [8] Exit
+    } // [8] Quit
     else if (option == 8) {
-        cout << "Exiting program\n\n";
-        exit();
+        quit();
 
     } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 8. \n\n";
         displayTenantAccountMenu(uid);
     }
@@ -215,7 +211,7 @@ void TenantUI::displayRentMenu(int uid) {
     cout << "[3] Pay Rent\n";
     cout << "[4] Return to Tenant Menu\n";
     cout << "[5] Return to Start Menu\n";
-    cout << "[6] Exit\n";
+    cout << "[6] Quit\n";
     cout << "\nEnter a number 1 through 6: ";
 
 
@@ -240,38 +236,49 @@ void TenantUI::displayRentMenu(int uid) {
         cout << "[5] Return to Rent Menu\n";
         cout << "[6] Return to Tenant Menu\n";
         cout << "[7] Return to Start Menu\n";
-        cout << "[8] Exit\n";
+        cout << "[8] Quit\n";
         cout << "\nEnter a number 1 through 8: ";
 
         int choice;
         cin >> choice;
 
         switch (choice) {
-        case 1: ManageRent::manageRentForTenant(uid, option, "card");
+        case 1: 
+            ManageRent::manageRentForTenant(uid, option, "card");
             cout << "Your payment method has been changed successfully\n\n";
             displayRentMenu(uid);
             break;
-        case 2: ManageRent::manageRentForTenant(uid, option, "ACH");
+        case 2: 
+            ManageRent::manageRentForTenant(uid, option, "ACH");
             cout << "Your payment method has been changed successfully\n\n";
             displayRentMenu(uid);
             break;
-        case 3: ManageRent::manageRentForTenant(uid, option, "eCheck");
+        case 3: 
+            ManageRent::manageRentForTenant(uid, option, "eCheck");
             cout << "Your payment method has been changed successfully\n\n";
             displayRentMenu(uid);
             break;
-        case 4: ManageRent::manageRentForTenant(uid, option, "moneyOrder");
+        case 4: 
+            ManageRent::manageRentForTenant(uid, option, "moneyOrder");
             cout << "Your payment method has been changed successfully\n\n";
             displayRentMenu(uid);
             break;
-        case 5: displayRentMenu(uid);
+        case 5: 
+            displayRentMenu(uid);
             break;
-        case 6: displayTenantMenu(uid);
+        case 6: 
+            displayTenantMenu(uid);
             break;
-        case 7: GeneralUI::displayGeneralUI();
+        case 7: 
+            GeneralUI::displayGeneralUI();
             break;
-        case 8: exit();
+        case 8:  
+            quit();
             break;
-        default: cout << "Please enter a number 1 through 8. \n\n";
+        default: 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Please enter a number 1 through 8. \n\n";
             displayRentMenu(uid);
             break;
         }
@@ -300,12 +307,13 @@ void TenantUI::displayRentMenu(int uid) {
     else if (option == 7) {
         GeneralUI::displayGeneralUI();
 
-    } // [6] Exit
+    } // [6] Quit
     else if (option == 5) {
-        cout << "Exiting program\n\n";
-        exit();
+        quit();
 
     } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 6. \n\n";
         displayRentMenu(uid);
     }
@@ -326,7 +334,7 @@ void TenantUI::displayMaintenanceMenu(int uid) {
     cout << "[3] Edit Maintenance Requests\n";
     cout << "[4] Return to Tenant Menu\n";
     cout << "[5] Return to Start Menu\n";
-    cout << "[6] Exit\n";
+    cout << "[6] Quit\n";
     cout << "\nEnter a number 1 through 6: ";
 
 
@@ -360,12 +368,13 @@ void TenantUI::displayMaintenanceMenu(int uid) {
         cout << "Returning to Start Menu\n\n";
         GeneralUI::displayGeneralUI();
 
-    } // [6] Exit
+    } // [6] Quit
     else if (option == 5) {
-        cout << "Exiting program\n\n";
-        exit();
+        quit();
 
     } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 6. \n\n";
         displayMaintenanceMenu(uid);
     }
@@ -385,7 +394,7 @@ void TenantUI::displayNotificationsMenu(int uid) {
     cout << "[1] View Notifications\n";
     cout << "[2] Return to Tenant Menu\n";
     cout << "[3] Return to Start Menu\n";
-    cout << "[4] Exit\n";
+    cout << "[4] Quit\n";
     cout << "\nEnter a number 1 through 4: ";
 
 
@@ -410,12 +419,13 @@ void TenantUI::displayNotificationsMenu(int uid) {
         cout << "Returning to Start Menu\n\n";
         GeneralUI::displayGeneralUI();
 
-    } // [4] Exit
+    } // [4] Quit
     else if (option == 4) {
-        cout << "Exiting program\n\n";
-        exit();
+        quit();
 
     } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 4. \n\n";
         displayNotificationsMenu(uid);
     }
@@ -426,7 +436,47 @@ void TenantUI::displayNotificationsMenu(int uid) {
 void TenantUI::displayLeaseMenu(int uid) {
     sleep_for(microseconds(1000));
 
-    cout << "This is Lease" << endl;
+    // Display Lease features for tenant
+    cout << "Lease\n";
+    cout << "--------------------------\n";
+    cout << "[1] View Lease\n";
+    cout << "[2] Return to Tenant Menu\n";
+    cout << "[3] Return to Start Menu\n";
+    cout << "[4] Quit\n";
+    cout << "\nEnter a number 1 through 4: ";
+
+
+    // Read in tenant option
+    int option = -1;
+    cin >> option;
+    cout << endl;
+
+
+    // [1] View Lease
+    if (option == 1) {
+        ManageLease::manageLeaseForTenant(uid);
+        displayNotificationsMenu(uid);
+
+    } // [2] Return to Tenant Menu
+    else if (option == 2) {
+        cout << "Returning to Tenant Menu\n\n";
+        displayTenantMenu(uid);
+
+    } // [3] Return to General UI
+    else if (option == 3) {
+        cout << "Returning to Start Menu\n\n";
+        GeneralUI::displayGeneralUI();
+
+    } // [4] Quit
+    else if (option == 4) {
+        quit();
+
+    } else {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Please enter a number 1 through 4. \n\n";
+        displayNotificationsMenu(uid);
+    }
 }
 
 //-------------------------------------------------------------------------------------------
@@ -439,9 +489,12 @@ void TenantUI::displayApplicationMenu(int uid) {
 
 //-------------------------------------------------------------------------------------------
 
-void TenantUI::exit() {
-    sleep_for(microseconds(1000));
+void TenantUI::quit() {
+    sleep_for(microseconds(3000));
 
     // Exits entire program
-    cout << "This is exit" << endl;
+    cout << "You are being logged out..." << endl;
+    sleep_for(microseconds(3000));
+    cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
+    exit(0);
 }

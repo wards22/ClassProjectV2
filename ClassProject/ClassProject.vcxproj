@@ -154,6 +154,8 @@
     <ClCompile Include="TenantUI.cpp" />
     <ClCompile Include="ViewApartmentInfo.cpp" />
     <ClCompile Include="ViewLease.cpp" />
+    <ClCompile Include="ViewNotifications.cpp" />
+    <ClCompile Include="ViewRentReceipts.cpp" />
     <ClCompile Include="ViewStaffInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
