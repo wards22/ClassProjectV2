@@ -12,6 +12,7 @@
 #define NOTIFICATIONS_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class Notifications {
     string title;
     string content;
     bool postNoteStatus;
+    vector<vector<string>> notifications;
 
     string getDateTime() const;
 

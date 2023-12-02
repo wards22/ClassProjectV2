@@ -22,6 +22,9 @@
 #include <chrono>
 #include <ctime>
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
 
 using namespace std;
 using chrono::system_clock;
@@ -61,11 +64,38 @@ string Notifications::formatDateTime(const char* dt) const {
 }
 
 void Notifications::readNotification() {
+    // When reading from notifications file, must replace delimiter (`) with commas
+    // Also must replace delimiter (_) with newlines
+    // Also must append commas to fields
+
+    fstream inputFile;
+    inputFile.open("Notifications.csv", ios::in);
+
+    string line, data;
+    vector<string> row;
+    int i;                 // Keep track of which field is content to format
+
+    while (getline(inputFile, line)) {  
+        row.clear();
+        stringstream s(line);
+
+        i = 0;
+        while (getline(s, data, ',')) {
+            if(
+            row.push_back(data);
+        }
+
+        notifications.push_back(row);
+
+        inputFile.close();
+    }
 
 }
 
 void Notifications::writeNotification() {
-
+    // When writing to notifications file, must replace commas with other delimiter (`)
+    // Also must replace newlines with delimiter (_)
+    // Also must append commas to fields
 }
 
 void Notifications::createNotification() {
