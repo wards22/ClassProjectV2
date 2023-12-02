@@ -76,9 +76,9 @@ public:
 
     void setEmail(const string& e) { email = e; }
 
-    void writeStaffInfo(int user_ID, int index, string str);
+    void writeStaffInfo(int, int, string);
 
-    void readStaffInfo(int user_ID);
+    void readStaffInfo(int);
 
 };
 

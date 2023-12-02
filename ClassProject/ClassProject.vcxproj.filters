@@ -80,6 +80,9 @@
     <Filter Include="ControlClasses\ManageApartment">
       <UniqueIdentifier>{bd0f9dd8-72e6-407a-b304-7599b844da4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BoundaryClasses\View Notifications">
+      <UniqueIdentifier>{0b80a56d-32af-4a1d-9046-d9d049a4aba8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -232,7 +235,9 @@
     <ClInclude Include="ManageApartment.h">
       <Filter>ControlClasses\ManageApartment</Filter>
     </ClInclude>
-    <ClInclude Include="ViewNotifications.h" />
+    <ClInclude Include="ViewNotifications.h">
+      <Filter>BoundaryClasses\View Notifications</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">

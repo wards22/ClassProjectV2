@@ -60,8 +60,8 @@ void GeneralUI::displayGeneralUI() {
             StaffUI::displayMainMenu(staff.getUserID());
         }
         else if (userType == "Tenant") {
-            //Tenant tenant(userID);
-            //TenantUI::displayTenantMenu(tenant.getUserID());
+            Tenant tenant(userID);
+            TenantUI::displayTenantMenu(tenant.getUserID());
         }
     }
         else if (option == 2) {

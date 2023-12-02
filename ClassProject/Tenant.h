@@ -57,7 +57,6 @@ class Tenant {
     // exitMenu() in TenantUI::displayTenantAccountMenu
     ~Tenant() {
         cout << "This is Tenant destructor\n";
-        writeTenantInfo();
     }
 
     string getUsername() const
@@ -142,7 +141,7 @@ class Tenant {
 
     void readTenantInfo();
 
-    void writeTenantInfo();
+    void writeTenantInfo(int, int, string);
 
 };
 
