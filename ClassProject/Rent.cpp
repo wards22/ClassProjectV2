@@ -64,15 +64,15 @@ float Rent::formatMoney(float m) const {
     } */
 
     // Concatenate all digits before decimal to money
-    while(s[i] != '.') {
+    while (s[i] != '.') {
         money += s[i];
         i++;
     }
 
     // Concatenate decimal and 2 decimal places to money
-    for(int j = 0; j < 3; j++) {
-        if((i+j) < s.length())
-            money += s[i+j];
+    for (int j = 0; j < 3; j++) {
+        if ((i + j) < s.length())
+            money += s[i + j];
         else
             break;
     }
@@ -80,7 +80,7 @@ float Rent::formatMoney(float m) const {
     // Convert money to float
     m = stof(money);
 
-	return m;
+    return m;
 }
 
 float Rent::payRentReceipt(const float& r) {

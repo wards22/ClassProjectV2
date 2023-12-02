@@ -55,13 +55,13 @@ string Notifications::formatDateTime(const char* dt) const {
     s = s.substr(0, 24);
 
     // Format dt to WWW MMM DD YYYY HH:MM:SS
-    s = s.substr(0, 11) + s.substr(20, 24) + " " + s.substr(11, 8);    
-    
+    s = s.substr(0, 11) + s.substr(20, 24) + " " + s.substr(11, 8);
+
     return s;
 }
 
 void Notifications::readNotification() {
-    
+
 }
 
 void Notifications::writeNotification() {
@@ -70,10 +70,10 @@ void Notifications::writeNotification() {
 
 void Notifications::createNotification() {
     // Check if notification is already created
-    if(title != "" || content != "") {
+    if (title != "" || content != "") {
         cout << "A notification is waiting to be posted.\n"
-             << "Go to Edit Notification to edit current notification.\n\n";
-    
+            << "Go to Edit Notification to edit current notification.\n\n";
+
     } else {
 
         title = "";

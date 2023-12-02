@@ -18,8 +18,7 @@ using namespace std;
 
 
 static class TenantUI {
-public:
-<<<<<<< HEAD
+    public:
     static void displayTenantMenu(int);
 
     static void displayTenantAccountMenu(int);
@@ -33,7 +32,7 @@ public:
     static void displayLeaseMenu(int);
 
     static void displayApplicationMenu(int);
-=======
+
     static void displayMainMenu();
 
     static void displayTenantAccountMenu();
@@ -47,7 +46,6 @@ public:
     static void displayLease();
 
     static void displayApplication();
->>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
 
     static void exit();
 };

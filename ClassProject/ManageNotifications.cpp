@@ -14,7 +14,7 @@
 using namespace std;
 
 void ManageNotifications::manageNotifications(int uid, int option) {
-	Notifications note;
+    Notifications note;
 
     // [1] View Notifications
     // This will access View Notifications boundary class
@@ -32,9 +32,9 @@ void ManageNotifications::manageNotifications(int uid, int option) {
     else if (option == 3) {
         // Check if there is note waiting to be sent
         // Show notification menu if no note is waiting to be sent
-       
 
-        if(note.getPostNoteStatus() == false) {
+
+        if (note.getPostNoteStatus() == false) {
             note.editNotification();
         } else {
             cout << "There is no notification to post.\n\n";
@@ -43,9 +43,9 @@ void ManageNotifications::manageNotifications(int uid, int option) {
 
     // [4] Delete Notification
     else if (option == 4) {
-       
+
     }
-    
+
     // [5] Post Notification
     else if (option == 5) {
         if (note.getPostNoteStatus() == true) {
@@ -55,8 +55,8 @@ void ManageNotifications::manageNotifications(int uid, int option) {
         }
 
         cout << "You have posted the notification successfully.\n"
-             << "Return to Notifications Menu and press View Notifications\n"
-             << "to see new notification.\n\n";
+            << "Return to Notifications Menu and press View Notifications\n"
+            << "to see new notification.\n\n";
 
     }
 

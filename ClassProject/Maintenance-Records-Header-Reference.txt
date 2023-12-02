@@ -1,0 +1,16 @@
+Tenant User ID = 0
+Tenant Name = 1
+Reference Number = 2
+Date Submitted = 3
+Description = 4
+Status = 5
+
+
+Status Options :
+	
+	Open: 	In Progress
+			Approved
+			Pending Review (Default) //Make this the defaul status when a tenant enters in a maintenance request
+	
+	Closed:	Completed
+			Denied	

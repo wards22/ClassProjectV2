@@ -67,8 +67,7 @@ void TenantUI::displayTenantMenu(int uid) {
     } // [8] Exit
     else if (option == 8) {
         exit();
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 8.\n\n";
         displayTenantMenu(uid);
     }
@@ -155,12 +154,12 @@ void TenantUI::displayTenantAccountMenu(int uid) {
 
         cout << "Your email has been changed successfully\n\n";
         displayTenantAccountMenu(uid);
-     
+
     } // [6] Return to Tenant Menu
     else if (option == 6) {
         cout << "Returning to Tenant Menu\n\n";
         displayTenantMenu(uid);
-     
+
     } // [7] Return to General UI
     else if (option == 7) {
         cout << "Returning to Start Menu\n\n";
@@ -171,8 +170,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         cout << "Exiting program\n\n";
         exit();
 
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 8. \n\n";
         displayTenantAccountMenu(uid);
     }
@@ -244,7 +242,7 @@ void TenantUI::displayRentMenu(int uid) {
         case 6: displayTenantMenu(uid);
             break;
         case 7: GeneralUI::displayGeneralUI();
-            break; 
+            break;
         case 8: exit();
             break;
         default: cout << "Please enter a number 1 through 8. \n\n";
@@ -266,7 +264,7 @@ void TenantUI::displayRentMenu(int uid) {
         ManageRent::manageRentForTenant(uid, option, paymentAmount);
         cout << "Your rent has been paid successfully.\n\n";
         displayRentMenu(uid);
-  
+
     } // [4] Return to Tenant Menu
     else if (option == 4) {
         cout << "Returning to Tenant Menu\n\n";
@@ -281,8 +279,7 @@ void TenantUI::displayRentMenu(int uid) {
         cout << "Exiting program\n\n";
         exit();
 
-    }
-    else {
+    } else {
         cout << "Please enter a number 1 through 6. \n\n";
         displayRentMenu(uid);
     }

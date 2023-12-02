@@ -29,16 +29,13 @@ void ManageRent::manageRentForTenant(int uid, int option, string s) {
         if (s == "card") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "ACH") {
+        } else if (s == "ACH") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "eCheck") {
+        } else if (s == "eCheck") {
             rent.setPaymentMethod(s);
 
-        }
-        else if (s == "moneyOrder") {
+        } else if (s == "moneyOrder") {
             rent.setPaymentMethod(s);
             cout << "Once you have gotten your money order,\n"
                 << "please turn it in at the leasing office.\n\n";
@@ -47,7 +44,7 @@ void ManageRent::manageRentForTenant(int uid, int option, string s) {
 
     // [3] Pay Rent
     else if (option == 3) {
-        if(rent.getBalanceDue() <= 0) {
+        if (rent.getBalanceDue() <= 0) {
             cout << "You have no rent due at this time.\n\n";
         } else {
             float remainingBalanceDue = rent.payRentReceipt(stof(s));

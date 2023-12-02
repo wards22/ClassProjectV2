@@ -20,7 +20,7 @@
 using namespace std;
 
 class Tenant {
-private:
+    private:
     string username;
     string password;
     string userType;        // Cannot be changed by tenant
@@ -31,8 +31,8 @@ private:
     int aptNum;             // Cannot be changed by tenant
 
 
-public:
-    Tenant(){
+    public:
+    Tenant() {
         username = "";
         password = "";
         userType = "";
@@ -184,8 +184,7 @@ public:
                 cout << endl << endl;
             }*/
 
-        }
-        else {
+        } else {
             cout << "File could not open\n";
         }
 

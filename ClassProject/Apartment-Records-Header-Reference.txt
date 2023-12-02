@@ -1,0 +1,6 @@
+0 = Floor Plan Letter
+1 = Bedrooms
+2 = Bathrooms
+3 = Square Footage
+4 = Rent
+5 = Amenities

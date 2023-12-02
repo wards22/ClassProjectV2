@@ -20,7 +20,7 @@ using namespace std;
 
 
 class Staff {
-    // Should probably use one of these as superclass for inheritance
+
 private:
     string username = "Default";
     string password = "password";
@@ -32,90 +32,49 @@ private:
 
 
 public:
-    //Modeled after tenant constructor/destructor. Need to figure out how to build one
-    //from information in spreadsheet. May need to pull something from when the user logins
+
     Staff() {
         cout << "This is Staff's default constructor" << endl;
     }
-    
+    //pulls user ID upon login, passes it to constructor and uses read
+    //staff info to construct a staff object
     Staff(int user_ID) {
         userID = user_ID;
         readStaffInfo(userID);
     }
-    
+
     ~Staff() {
         cout << "This is Staff destructor" << endl;
     }
 
-    string getUsername() const
-    {
-        return username;
-    }
+    string getUsername() const { return username; }
 
-    void setUsername(const string& un)
-    {
-        username = un;
-    }
+    void setUsername(const string& un) { username = un; }
 
-    string getPassword() const
-    {
-        return password;
-    }
+    string getPassword() const { return password; }
 
-    void setPassword(const string& pw)
-    {
-        password = pw;
-    }
+    void setPassword(const string& pw) { password = pw; }
 
-    string getUserType() const
-    {
-        return userType;
-    }
+    string getUserType() const { return userType; }
 
-    void setUserType(const string& ut)
-    {
-        userType = ut;
-    }
+    void setUserType(const string& ut) { userType = ut; }
 
-    int getUserID() const
-    {
-        return userID;
-    }
+    int getUserID() const { return userID; }
 
-    void setUserID(const int& uid)
-    {
-        userID = uid;
-    }
+    void setUserID(const int& uid) { userID = uid; }
 
-    string getName() const
-    {
-        return name;
-    }
+    string getName() const { return name; }
 
-    void setName(const string& n)
-    {
-        name = n;
-    }
+    void setName(const string& n) { name = n; }
 
-    string getPhoneNum() const
-    {
-        return phoneNum;
-    }
+    string getPhoneNum() const { return phoneNum; }
 
     void setPhoneNum(const string& pn)
-    {
-        phoneNum = pn;
-    }
+    { phoneNum = pn; }
 
-    string getEmail() const
-    {
-        return email;
-    }
+    string getEmail() const { return email; }
 
-    void setEmail(const string& e)
-    {
-        email = e;
-    }
+    void setEmail(const string& e) { email = e; }
 
     void writeStaffInfo(int user_ID, int index, string str);
 

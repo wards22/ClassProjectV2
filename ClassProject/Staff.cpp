@@ -33,7 +33,7 @@ void Staff::readStaffInfo(int user_ID) {
         while (getline(s, data, ',')) {
             row.push_back(data);
         }
-        
+
         user_ID_in_file = stoi(row[0]);
 
         if (user_ID == user_ID_in_file) {
@@ -50,7 +50,7 @@ void Staff::readStaffInfo(int user_ID) {
 }
 
 void Staff::writeStaffInfo(int user_ID, int index, string str) {
-    
+
     fstream inputFile, outputFile;
     inputFile.open("UserRecords.csv", ios::in);
     outputFile.open("NewUserRecords.csv", ios::out);
@@ -67,16 +67,16 @@ void Staff::writeStaffInfo(int user_ID, int index, string str) {
         while (getline(s, data, ',')) {
             row.push_back(data);
         }
-        
+
         user_ID_in_file = stoi(row[0]);
         int row_size = row.size();
 
         if (user_ID == user_ID_in_file) {
 
-            
-            
+
+
             row[index] = str;
-           
+
 
 
             if (!inputFile.eof()) {
@@ -90,8 +90,7 @@ void Staff::writeStaffInfo(int user_ID, int index, string str) {
 
                 outputFile << row[row_size - 1] << "\n";
             }
-        }
-        else {
+        } else {
             if (!inputFile.eof()) {
                 for (i = 0; i < row_size - 1; i++) {
 
@@ -107,7 +106,7 @@ void Staff::writeStaffInfo(int user_ID, int index, string str) {
         if (inputFile.eof())
             break;
 
-        
+
     }
 
     inputFile.close();

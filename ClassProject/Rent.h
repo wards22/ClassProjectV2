@@ -15,7 +15,7 @@
 using namespace std;
 
 class Rent {
-private:
+    private:
     string paymentMethod;
     string date;
     string referenceNum;
@@ -31,7 +31,7 @@ private:
     float formatMoney(float m) const;
 
 
-public:
+    public:
     Rent() {
         paymentMethod = "";
         date = "";

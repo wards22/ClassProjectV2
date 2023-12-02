@@ -1,9 +1,9 @@
 /* Prologue
- * Name: View Staff Info Class
- * Description: Displays information about leases
+ * Name: Display Maintenance Request Infor
+ * Description: Displays information about Maintenance Requests based on user type
  * Contributors: Scott Ward
- * Date created: Nov 25 2023
- * Date last modified: Nov 26 2023
+ * Date created: Dec 1 2023
+ * Date last modified: Dec 1 2023
 */
 
 #include <iostream>
@@ -20,9 +20,18 @@ using namespace std;
 
 class DisplayMaintenanceRequestInfo {
 
-public:
+    public:
 
-    void displayMaintenanceInfo();
+    static void displayMaintenanceForTenant(int);
+
+    static void displayAllMaintenanceForStaff();
+
+    static void displayOpenMaintenceForStaff();
+
+    static void displayClosedMaintenanceForStaff();
+
+    static vector<string> updateMaintenanceStatusForStaff();
+
 };
 
 #endif

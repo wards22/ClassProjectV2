@@ -6,7 +6,7 @@
 #include <string>
 
 class Apartment {
-private:
+    private:
     std::string apartmentName;
     std::string apartmentAddress;
     int numBedrooms;
@@ -15,7 +15,7 @@ private:
     double rentAmount;
     std::string contactPhone;
 
-public:
+    public:
     Apartment(std::string name, std::string address, int bedrooms, int bathrooms, double sqFootage, double rent,
               std::string phone, std::string plan);
 

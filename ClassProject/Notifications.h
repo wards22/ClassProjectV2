@@ -16,7 +16,7 @@
 using namespace std;
 
 class Notifications {
-private:
+    private:
     string title;
     string content;
     bool postNoteStatus;
@@ -26,7 +26,7 @@ private:
     string formatDateTime(const char* dt) const;
 
 
-public:
+    public:
     string getTitle() const
     {
         return title;

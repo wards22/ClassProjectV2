@@ -14,7 +14,7 @@
 class ManageNotifications {
 
 	public:
-		static void manageNotifications(int, int);
+	static void manageNotifications(int, int);
 
 };
 

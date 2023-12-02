@@ -6,6 +6,7 @@
  * Date last modified: Nov 29 2023
 */
 
+
 #include <iostream>
 #include <conio.h>
 #include <string>
@@ -44,7 +45,7 @@ void GeneralUI::displayGeneralUI() {
         cout << endl;
         cout << "Enter your username and password to access you account." << endl;
         cin.ignore();
-        
+
         do {
             cout << "Username: ";
             cin.clear();
@@ -59,51 +60,55 @@ void GeneralUI::displayGeneralUI() {
             Staff staff(userID);
             StaffUI::displayMainMenu(staff.getUserID());
         }
-        else if (userType == "Tenant")
-            Tenant tenant();
-            TenantUI::displayMainMenu();
+        else if (userType == "Tenant") {
+            //Tenant tenant();
+        //TenantUI::displayTenantMenu();
+        }
     }
-    else if (option == 2) {
-        cout << endl;
-        cout << "Here are the available floor plans" << endl << endl;
-        viewFloorPlans();
-        cout << "Press any key to return to the main menu." << endl << endl;
-        cin.clear();
-        cin.ignore();
-        getch();
-        displayGeneralUI();
-    }
-    else if (option == 3) {
-        cout << endl;
-        cout << "Enter your information to fill out an application." << endl << endl;
-        viewApplication();
-        cout << endl;
-        cout << "Press any key to return to the main menu." << endl << endl;
-        cin.clear();
-        cin.ignore();
-        getch();
-        displayGeneralUI();
-    }
-    else if (option == 4) {
-        cout << endl;
-        cout << "Apartment Information: Stuff goes here." << endl;
-        cout << "Press any key to return to the main menu." << endl << endl;
-        cin.clear();
-        cin.ignore();
-        getch();
-        displayGeneralUI();
-    }
-    else if (option == 5) {
-        cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
-        exit(0);
-    }
-    else {
-        cout << "Please enter a number 1 through 5." << endl << endl;
-        cin.clear();
-        cin.ignore();
-        displayGeneralUI();
-    }
+        else if (option == 2) {
+            cout << endl;
+            cout << "Here are the available floor plans" << endl << endl;
+            viewFloorPlans();
+            cout << "Press any key to return to the main menu." << endl << endl;
+            cin.clear();
+            cin.ignore();
+            getch();
+            displayGeneralUI();
+        }
+        else if (option == 3) {
+            cout << endl;
+            cout << "Enter your information to fill out an application." << endl << endl;
+            viewApplication();
+            cout << endl;
+            cout << "Press any key to return to the main menu." << endl << endl;
+            cin.clear();
+            cin.ignore();
+            getch();
+            displayGeneralUI();
+        }
+        else if (option == 4) {
+            cout << endl;
+            viewApartmentComplexInfo();
+            cout << "Press any key to return to the main menu." << endl << endl;
+            cin.clear();
+            cin.ignore();
+            getch();
+            displayGeneralUI();
+        }
+        else if (option == 5) {
+            cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
+            exit(0);
+        }
+        else {
+            cout << "Please enter a number 1 through 5." << endl << endl;
+            cin.clear();
+            cin.ignore();
+            displayGeneralUI();
+        }
 }
+
+
+
 
 bool GeneralUI::validateUser(string username, string password) {
 
@@ -141,8 +146,7 @@ bool GeneralUI::validateUser(string username, string password) {
             cin.clear();
             cin.ignore();
             return false;
-        }
-        else {
+        } else {
             cout << endl;
             cout << "Returning you to the main menu. " << endl << endl;
             displayGeneralUI();
@@ -211,14 +215,15 @@ string GeneralUI::getUserType(int userID) {
 }
 
 void GeneralUI::viewFloorPlans() {
+
     ViewApartmentInfo::displayFloorPlans();
 }
 
 void GeneralUI::viewApplication() {
-    
+
 }
 
 void GeneralUI::viewApartmentComplexInfo() {
+
     ViewApartmentInfo::displayApartmentComplexInfo();
 }
-

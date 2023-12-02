@@ -20,10 +20,10 @@ using namespace std;
 
 
 class ManageLease {
-public:
+    public:
     static void manageLeaseForTenant();
 
-    static void manageLeaseForStaff();
+    static void manageLeaseForStaff(int);
 
 };
 

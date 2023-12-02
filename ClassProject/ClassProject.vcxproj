@@ -149,15 +149,12 @@
     <ClCompile Include="ManageTenantAccountDriver.cpp" />
     <ClCompile Include="Notifications.cpp" />
     <ClCompile Include="Rent.cpp" />
+    <ClCompile Include="ManageApartment.cpp" />
     <ClCompile Include="Staff.cpp" />
     <ClCompile Include="StaffUI.cpp" />
     <ClCompile Include="TenantDriver.cpp" />
     <ClCompile Include="TenantUI.cpp" />
-<<<<<<< HEAD
-=======
-    <ClCompile Include="TenantUIDriver.cpp" />
     <ClCompile Include="ViewApartmentInfo.cpp" />
->>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
     <ClCompile Include="ViewLease.cpp" />
     <ClCompile Include="ViewStaffInfo.cpp" />
   </ItemGroup>
@@ -168,6 +165,7 @@
     <ClInclude Include="GeneralUI.h" />
     <ClInclude Include="Lease.h" />
     <ClInclude Include="Maintenance.h" />
+    <ClInclude Include="ManageApartment.h" />
     <ClInclude Include="ManageLease.h" />
     <ClInclude Include="ManageMaintenance.h" />
     <ClInclude Include="ManageNotifications.h" />
@@ -185,11 +183,18 @@
     <ClInclude Include="ViewStaffInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApartmentRecords.csv" />
     <None Include="ClassDiagram.cd" />
+    <None Include="LeaseRecords.csv" />
+    <None Include="MaintenanceRecords.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Apartment-Records-Header-Reference.txt" />
+    <Text Include="ApartmentComplexInfo.txt" />
     <Text Include="FloorPlan.txt" />
+    <Text Include="Lease-Records-Header-Reference.txt" />
+    <Text Include="Maintenance-Records-Header-Reference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

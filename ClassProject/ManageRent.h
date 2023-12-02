@@ -17,9 +17,9 @@ using namespace std;
 class ManageRent {
 
     public:
-        static void manageRentForTenant(int, int, string);
+    static void manageRentForTenant(int, int, string);
 
-        static void manageRentForStaff(int, int);
+    static void manageRentForStaff(int, int);
 
 };
 

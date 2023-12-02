@@ -18,7 +18,7 @@ using namespace std;
 
 class GeneralUI {
 
-public:
+    public:
 
     static void displayGeneralUI();
 
