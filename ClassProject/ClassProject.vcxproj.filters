@@ -71,13 +71,8 @@
     <Filter Include="EntityClasses\Application">
       <UniqueIdentifier>{9ffbc746-3e75-4b32-a4f1-900d862253ee}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
-    <Filter Include="ControlClasses\ManageNotifications">
-      <UniqueIdentifier>{b8c90b7f-65da-4ae1-b794-f6a8cbe67054}</UniqueIdentifier>
-=======
     <Filter Include="BoundaryClasses\ViewApartmentInfo">
       <UniqueIdentifier>{7845fc41-5962-45b3-9c00-a3db1fcbb0cd}</UniqueIdentifier>
->>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
     </Filter>
     <Filter Include="ControlClasses\ManageNotifications">
       <UniqueIdentifier>{ff00dfbf-8e95-4008-845b-dc31e46b931c}</UniqueIdentifier>
@@ -148,16 +143,11 @@
       <Filter>EntityClasses\Application</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="ManageNotifications.cpp">
-      <Filter>ControlClasses\ManageNotifications</Filter>
-=======
     <ClCompile Include="Staff.cpp">
       <Filter>EntityClasses\Staff</Filter>
     </ClCompile>
     <ClCompile Include="ViewApartmentInfo.cpp">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
->>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
     </ClCompile>
     <ClCompile Include="ManageNotifications.cpp">
       <Filter>ControlClasses\ManageNotifications</Filter>
@@ -239,13 +229,8 @@
     <ClInclude Include="Application.h">
       <Filter>EntityClasses\Application</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="ManageNotifications.h">
-      <Filter>ControlClasses\ManageNotifications</Filter>
-=======
     <ClInclude Include="ViewApartmentInfo.h">
       <Filter>BoundaryClasses\ViewApartmentInfo</Filter>
->>>>>>> 6c5d6ac1803db2a95e4cf9291e1cbfcc573f85e2
     </ClInclude>
     <ClInclude Include="ManageNotifications.h">
       <Filter>ControlClasses\ManageNotifications</Filter>
