@@ -83,6 +83,9 @@
     <Filter Include="BoundaryClasses\View Notifications">
       <UniqueIdentifier>{0b80a56d-32af-4a1d-9046-d9d049a4aba8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ControlClasses\ManageApplication">
+      <UniqueIdentifier>{a32fb305-e9a1-455a-94ee-c2606eb7874d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
