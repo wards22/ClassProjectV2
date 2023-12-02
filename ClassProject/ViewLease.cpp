@@ -1,7 +1,7 @@
 #include "ViewLease.h"
 
 void ViewLease::displayLeaseForTenant(int id) {
-	
+
     fstream leaseFile;
 
     leaseFile.open("LeaseRecords.csv", ios::in);
@@ -64,7 +64,7 @@ vector<string> ViewLease::modifyLease()
         cout << "\tDate Last Modified: " << row[5] << endl << endl;
         referenceNum.push_back(row[2]);
         count++;
-        
+
     }
     leaseFile.close();
 
@@ -132,16 +132,15 @@ vector<string> ViewLease::modifyLease()
         cin.ignore();
         getline(cin, newMoveOut);
         row[4] = newMoveOut;
-    }
-    else if (choice == 2) {
+    } else if (choice == 2) {
         cout << "Enter new Rent: ";
         cin.clear();
         cin.ignore();
         getline(cin, newRent);
         row[7] = newRent;
     }
-    
-    row[8] = "Welcome To UHD Aparments.  You are subject to our rules and regulations. Your move in date is " 
+
+    row[8] = "Welcome To UHD Aparments.  You are subject to our rules and regulations. Your move in date is "
         + row[3] + " and your move out date is " + row[4] + ". Your monthly rent is $" + row[7] + ".";
 
     updatedLease.push_back(row[4]);
@@ -150,4 +149,3 @@ vector<string> ViewLease::modifyLease()
 
     return updatedLease;
 }
-

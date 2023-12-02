@@ -68,6 +68,7 @@ void Notifications::readNotification() {
     // Also must replace delimiter (_) with newlines
     // Also must append commas to fields
 
+    /*
     fstream inputFile;
     inputFile.open("Notifications.csv", ios::in);
 
@@ -88,7 +89,7 @@ void Notifications::readNotification() {
         notifications.push_back(row);
 
         inputFile.close();
-    }
+    } */
 
 }
 

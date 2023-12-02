@@ -3,7 +3,7 @@
  * Description: Staff class for holiding long term info on staff
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Nov 25 2023
+ * Date last modified: Dec 2 2023
 */
 
 #pragma once
@@ -11,9 +11,6 @@
 #define STAFF_H
 
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
 
 using namespace std;
 

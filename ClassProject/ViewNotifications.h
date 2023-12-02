@@ -17,10 +17,8 @@
 
 using namespace std;
 
-
 class ViewNotifications {
 	public:
-	
 	static void displayNotifications()
 	{
 		/*
@@ -37,11 +35,9 @@ class ViewNotifications {
 				break;
 			}
 			cout << endl;
-		}
-		
-		*/
+		} */
+
 	}
-	
 };
 
 #endif

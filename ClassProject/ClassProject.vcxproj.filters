@@ -14,9 +14,6 @@
     <Filter Include="BoundaryClasses\TenantUI">
       <UniqueIdentifier>{970d5332-3b42-448f-ab62-4d81f63ff015}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BoundaryClasses\DisplayMaintenanceRequestInfo">
-      <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BoundaryClasses\StaffUI">
       <UniqueIdentifier>{4ff15c90-fdaf-43ba-bff8-4d768b86721c}</UniqueIdentifier>
     </Filter>
@@ -77,18 +74,24 @@
     <Filter Include="ControlClasses\ManageNotifications">
       <UniqueIdentifier>{ff00dfbf-8e95-4008-845b-dc31e46b931c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ControlClasses\ManageApartment">
-      <UniqueIdentifier>{bd0f9dd8-72e6-407a-b304-7599b844da4a}</UniqueIdentifier>
+    <Filter Include="BoundaryClasses\ViewTenantInfo">
+      <UniqueIdentifier>{b75af84d-6052-4985-a0bb-f44e151c9b27}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BoundaryClasses\View Notifications">
-      <UniqueIdentifier>{0b80a56d-32af-4a1d-9046-d9d049a4aba8}</UniqueIdentifier>
+    <Filter Include="BoundaryClasses\ViewRentReceipts">
+      <UniqueIdentifier>{b9980907-39f4-4b5b-958c-ec622f138f82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ControlClasses\ManageApplication">
-      <UniqueIdentifier>{a32fb305-e9a1-455a-94ee-c2606eb7874d}</UniqueIdentifier>
+    <Filter Include="BoundaryClasses\ViewNotifications">
+      <UniqueIdentifier>{5295f9e5-b2fb-48de-b10d-a2707d8bc993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\DisplayMaintenanceRequestInfo">
+      <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
+      <Filter>BoundaryClasses\GeneralUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralUIDriver.cpp">
       <Filter>BoundaryClasses\GeneralUI</Filter>
     </ClCompile>
     <ClCompile Include="TenantUI.cpp">
@@ -149,11 +152,17 @@
     <ClCompile Include="ManageNotifications.cpp">
       <Filter>ControlClasses\ManageNotifications</Filter>
     </ClCompile>
-    <ClCompile Include="ManageApartment.cpp">
-      <Filter>ControlClasses\ManageApartment</Filter>
-    </ClCompile>
     <ClCompile Include="Tenant.cpp">
       <Filter>EntityClasses\Tenant</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewNotifications.cpp">
+      <Filter>BoundaryClasses\ViewNotifications</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewRentReceipts.cpp">
+      <Filter>BoundaryClasses\ViewRentReceipts</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewTenantInfo.cpp">
+      <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,13 +170,13 @@
     <None Include="UserRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ApartmentRecords.csv">
+    <None Include="RentReceipts.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="MaintenanceRecords.csv">
+    <None Include="Notifications.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="LeaseRecords.csv">
+    <None Include="Test.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -235,11 +244,14 @@
     <ClInclude Include="ManageNotifications.h">
       <Filter>ControlClasses\ManageNotifications</Filter>
     </ClInclude>
-    <ClInclude Include="ManageApartment.h">
-      <Filter>ControlClasses\ManageApartment</Filter>
-    </ClInclude>
     <ClInclude Include="ViewNotifications.h">
-      <Filter>BoundaryClasses\View Notifications</Filter>
+      <Filter>BoundaryClasses\ViewNotifications</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewRentReceipts.h">
+      <Filter>BoundaryClasses\ViewRentReceipts</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewTenantInfo.h">
+      <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -247,18 +259,6 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="User-Records-Header-Reference.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="ApartmentComplexInfo.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Apartment-Records-Header-Reference.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Maintenance-Records-Header-Reference.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Lease-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

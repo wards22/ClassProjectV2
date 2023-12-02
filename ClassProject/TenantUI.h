@@ -4,7 +4,7 @@
  *              features of the Apartment Services System
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 2 2023
 */
 
 #pragma once
@@ -30,7 +30,7 @@ static class TenantUI {
 
     static void displayApplicationMenu(int);
 
-    static void exit();
+    static void quit();
 };
 
 #endif
