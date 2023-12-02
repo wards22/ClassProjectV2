@@ -74,9 +74,6 @@
     <Filter Include="ControlClasses\ManageNotifications">
       <UniqueIdentifier>{ff00dfbf-8e95-4008-845b-dc31e46b931c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BoundaryClasses\ViewMaintenanceInfo">
-      <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BoundaryClasses\ViewTenantInfo">
       <UniqueIdentifier>{b75af84d-6052-4985-a0bb-f44e151c9b27}</UniqueIdentifier>
     </Filter>
@@ -85,6 +82,9 @@
     </Filter>
     <Filter Include="BoundaryClasses\ViewNotifications">
       <UniqueIdentifier>{5295f9e5-b2fb-48de-b10d-a2707d8bc993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\DisplayMaintenanceRequestInfo">
+      <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,7 +104,7 @@
       <Filter>BoundaryClasses\ViewStaffInfo</Filter>
     </ClCompile>
     <ClCompile Include="DisplayMaintenanceRequestInfo.cpp">
-      <Filter>BoundaryClasses\ViewMaintenanceInfo</Filter>
+      <Filter>BoundaryClasses\DisplayMaintenanceRequestInfo</Filter>
     </ClCompile>
     <ClCompile Include="ViewLease.cpp">
       <Filter>BoundaryClasses\ViewLease</Filter>
@@ -176,7 +176,7 @@
       <Filter>BoundaryClasses\TenantUI</Filter>
     </ClInclude>
     <ClInclude Include="DisplayMaintenanceRequestInfo.h">
-      <Filter>BoundaryClasses\ViewMaintenanceInfo</Filter>
+      <Filter>BoundaryClasses\DisplayMaintenanceRequestInfo</Filter>
     </ClInclude>
     <ClInclude Include="StaffUI.h">
       <Filter>BoundaryClasses\StaffUI</Filter>

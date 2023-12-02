@@ -23,7 +23,7 @@ class ManageLease {
     public:
     static void manageLeaseForTenant();
 
-    static void manageLeaseForStaff();
+    static void manageLeaseForStaff(int);
 
 };
 

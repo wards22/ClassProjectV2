@@ -12,42 +12,16 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
-using chrono::system_clock;
 
 
-string Rent::getDate() const {
-    // Read current date and time from system
-    system_clock::time_point tp = system_clock::now();
+string Rent::formatDate(const string& mm, const string& dd, const string& yyyy) {
+    // Format month, day, and year to date
+    date = mm + "/" + dd + "/" + yyyy;
 
-
-    // Convert system_clock object to ctime object to format dateTime
-    time_t tt = system_clock::to_time_t(tp);
-
-    // char * of size 26 to fit date and time of tt
-    const int dSize = 26;
-    char d[dSize];
-
-    // ctime_s(char *, char * size, time_t *)
-    // when only dt is used, it acts as char *
-    // string of tt will be stored in dt
-    ctime_s(d, dSize, &tt);
-
-    return formatDate(d);
-}
-
-string Rent::formatDate(const char* d) const {
-    // Copy char * to string
-    string s = d;
-
-    // Remove null terminator
-    s = s.substr(0, 24);
-
-    // Format dt to WWW MMM DD YYYY HH:MM:SS
-    s = s.substr(0, 11) + s.substr(20, 24);
-
-    return s;
+    return date;
 }
 
 float Rent::formatMoney(float m) const {
@@ -111,7 +85,12 @@ void Rent::readRentReceipt(int uid) {
 
         if (uid == user_ID_in_file) {
             this->paymentMethod = row[1];
-            receipt = row[2];
+            if(row[2] == "true")
+                this->isInProgress = true;
+            else
+                this->isInProgress = false;
+
+            receipt = row[3];
             stringstream r(receipt);
 
             // Get each rent receipt and store it in rentReceipts vector
@@ -138,13 +117,49 @@ void Rent::writeRentReceipt(int uid) {
 }
 
 void Rent::createRentReceipt() {
+    // Check if rent receipt is in progress
+    if(isInProgress == true) {
+        cout << "A rent receipt is waiting to be posted.\n"
+            << "Go to Edit Rent Receipt to edit current rent receipt.\n\n";
+    } else {
+        date = "";
+        referenceNum = "";
+        description = "";
+        amount = -1;
 
+        cout << "Enter the current month (MM): ";
+        cin >> month;
+        cout << "Enter the current month (DD): ";
+        cin >> day;
+        cout << "Enter the current month (YYYY): ";
+        cin >> year;
+        setDate(month, day, year);
+
+        cout << "Enter the reference number (LLL NNNN): ";
+        getline(cin, referenceNum);
+
+        cout << "Enter the description: ";
+        getline(cin, description);
+
+        cout << "Enter the amount: $";
+        string temp;
+        getline(cin, temp);
+        amount = stof(temp);
+
+        //cout << 
+    }
 }
 
 void Rent::editRentReceipt() {
+    // Code to edit receipt here
 
+    cout << "Would you like to submit receipt?";
 }
 
 void Rent::deleteRentReceipt() {
+
+}
+
+void Rent::submitReceipt() {
 
 }

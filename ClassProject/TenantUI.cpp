@@ -3,7 +3,7 @@
  * Description: Implementation file for TenantUI.h
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 2 2023
 */
 
 #include "TenantUI.h"
@@ -14,11 +14,16 @@
 #include "ManageLease.h"
 #include "ManageMaintenance.h"
 #include <iostream>
+#include <chrono>       // For delay after display
+#include <thread>       // For display after display
 
 using namespace std;
+using namespace chrono;
+using namespace this_thread;
 
 
 void TenantUI::displayTenantMenu(int uid) {
+    sleep_for(microseconds(1000));
 
     cout << "Tenant Menu\n";
     cout << "--------------------------\n";
@@ -77,6 +82,7 @@ void TenantUI::displayTenantMenu(int uid) {
 
     } // [7] Return to Start Menu
     else if (option == 7) {
+        sleep_for(microseconds(1000));
         GeneralUI::displayGeneralUI();
 
     } // [8] Exit
@@ -94,6 +100,7 @@ void TenantUI::displayTenantMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayTenantAccountMenu(int uid) {
+    sleep_for(microseconds(1000));
 
     // Display Account features for tenant
     cout << "Account\n";
@@ -197,6 +204,8 @@ void TenantUI::displayTenantAccountMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayRentMenu(int uid) {
+    sleep_for(microseconds(1000));
+
     // Display Rent features for tenant
     cout << "Rent\n";
     cout << "--------------------------\n";
@@ -305,6 +314,8 @@ void TenantUI::displayRentMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayMaintenanceMenu(int uid) {
+    sleep_for(microseconds(1000));
+
     // Display Maintenance features for tenant
     cout << "Maintenance\n";
     cout << "--------------------------\n";
@@ -364,6 +375,8 @@ void TenantUI::displayMaintenanceMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayNotificationsMenu(int uid) {
+    sleep_for(microseconds(1000));
+
     // Display Notification features for tenant
     // Tenant can only view notifications (limitation is tenant cannot communicate with staff through system)
     cout << "Notifications\n";
@@ -411,18 +424,24 @@ void TenantUI::displayNotificationsMenu(int uid) {
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayLeaseMenu(int uid) {
+    sleep_for(microseconds(1000));
+
     cout << "This is Lease" << endl;
 }
 
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::displayApplicationMenu(int uid) {
+    sleep_for(microseconds(1000));
+
     cout << "This is Application" << endl;
 }
 
 //-------------------------------------------------------------------------------------------
 
 void TenantUI::exit() {
+    sleep_for(microseconds(1000));
+
     // Exits entire program
     cout << "This is exit" << endl;
 }

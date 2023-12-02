@@ -19,42 +19,51 @@ using namespace std;
 
 class MaintenanceRequest {
     private:
-    string date;
-    string referenceNum;
-    string description;
-    string getDate() const;
-    void setDate(const string& d);
-    string formatDate(const string& d);
+    string date = "11/11/11";
+    string referenceNum = "6969";
+    string description = "Stuff's broke";
+    string tenantName = "John Doe";
+    string status = "Status Goes Here";
+    string tenantUserID = "0";
 
     public:
 
-    string getReferenceNum() const
-    {
-        return referenceNum;
+    MaintenanceRequest() {
+        cout << "This is Maintenance Request's default constructor" << endl;
     }
 
-    void setReferenceNum(const string& rn)
-    {
-        referenceNum = rn;
+    MaintenanceRequest(string refNum) {
+        referenceNum = refNum;
+        readStatus(referenceNum);
     }
 
-    string getDescription() const
-    {
-        return description;
+    ~MaintenanceRequest() {
+        cout << "This is Maintenance Request's destructor" << endl;
     }
 
-    void setDescription(const string& d)
-    {
-        description = d;
-    }
+    string getReferenceNum() const { return referenceNum; }
 
-    void viewTenantRequest();
+    void setReferenceNum(const string& rn) { referenceNum = rn; }
 
-    void changeStatus();
+    string getDescription() const { return description; }
 
-    void readStatus();
+    void setDescription(const string& d) { description = d; }
 
-    void writeStatus();
+    string getUserID() const { return tenantUserID; }
+
+    void setUserID(const int& uid) { tenantUserID = uid; }
+
+    string getTenantName() const { return tenantName; }
+
+    void setTenantName(const string& n) { tenantName = n; }
+
+    string getStatus() const { return status; }
+
+    void setStatus(const string& st) { status = st; }
+
+    void readStatus(string);
+
+    void writeStatus(string, string);
 };
 
 #endif

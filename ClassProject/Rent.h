@@ -18,17 +18,19 @@ using namespace std;
 class Rent {
     private:
     string paymentMethod;
+    string month;
+    string day;
+    string year;
     string date;
     string referenceNum;
     string description;
     float amount;
     float balanceDue;
     float remainingBalanceDue;
+    bool isInProgress;
     vector<vector<string>> rentReceipts;
 
-    string getDate() const;
-
-    string formatDate(const char* d) const;
+    string formatDate(const string&, const string&, const string&);
 
     float formatMoney(float m) const;
 
@@ -45,6 +47,7 @@ class Rent {
         balanceDue = NULL;
         // Set to NULL because it can be negative
         remainingBalanceDue = NULL;
+        isInProgress = false;
     }
 
     Rent(int uid) {
@@ -60,6 +63,26 @@ class Rent {
     void setPaymentMethod(const string& pm)
     {
         paymentMethod = pm;
+    }
+
+    void setMonth(const string& mm) {
+        month = mm;
+    }
+
+    void setDay(const string& dd) {
+        day = dd;
+    }
+
+    void setYear(const string& yyyy) {
+        year = yyyy;
+    }
+
+    string getDate() const {
+        return date;
+    }
+
+    void setDate(const string& mm, const string& dd, const string& yyyy) {
+        date = formatDate(mm, dd, yyyy);
     }
 
     string getReferenceNum() const
@@ -98,6 +121,10 @@ class Rent {
         balanceDue = bd;
     }
 
+    bool getProgressStatus() const {
+        return isInProgress;
+    }
+
     vector<vector<string>> getRentReceipts() const {
         return rentReceipts;
     }
@@ -117,6 +144,8 @@ class Rent {
     void editRentReceipt();
 
     void deleteRentReceipt();
+
+    void submitReceipt();
 };
 
 #endif
