@@ -162,101 +162,113 @@ float Rent::payRentReceipt(const float& r) {
     return formatMoney(remainingBalanceDue);
 }
 
+
+
+
 void Rent::readRentReceipt(int uid) {
     fstream inputFile;
     inputFile.open("RentReceipts.csv", ios::in);
 
-    string line, data, receipt, record, field;
+    string line, data;
+    vector<string> row;
     int user_ID_in_file;
-    vector<string> row, rent;
+    string receipt, record, field;
+    vector<string> rent;
+    int i;            // Keep track of which field is rent receipts
 
+
+    // If tenant, read only this tenant into rentReceipts
     while (getline(inputFile, line)) {
         row.clear();
         stringstream s(line);
 
-        while (getline(s, data, ',')) {
+        while (getline(s, data, ',')) 
             row.push_back(data);
-        }
 
         user_ID_in_file = stoi(row[0]);
 
-        if (uid == user_ID_in_file) {
+        if(uid == user_ID_in_file) {
+            rentReceipts.clear();
+
             this->paymentMethod = row[1];
-            if(row[2] == "true")
+
+            if (row[2] == "true")
                 this->isInProgress = true;
             else
                 this->isInProgress = false;
 
+            // Store rent receipts in string to format and remove all but user ID from vector row
             receipt = row[3];
-            stringstream r(receipt);
+            row.pop_back();
+            row.pop_back();
+            row.pop_back();
 
-            // Get each rent receipt and store it in rentReceipts vector
+            stringstream r(receipt);
             while(getline(r, record, '&')) {
-                rent.clear();
                 stringstream rec(record);
 
-                while(getline(rec, field, ';')) {
-                    rent.push_back(field);
+                while (getline(rec, field, ';')) {
+                    row.push_back(field);
                 }
-
-                rentReceipts.push_back(rent);
-
             }
 
             inputFile.close();
-            break;
+
+            // Push row to rentReceipts and return
+            // rentReceipts will contain only 1 vector
+            rentReceipts.push_back(row);
+            return;
         }
     }
+
+
+    // If staff, read all tenants' rent receipts into rentReceipts
+
+    rentReceipts.clear();
+
+    // Clear eof flag and send read position back to beginning of file
+    inputFile.clear();
+    inputFile.seekg(0);
+
+    // Read through file and store tenants' rent receipts in rentReceipts
+    while (getline(inputFile, line)) {
+        row.clear();
+        stringstream s(line);
+
+        i = 0;
+        while (getline(s, data, ',')) {
+            i++;
+            
+            if(i == 1) {        // Store user ID
+                row.push_back(data);
+
+            } else if(i == 4) {             // Store all rent receipts for one tenant in one row
+                stringstream d(data);
+
+                while (getline(d, record, '&')) {
+                    stringstream rec(record);
+
+                    while (getline(rec, field, ';')) {
+                        row.push_back(field);
+                    }
+
+                    
+                }
+
+                rentReceipts.push_back(row);
+
+            } else {
+                continue;
+            }
+        } 
+    }
+    
+    inputFile.close();
 }
+
+
+
 
 void Rent::writeRentReceipt(int uid) {
-
-}
-
-void Rent::createRentReceipt() {
-    // Check if rent receipt is in progress
-    if(isInProgress == true) {
-        cout << "A rent receipt is waiting to be posted.\n"
-            << "Go to Edit Rent Receipt to edit current rent receipt.\n\n";
-    } else {
-        date = "";
-        referenceNum = "";
-        description = "";
-        amount = -1;
-
-        cout << "Enter the current month (MM): ";
-        cin >> month;
-        cout << "Enter the current month (DD): ";
-        cin >> day;
-        cout << "Enter the current month (YYYY): ";
-        cin >> year;
-        setDate(month, day, year);
-
-        cout << "Enter the reference number (LLL NNNN): ";
-        getline(cin, referenceNum);
-
-        cout << "Enter the description: ";
-        getline(cin, description);
-
-        cout << "Enter the amount: $";
-        string temp;
-        getline(cin, temp);
-        amount = stof(temp);
-
-        //cout << 
-    }
-}
-
-void Rent::editRentReceipt() {
-    // Code to edit receipt here
-
-    cout << "Would you like to submit receipt?";
-}
-
-void Rent::deleteRentReceipt() {
-
-}
-
-void Rent::submitReceipt() {
 
 }

@@ -25,78 +25,9 @@
 using namespace std;
 
 
-void ViewRentReceipts::displayTenantRentReceipts(const vector<vector<string>>& rentReceipts)
+void ViewRentReceipts::displayRentReceipts(const vector<vector<string>>& rentReceipts)
 {
     cout << left << setw(40) << "Rent Receipts" << endl;
-    cout << left << setw(40) << "-------------------------------" << endl;
-
-    for (auto i = rentReceipts.begin(); i != rentReceipts.end(); i++) {
-        for (auto j = i->begin(); ;) {
-            cout << left << setw(10) << "Date:           " << setw(30) << *j << endl;
-            cout << left << setw(10) << "Reference #:    " << setw(30) << *(j + 1) << endl;
-            cout << left << setw(10) << "Description:    " << setw(30) << *(j + 2) << endl;
-            cout << left << setw(10) << "Amount Due:     " << "$" << setw(29) << *(j + 3) << endl;
-            cout << endl;
-            break;
-        }
-        cout << endl;
-    }
-}
-
-//-------------------------------------------------------------------------------------------
-
-void ViewRentReceipts::displayAllTenantsRentReceipts() {
-
-    fstream inputFile;
-    inputFile.open("RentReceipts.csv", ios::in);
-
-    string line, data, record, field;
-    vector<string> row;
-    vector<vector<string>> rentReceipts;
-    int i;          // Keep track of which field is rent receipts
-
-    while (getline(inputFile, line)) {
-        row.clear();
-        stringstream s(line);
-
-        i = 0;
-        while (getline(s, data, ',')) {
-            i++;
-
-            if (i == 1) {
-                row.push_back(data);
-                continue;
-
-            } else if (i == 4) {
-                // Skip over staff user IDs
-                if (data == "NULL") {
-                    row.clear();
-                    break;
-
-                } else {
-                    // Read rent receipts into vector
-                    stringstream dat(data);
-                    while (getline(dat, record, '&')) {
-                        stringstream rec(record);
-                        while (getline(rec, field, ';')) {
-                            row.push_back(field);
-                        }
-                    }
-                    break;
-                }
-
-            } else {
-                continue;
-            }
-        }
-        if (!row.empty())
-            rentReceipts.push_back(row);
-    }
-    inputFile.close();
-
-
-    // Display all tenants' rent receipts
-    cout << left << setw(40) << "All Tenants Rent Receipts" << endl;
     cout << left << setw(40) << "-------------------------------" << endl;
 
     int k;          //Keep track of each rent receipt for each tenant
@@ -131,5 +62,4 @@ void ViewRentReceipts::displayAllTenantsRentReceipts() {
         }
         cout << endl << endl;
     }
-
 }

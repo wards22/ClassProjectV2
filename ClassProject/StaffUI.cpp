@@ -348,7 +348,7 @@ void StaffUI::displayRentMenu(int user_ID) {
 
     // [1] View Rent Receipts
     if (option == 1) {
-        ManageRent::manageRentForStaff(NULL, option);
+        ManageRent::manageRentForStaff(user_ID, option);
         displayRentMenu(user_ID);
 
     } // [2] Create Rent Receipt

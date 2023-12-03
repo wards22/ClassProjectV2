@@ -8,19 +8,19 @@
 
 
 #include "ViewNotifications.h"
+#include <vector>
+#include <string>
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 using namespace std;
 
-void ViewNotifications::displayNotifications()
+void ViewNotifications::displayNotifications(const vector<vector<string>>& notifications)
 {
-	/*
-	cout << left << setw(40) << "Rent Receipts" << endl;
+	cout << left << setw(40) << "Notifications" << endl;
 	cout << left << setw(40) << "-------------------------------" << endl;
 
-	for (auto i = rentReceipts.begin(); i != rentReceipts.end(); i++) {
+	for (auto i = notifications.begin(); i != notifications.end(); i++) {
 		for (auto j = i->begin(); ;) {
 			cout << left << setw(10) << "Date:           " << setw(30) << *j << endl;
 			cout << left << setw(10) << "Reference #:    " << setw(30) << *(j + 1) << endl;
@@ -30,6 +30,6 @@ void ViewNotifications::displayNotifications()
 			break;
 		}
 		cout << endl;
-	} */
+	}
 
 }

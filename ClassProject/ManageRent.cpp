@@ -3,7 +3,7 @@
  * Description: Implementation file for ManageTenantAccount
  * Contributors: Crischelle Polley
  * Date created: Nov 27 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 3 2023
 */
 
 #include "ManageRent.h"
@@ -21,7 +21,7 @@ void ManageRent::manageRentForTenant(int uid, int option, string s) {
     // [1] View Rent Receipts
     // This will access View Rent Receipt boundary class
     if (option == 1) {
-        ViewRentReceipts::displayTenantRentReceipts(rent.getRentReceipts());
+        ViewRentReceipts::displayRentReceipts(rent.getRentReceipts());
     }
 
     // [2] Set Payment Method
@@ -64,10 +64,11 @@ void ManageRent::manageRentForTenant(int uid, int option, string s) {
 
 
 void ManageRent::manageRentForStaff(int uid, int option) {
+    Rent rent(uid);
     // [1] View Rent Receipts
     // This will access View Rent Receipts boundary class
     if (option == 1) {
-        ViewRentReceipts::displayAllTenantsRentReceipts();
+        ViewRentReceipts::displayRentReceipts(rent.getRentReceipts());
     }
     
     // [2] Create Rent Receipt

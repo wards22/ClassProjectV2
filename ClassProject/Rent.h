@@ -82,13 +82,6 @@ class Rent {
 
     void writeRentReceipt(int);
 
-    void createRentReceipt();
-
-    void editRentReceipt();
-
-    void deleteRentReceipt();
-
-    void submitReceipt();
 };
 
 #endif

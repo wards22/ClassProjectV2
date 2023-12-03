@@ -186,7 +186,6 @@
     <ClInclude Include="ViewTenantInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="Notifications.csv" />
     <None Include="RentReceipts.csv" />
     <None Include="Test.csv" />

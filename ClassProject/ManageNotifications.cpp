@@ -4,7 +4,7 @@
  *              features of the Apartment Services System
  * Contributors: Crischelle Polley
  * Date created: Nov 28 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 3 2023
 */
 
 #include "ManageNotifications.h"
@@ -20,7 +20,7 @@ void ManageNotifications::manageNotifications(int uid, int option) {
     // [1] View Notifications
     // This will access View Notifications boundary class
     if (option == 1) {
-        ViewNotifications::displayNotifications();
+        ViewNotifications::displayNotifications(note.getNotifications());
     }
 
     // Rest of options are only for staff
