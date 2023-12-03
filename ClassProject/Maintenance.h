@@ -3,7 +3,7 @@
  * Description: Stores long term information pertatining to maintenance requests
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Nov 26 2023
+ * Date last modified: Dec 3 2023
 */
 
 #pragma once
@@ -11,9 +11,6 @@
 #define MAINTENANCE_REQUEST_H
 
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
 
 using namespace std;
 
@@ -28,38 +25,31 @@ class MaintenanceRequest {
 
     public:
 
-    MaintenanceRequest() {
-        cout << "This is Maintenance Request's default constructor" << endl;
-    }
+    MaintenanceRequest();
 
-    MaintenanceRequest(string refNum) {
-        referenceNum = refNum;
-        readStatus(referenceNum);
-    }
+    MaintenanceRequest(string);
 
-    ~MaintenanceRequest() {
-        cout << "This is Maintenance Request's destructor" << endl;
-    }
+    ~MaintenanceRequest();
 
-    string getReferenceNum() const { return referenceNum; }
+    string getReferenceNum() const;
 
-    void setReferenceNum(const string& rn) { referenceNum = rn; }
+    void setReferenceNum(const string&);
 
-    string getDescription() const { return description; }
+    string getDescription() const;
 
-    void setDescription(const string& d) { description = d; }
+    void setDescription(const string&);
 
-    string getUserID() const { return tenantUserID; }
+    string getUserID() const;
 
-    void setUserID(const int& uid) { tenantUserID = uid; }
+    void setUserID(const int&);
 
-    string getTenantName() const { return tenantName; }
+    string getTenantName() const;
 
-    void setTenantName(const string& n) { tenantName = n; }
+    void setTenantName(const string&);
 
-    string getStatus() const { return status; }
+    string getStatus() const;
 
-    void setStatus(const string& st) { status = st; }
+    void setStatus(const string&);
 
     void readStatus(string);
 

@@ -3,7 +3,7 @@
  * Description: Staff class for holiding long term info on staff
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Dec 2 2023
+ * Date last modified: Dec 3 2023
 */
 
 #pragma once
@@ -13,7 +13,6 @@
 #include <string>
 
 using namespace std;
-
 
 
 class Staff {
@@ -29,94 +28,44 @@ class Staff {
 
 
     public:
-    //Modeled after tenant constructor/destructor. Need to figure out how to build one
-    //from information in spreadsheet. May need to pull something from when the user logins
-    Staff() {
-        cout << "This is Staff's default constructor" << endl;
-    }
 
-    Staff(int user_ID) {
-        userID = user_ID;
-        readStaffInfo(userID);
-    }
+    Staff();
 
-    ~Staff() {
-        cout << "This is Staff destructor" << endl;
-    }
+    Staff(int);
 
-    string getUsername() const
-    {
-        return username;
-    }
+    ~Staff();
 
-    void setUsername(const string& un)
-    {
-        username = un;
-    }
+    string getUsername() const;
 
-    string getPassword() const
-    {
-        return password;
-    }
+    void setUsername(const string&);
 
-    void setPassword(const string& pw)
-    {
-        password = pw;
-    }
+    string getPassword() const;
 
-    string getUserType() const
-    {
-        return userType;
-    }
+    void setPassword(const string&);
 
-    void setUserType(const string& ut)
-    {
-        userType = ut;
-    }
+    string getUserType() const;
 
-    int getUserID() const
-    {
-        return userID;
-    }
+    void setUserType(const string&);
 
-    void setUserID(const int& uid)
-    {
-        userID = uid;
-    }
+    int getUserID() const;
 
-    string getName() const
-    {
-        return name;
-    }
+    void setUserID(const int&);
 
-    void setName(const string& n)
-    {
-        name = n;
-    }
+    string getName() const;
 
-    string getPhoneNum() const
-    {
-        return phoneNum;
-    }
+    void setName(const string&);
 
-    void setPhoneNum(const string& pn)
-    {
-        phoneNum = pn;
-    }
+    string getPhoneNum() const;
 
-    string getEmail() const
-    {
-        return email;
-    }
+    void setPhoneNum(const string&);
 
-    void setEmail(const string& e)
-    {
-        email = e;
-    }
+    string getEmail() const;
 
-    void writeStaffInfo(int user_ID, int index, string str);
+    void setEmail(const string&);
 
-    void readStaffInfo(int user_ID);
+    void writeStaffInfo(int, int, string);
+
+    void readStaffInfo(int);
 
 };
 

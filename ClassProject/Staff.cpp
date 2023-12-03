@@ -3,7 +3,7 @@
  * Description: Staff class for holiding long term info on staff
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Nov 25 2023
+ * Date last modified: Dec 3 2023
 */
 
 #include <string>
@@ -16,6 +16,91 @@ using namespace std;
 
 #include "Staff.h"
 
+
+//Modeled after tenant constructor/destructor. Need to figure out how to build one
+   //from information in spreadsheet. May need to pull something from when the user logins
+Staff::Staff() {
+    cout << "This is Staff's default constructor" << endl;
+}
+
+Staff::Staff(int user_ID) {
+    userID = user_ID;
+    readStaffInfo(userID);
+}
+
+Staff::~Staff() {
+    cout << "This is Staff destructor" << endl;
+}
+
+string Staff::getUsername() const
+{
+    return username;
+}
+
+void Staff::setUsername(const string& un)
+{
+    username = un;
+}
+
+string Staff::getPassword() const
+{
+    return password;
+}
+
+void Staff::setPassword(const string& pw)
+{
+    password = pw;
+}
+
+string Staff::getUserType() const
+{
+    return userType;
+}
+
+void Staff::setUserType(const string& ut)
+{
+    userType = ut;
+}
+
+int Staff::getUserID() const
+{
+    return userID;
+}
+
+void Staff::setUserID(const int& uid)
+{
+    userID = uid;
+}
+
+string Staff::getName() const
+{
+    return name;
+}
+
+void Staff::setName(const string& n)
+{
+    name = n;
+}
+
+string Staff::getPhoneNum() const
+{
+    return phoneNum;
+}
+
+void Staff::setPhoneNum(const string& pn)
+{
+    phoneNum = pn;
+}
+
+string Staff::getEmail() const
+{
+    return email;
+}
+
+void Staff::setEmail(const string& e)
+{
+    email = e;
+}
 
 void Staff::readStaffInfo(int user_ID) {
 
