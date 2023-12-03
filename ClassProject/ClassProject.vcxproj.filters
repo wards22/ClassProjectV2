@@ -173,15 +173,6 @@
     <ClCompile Include="ViewTenantInfo.cpp">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClCompile>
-    <ClCompile Include="ManageApartment.cpp">
-      <Filter>ControlClasses\ManageApartment</Filter>
-    </ClCompile>
-    <ClCompile Include="ManageApplication.cpp">
-      <Filter>ControlClasses\ManageApplication</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewApplication.cpp">
-      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -197,19 +188,19 @@
     <None Include="Test.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="MaintenanceRecords.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="LeaseRecords.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="FloorPlanRecords.csv">
+    <None Include="ApartmentRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Applications.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ApartmentRecords.csv">
+    <None Include="FloorPlanRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="LeaseRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MaintenanceRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -286,15 +277,6 @@
     <ClInclude Include="ViewTenantInfo.h">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClInclude>
-    <ClInclude Include="ManageApplication.h">
-      <Filter>ControlClasses\ManageApplication</Filter>
-    </ClInclude>
-    <ClInclude Include="ManageApartment.h">
-      <Filter>ControlClasses\ManageApartment</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewApplication.h">
-      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">
@@ -303,22 +285,28 @@
     <Text Include="User-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Maintenance-Records-Header-Reference.txt">
+    <Text Include="NotificationsHeaderReference.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Lease-Records-Header-Reference.txt">
+    <Text Include="RentReceiptsHeaderReference.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="ApartmentComplexInfo.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Floor-Plan-Records-Header-Reference.txt">
+    <Text Include="Apartment-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="Applications-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Apartment-Records-Header-Reference.txt">
+    <Text Include="Floor-Plan-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Lease-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Maintenance-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -186,14 +186,25 @@
     <ClInclude Include="ViewTenantInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApartmentRecords.csv" />
+    <None Include="Applications.csv" />
     <None Include="ClassDiagram.cd" />
+    <None Include="FloorPlanRecords.csv" />
+    <None Include="LeaseRecords.csv" />
+    <None Include="MaintenanceRecords.csv" />
     <None Include="Notifications.csv" />
     <None Include="RentReceipts.csv" />
     <None Include="Test.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Apartment-Records-Header-Reference.txt" />
+    <Text Include="ApartmentComplexInfo.txt" />
+    <Text Include="Applications-Header-Reference.txt" />
+    <Text Include="Floor-Plan-Records-Header-Reference.txt" />
     <Text Include="FloorPlan.txt" />
+    <Text Include="Lease-Records-Header-Reference.txt" />
+    <Text Include="Maintenance-Records-Header-Reference.txt" />
     <Text Include="NotificationsHeaderReference.txt" />
     <Text Include="RentReceiptsHeaderReference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
