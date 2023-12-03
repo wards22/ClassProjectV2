@@ -29,7 +29,7 @@ Staff::Staff(int user_ID) {
 }
 
 Staff::~Staff() {
-    cout << "This is Staff destructor" << endl;
+
 }
 
 string Staff::getUsername() const

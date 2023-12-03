@@ -31,52 +31,45 @@ class Lease {
 
     public:
 
-        Lease() {
-            cout << "This is the Lease's default constructor" << endl;
-        }
+        Lease();
 
-        Lease(string refNum) {
-            referenceNum = refNum;
-            readLease(referenceNum);
-        }
+        Lease(string);
 
-        ~Lease() {
-            cout << "This is the Lease's destructor" << endl;
-        }
+        ~Lease();
 
-        string getBeginningDate() const { return beginningDate; }
+        string getBeginningDate() const;
 
-        void setBeginningDate(const string& bd) { beginningDate = bd; }
+        void setBeginningDate(const string&);
 
-        string getEndingDate() const { return endingDate; }
+        string getEndingDate() const;
 
-        void setEndingDate(const string& ed) { endingDate = ed; }
+        void setEndingDate(const string&);
 
-        string getDateLastModified() const { return dateLastModified; }
+        string getDateLastModified() const;
 
-        void setDateLastModified(const string& dlm) { beginningDate = dlm; }
+        void setDateLastModified(const string&);
 
-        string getReferenceNum() const { return referenceNum; }
+        string getReferenceNum() const;
 
-        void setReferenceNum(const string& rn) { referenceNum = rn; }
+        void setReferenceNum(const string&);
 
-        string getLeaseText() const { return leaseText; }
+        string getLeaseText() const;
 
-        void setLeaseText(const string& lt) { leaseText = lt; }
+        void setLeaseText(const string&);
 
-        string getTenantName() const { return tenantName; }
+        string getTenantName() const;
 
-        void setTenantName(const string& tn) { tenantName = tn; }
+        void setTenantName(const string&);
 
-        string getTenantUserID() const { return tenantUserID; }
+        string getTenantUserID() const;
 
-        string getApartmentNum() const { return aptNumber; }
+        string getApartmentNum() const;
 
-        void setApartmentNum(const string& apt) { aptNumber = apt; }
+        void setApartmentNum(const string&);
 
-        string getRentAmount() const { return rentAmt; }
+        string getRentAmount() const;
 
-        void setRentAmount(const string& rnt) { rentAmt = rnt; }
+        void setRentAmount(const string&);
 
         void readLease(string);
 

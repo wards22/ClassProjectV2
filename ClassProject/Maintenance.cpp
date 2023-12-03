@@ -28,6 +28,11 @@ MaintenanceRequest::MaintenanceRequest(string refNum) {
 MaintenanceRequest::~MaintenanceRequest() {
     cout << "This is Maintenance Request's destructor" << endl;
 }
+string MaintenanceRequest::getDate() const
+    { return date; }
+
+void MaintenanceRequest::setDate(const string& d) 
+    { date = d; }
 
 string MaintenanceRequest::getReferenceNum() const 
     { return referenceNum; }
@@ -41,10 +46,10 @@ string MaintenanceRequest::getDescription() const
 void MaintenanceRequest::setDescription(const string& d) 
     { description = d; }
 
-string MaintenanceRequest::getUserID() const 
+string MaintenanceRequest::getTenantUserID() const 
     { return tenantUserID; }
 
-void MaintenanceRequest::setUserID(const int& uid) 
+void MaintenanceRequest::setTenantUserID(const string& uid) 
     { tenantUserID = uid; }
 
 string MaintenanceRequest::getTenantName() const 
@@ -162,7 +167,7 @@ void MaintenanceRequest::writeNewRecord(string user_ID, string tenant_name, stri
     row.push_back(description);
     row.push_back(status);
 
-    outputFile << "\n" << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << "," << row[4] << "," << row[5];
+    outputFile << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << "," << row[4] << "," << row[5] << "\n";
 
     outputFile.close();
 

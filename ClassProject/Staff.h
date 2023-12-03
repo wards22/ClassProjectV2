@@ -30,47 +30,38 @@ private:
 
 public:
 
-    Staff() {
-        cout << "This is Staff's default constructor" << endl;
-    }
-    //pulls user ID upon login, passes it to constructor and uses read
-    //staff info to construct a staff object
-    Staff(int user_ID) {
-        userID = user_ID;
-        readStaffInfo(userID);
-    }
+    Staff();
+    Staff(int user_ID);
 
-    ~Staff() {
-        cout << "This is Staff destructor" << endl;
-    }
+    ~Staff();
 
-    string getUsername() const { return username; }
+    string getUsername() const;
 
-    void setUsername(const string& un) { username = un; }
+    void setUsername(const string&);
 
-    string getPassword() const { return password; }
+    string getPassword() const;
 
-    void setPassword(const string& pw) { password = pw; }
+    void setPassword(const string&);
 
-    string getUserType() const { return userType; }
+    string getUserType() const;
 
-    void setUserType(const string& ut) { userType = ut; }
+    void setUserType(const string&);
 
-    int getUserID() const { return userID; }
+    int getUserID() const;
 
-    void setUserID(const int& uid) { userID = uid; }
+    void setUserID(const int&);
 
-    string getName() const { return name; }
+    string getName() const;
 
-    void setName(const string& n) { name = n; }
+    void setName(const string&);
 
-    string getPhoneNum() const { return phoneNum; }
+    string getPhoneNum() const;
 
-    void setPhoneNum(const string& pn) { phoneNum = pn; }
+    void setPhoneNum(const string&);
 
-    string getEmail() const { return email; }
+    string getEmail() const;
 
-    void setEmail(const string& e) { email = e; }
+    void setEmail(const string& e);
 
     void writeStaffInfo(int, int, string);
 

@@ -140,6 +140,8 @@
     <ClCompile Include="Lease.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Maintenance.cpp" />
+    <ClCompile Include="ManageApartment.cpp" />
+    <ClCompile Include="ManageApplication.cpp" />
     <ClCompile Include="ManageLease.cpp" />
     <ClCompile Include="ManageMaintenance.cpp" />
     <ClCompile Include="ManageNotifications.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="Tenant.cpp" />
     <ClCompile Include="TenantUI.cpp" />
     <ClCompile Include="ViewApartmentInfo.cpp" />
+    <ClCompile Include="ViewApplication.cpp" />
     <ClCompile Include="ViewLease.cpp" />
     <ClCompile Include="ViewNotifications.cpp" />
     <ClCompile Include="ViewRentReceipts.cpp" />
@@ -166,6 +169,8 @@
     <ClInclude Include="GeneralUI.h" />
     <ClInclude Include="Lease.h" />
     <ClInclude Include="Maintenance.h" />
+    <ClInclude Include="ManageApartment.h" />
+    <ClInclude Include="ManageApplication.h" />
     <ClInclude Include="ManageLease.h" />
     <ClInclude Include="ManageMaintenance.h" />
     <ClInclude Include="ManageNotifications.h" />
@@ -179,6 +184,7 @@
     <ClInclude Include="Tenant.h" />
     <ClInclude Include="TenantUI.h" />
     <ClInclude Include="ViewApartmentInfo.h" />
+    <ClInclude Include="ViewApplication.h" />
     <ClInclude Include="ViewLease.h" />
     <ClInclude Include="ViewNotifications.h" />
     <ClInclude Include="ViewRentReceipts.h" />

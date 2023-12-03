@@ -28,42 +28,35 @@ class MaintenanceRequest {
 
     public:
 
-        MaintenanceRequest() {
-            cout << "This is Maintenance Request's default constructor" << endl;
-        }
+        MaintenanceRequest();
 
-        MaintenanceRequest(string refNum) {
-            referenceNum = refNum;
-            readStatus(referenceNum);
-        }
+        MaintenanceRequest(string);
 
-        ~MaintenanceRequest() {
-            cout << "This is Maintenance Request's destructor" << endl;
-        }
+        ~MaintenanceRequest();
         
-        string getDate() const { return date; }
+        string getDate() const;
 
-        void setDate(const string& dt) { date = dt; }
+        void setDate(const string&);
 
-        string getReferenceNum() const { return referenceNum; }
+        string getReferenceNum() const;
 
-        void setReferenceNum(const string& rn) { referenceNum = rn; }
+        void setReferenceNum(const string&);
 
-        string getDescription() const { return description; }
+        string getDescription() const;
 
-        void setDescription(const string& d) { description = d; }
+        void setDescription(const string&);
 
-        string getTenantUserID() const { return tenantUserID; }
+        string getTenantUserID() const;
 
-        void setTenantUserID(const string& uid) { tenantUserID = uid; }
+        void setTenantUserID(const string&);
 
-        string getTenantName() const { return tenantName; }
+        string getTenantName() const;
 
-        void setTenantName(const string& n) { tenantName = n; }
+        void setTenantName(const string&);
 
-        string getStatus() const { return status; }
+        string getStatus() const;
 
-        void setStatus(const string& st) { status = st; }
+        void setStatus(const string&);
 
         void readStatus(string);
 

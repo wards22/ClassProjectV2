@@ -173,6 +173,15 @@
     <ClCompile Include="ViewTenantInfo.cpp">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClCompile>
+    <ClCompile Include="ViewApplication.cpp">
+      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageApplication.cpp">
+      <Filter>ControlClasses\ManageApplication</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageApartment.cpp">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -276,6 +285,15 @@
     </ClInclude>
     <ClInclude Include="ViewTenantInfo.h">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewApplication.h">
+      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageApplication.h">
+      <Filter>ControlClasses\ManageApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageApartment.h">
+      <Filter>ControlClasses\ManageApartment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
