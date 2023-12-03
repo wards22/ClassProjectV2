@@ -3,7 +3,7 @@
  * Description: Staff class for holiding long term info on staff
  * Contributors: Scott Ward
  * Date created: Dec 1 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 3 2023
 */
 
 #include <string>
@@ -15,6 +15,49 @@
 using namespace std;
 
 #include "Maintenance.h"
+
+MaintenanceRequest::MaintenanceRequest() {
+    cout << "This is Maintenance Request's default constructor" << endl;
+}
+
+MaintenanceRequest::MaintenanceRequest(string refNum) {
+    referenceNum = refNum;
+    readStatus(referenceNum);
+}
+
+MaintenanceRequest::~MaintenanceRequest() {
+    cout << "This is Maintenance Request's destructor" << endl;
+}
+
+string MaintenanceRequest::getReferenceNum() const 
+    { return referenceNum; }
+
+void MaintenanceRequest::setReferenceNum(const string& rn) 
+    { referenceNum = rn; }
+
+string MaintenanceRequest::getDescription() const 
+    { return description; }
+
+void MaintenanceRequest::setDescription(const string& d) 
+    { description = d; }
+
+string MaintenanceRequest::getUserID() const 
+    { return tenantUserID; }
+
+void MaintenanceRequest::setUserID(const int& uid) 
+    { tenantUserID = uid; }
+
+string MaintenanceRequest::getTenantName() const 
+    { return tenantName; }
+
+void MaintenanceRequest::setTenantName(const string& n) 
+    { tenantName = n; }
+
+string MaintenanceRequest::getStatus() const
+    { return status; }
+
+void MaintenanceRequest::setStatus(const string& st)
+    { status = st; }
 
 void MaintenanceRequest::readStatus(string refID) {
     fstream inputFile;

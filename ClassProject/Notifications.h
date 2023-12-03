@@ -29,30 +29,15 @@ class Notifications {
 
 
     public:
-    string getTitle() const
-    {
-        return title;
-    }
+    string getTitle() const;
 
-    void setTitle(const string& t)
-    {
-        title = t;
-    }
+    void setTitle(const string&);
 
-    string getContent() const
-    {
-        return content;
-    }
+    string getContent() const;
 
-    void setContent(const string& c)
-    {
-        content = c;
-    }
+    void setContent(const string&);
 
-    bool getPostNoteStatus() const
-    {
-        return postNoteStatus;
-    }
+    bool getPostNoteStatus() const;
 
     void readNotification();
 

@@ -3,7 +3,7 @@
  * Description: Creates and modifies tenant's Rent file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 3 2023
  */
 
 #pragma once
@@ -32,106 +32,49 @@ class Rent {
 
     string formatDate(const string&, const string&, const string&);
 
-    float formatMoney(float m) const;
+    float formatMoney(float) const;
 
 
     public:
-    Rent() {
-        paymentMethod = "";
-        date = "";
-        referenceNum = "";
-        description = "";
-        // Set to NULL because it can be negative
-        amount = NULL;
-        // Set to NULL because it can be negative
-        balanceDue = NULL;
-        // Set to NULL because it can be negative
-        remainingBalanceDue = NULL;
-        isInProgress = false;
-    }
+    Rent();
 
-    Rent(int uid) {
-        balanceDue = -32.65;
-        readRentReceipt(uid);
-    }
+    Rent(int);
 
-    string getPaymentMethod() const
-    {
-        return paymentMethod;
-    }
+    string getPaymentMethod() const;
 
-    void setPaymentMethod(const string& pm)
-    {
-        paymentMethod = pm;
-    }
+    void setPaymentMethod(const string&);
 
-    void setMonth(const string& mm) {
-        month = mm;
-    }
+    void setMonth(const string&);
 
-    void setDay(const string& dd) {
-        day = dd;
-    }
+    void setDay(const string&);
 
-    void setYear(const string& yyyy) {
-        year = yyyy;
-    }
+    void setYear(const string&);
 
-    string getDate() const {
-        return date;
-    }
+    string getDate() const;
 
-    void setDate(const string& mm, const string& dd, const string& yyyy) {
-        date = formatDate(mm, dd, yyyy);
-    }
+    void setDate(const string&, const string&, const string&);
 
-    string getReferenceNum() const
-    {
-        return referenceNum;
-    }
+    string getReferenceNum() const;
 
-    void setReferenceNum(const string& rn)
-    {
-        referenceNum = rn;
-    }
+    void setReferenceNum(const string&);
 
-    string getDescription() const
-    {
-        return description;
-    }
+    string getDescription() const;
 
-    void setDescription(const string& d)
-    {
-        description = d;
-    }
+    void setDescription(const string&);
 
-    float getAmount() const {
-        return formatMoney(amount);
-    }
+    float getAmount() const;
 
-    void setAmount(const float& a) {
-        amount = a;
-    }
+    void setAmount(const float&);
 
-    float getBalanceDue() const {
-        return formatMoney(balanceDue);
-    }
+    float getBalanceDue() const;
 
-    void setBalanceDue(const float& bd) {
-        balanceDue = bd;
-    }
+    void setBalanceDue(const float&);
 
-    bool getProgressStatus() const {
-        return isInProgress;
-    }
+    bool getProgressStatus() const;
 
-    vector<vector<string>> getRentReceipts() const {
-        return rentReceipts;
-    }
+    vector<vector<string>> getRentReceipts() const;
 
-    void setRentReceipts(const vector<vector<string>>& rr) {
-        rentReceipts = rr;
-    }
+    void setRentReceipts(const vector<vector<string>>&);
 
     float payRentReceipt(const float&);
 

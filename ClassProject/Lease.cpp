@@ -3,7 +3,7 @@
  * Description: Implemenation of Lease members
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Dec 1 2023
+ * Date last modified: Dec 3 2023
 */
 
 
@@ -18,6 +18,70 @@ using namespace std;
 
 #include "Lease.h"
 
+
+Lease::Lease() {
+    cout << "This is the Lease's default constructor" << endl;
+}
+
+Lease::Lease(string refNum) {
+    referenceNum = refNum;
+    readLease(referenceNum);
+}
+
+Lease::~Lease() {
+    cout << "This is the Lease's destructor" << endl;
+}
+
+string Lease::getBeginningDate() const 
+    { return beginningDate; }
+
+void Lease::setBeginningDate(const string& bd) 
+    { beginningDate = bd; }
+
+string Lease::getEndingDate() const 
+    { return endingDate; }
+
+void Lease::setEndingDate(const string& ed) 
+    { endingDate = ed; }
+
+string Lease::getDateLastModified() const 
+    { return dateLastModified; }
+
+void Lease::setDateLastModified(const string& dlm) 
+    { beginningDate = dlm; }
+
+string Lease::getReferenceNum() const 
+    { return referenceNum; }
+
+void Lease::setReferenceNum(const string& rn) 
+    { referenceNum = rn; }
+
+string Lease::getLeaseText() const 
+    { return leaseText; }
+
+void Lease::setLeaseText(const string& lt) 
+    { leaseText = lt; }
+
+string Lease::getTenantName() const 
+    { return tenantName; }
+
+void Lease::setTenantName(const string& tn) 
+    { tenantName = tn; }
+
+string Lease::getTenantUserID() const 
+    { return tenantUserID; }
+
+string Lease::getApartmentNum() const 
+    { return aptNumber; }
+
+void Lease::setApartmentNum(const string& apt) 
+    { aptNumber = apt; }
+
+string Lease::getRentAmount() const 
+    { return rentAmt; }
+
+void Lease::setRentAmount(const string& rnt) 
+    { rentAmt = rnt; }
 
 void Lease::readLease(string refNum) {
     fstream inputFile;

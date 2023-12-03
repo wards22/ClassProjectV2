@@ -3,7 +3,7 @@
  * Description: Creates and modifies tenant's Rent file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 3 2023
 */
 
 #include "Rent.h"
@@ -58,6 +58,103 @@ float Rent::formatMoney(float m) const {
     m = stof(money);
 
     return m;
+}
+
+Rent::Rent() {
+    paymentMethod = "";
+    date = "";
+    referenceNum = "";
+    description = "";
+    // Set to NULL because it can be negative
+    amount = NULL;
+    // Set to NULL because it can be negative
+    balanceDue = NULL;
+    // Set to NULL because it can be negative
+    remainingBalanceDue = NULL;
+    isInProgress = false;
+}
+
+Rent::Rent(int uid) {
+    balanceDue = -32.65;
+    readRentReceipt(uid);
+}
+
+string Rent::getPaymentMethod() const
+{
+    return paymentMethod;
+}
+
+void Rent::setPaymentMethod(const string& pm)
+{
+    paymentMethod = pm;
+}
+
+void Rent::setMonth(const string& mm) {
+    month = mm;
+}
+
+void Rent::setDay(const string& dd) {
+    day = dd;
+}
+
+void Rent::setYear(const string& yyyy) {
+    year = yyyy;
+}
+
+string Rent::getDate() const {
+    return date;
+}
+
+void Rent::setDate(const string& mm, const string& dd, const string& yyyy) {
+    date = formatDate(mm, dd, yyyy);
+}
+
+string Rent::getReferenceNum() const
+{
+    return referenceNum;
+}
+
+void Rent::setReferenceNum(const string& rn)
+{
+    referenceNum = rn;
+}
+
+string Rent::getDescription() const
+{
+    return description;
+}
+
+void Rent::setDescription(const string& d)
+{
+    description = d;
+}
+
+float Rent::getAmount() const {
+    return formatMoney(amount);
+}
+
+void Rent::setAmount(const float& a) {
+    amount = a;
+}
+
+float Rent::getBalanceDue() const {
+    return formatMoney(balanceDue);
+}
+
+void Rent::setBalanceDue(const float& bd) {
+    balanceDue = bd;
+}
+
+bool Rent::getProgressStatus() const {
+    return isInProgress;
+}
+
+vector<vector<string>> Rent::getRentReceipts() const {
+    return rentReceipts;
+}
+
+void Rent::setRentReceipts(const vector<vector<string>>& rr) {
+    rentReceipts = rr;
 }
 
 float Rent::payRentReceipt(const float& r) {

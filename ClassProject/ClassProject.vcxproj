@@ -140,8 +140,6 @@
     <ClCompile Include="Lease.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Maintenance.cpp" />
-    <ClCompile Include="ManageApartment.cpp" />
-    <ClCompile Include="ManageApplication.cpp" />
     <ClCompile Include="ManageLease.cpp" />
     <ClCompile Include="ManageMaintenance.cpp" />
     <ClCompile Include="ManageNotifications.cpp" />
@@ -155,7 +153,6 @@
     <ClCompile Include="Tenant.cpp" />
     <ClCompile Include="TenantUI.cpp" />
     <ClCompile Include="ViewApartmentInfo.cpp" />
-    <ClCompile Include="ViewApplication.cpp" />
     <ClCompile Include="ViewLease.cpp" />
     <ClCompile Include="ViewNotifications.cpp" />
     <ClCompile Include="ViewRentReceipts.cpp" />
@@ -169,8 +166,6 @@
     <ClInclude Include="GeneralUI.h" />
     <ClInclude Include="Lease.h" />
     <ClInclude Include="Maintenance.h" />
-    <ClInclude Include="ManageApartment.h" />
-    <ClInclude Include="ManageApplication.h" />
     <ClInclude Include="ManageLease.h" />
     <ClInclude Include="ManageMaintenance.h" />
     <ClInclude Include="ManageNotifications.h" />
@@ -184,7 +179,6 @@
     <ClInclude Include="Tenant.h" />
     <ClInclude Include="TenantUI.h" />
     <ClInclude Include="ViewApartmentInfo.h" />
-    <ClInclude Include="ViewApplication.h" />
     <ClInclude Include="ViewLease.h" />
     <ClInclude Include="ViewNotifications.h" />
     <ClInclude Include="ViewRentReceipts.h" />
@@ -192,25 +186,16 @@
     <ClInclude Include="ViewTenantInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ApartmentRecords.csv" />
-    <None Include="Applications.csv" />
-    <None Include="FloorPlanRecords.csv" />
     <None Include="ClassDiagram.cd" />
-    <None Include="LeaseRecords.csv" />
-    <None Include="MaintenanceRecords.csv" />
     <None Include="Notifications.csv" />
     <None Include="RentReceipts.csv" />
     <None Include="Test.csv" />
     <None Include="UserRecords.csv" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Apartment-Records-Header-Reference.txt" />
-    <Text Include="Applications-Header-Reference.txt" />
-    <Text Include="Floor-Plan-Records-Header-Reference.txt" />
-    <Text Include="ApartmentComplexInfo.txt" />
     <Text Include="FloorPlan.txt" />
-    <Text Include="Lease-Records-Header-Reference.txt" />
-    <Text Include="Maintenance-Records-Header-Reference.txt" />
+    <Text Include="NotificationsHeaderReference.txt" />
+    <Text Include="RentReceiptsHeaderReference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
