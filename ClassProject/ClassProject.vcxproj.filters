@@ -261,5 +261,11 @@
     <Text Include="User-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="NotificationsHeaderReference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="RentReceiptsHeaderReference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

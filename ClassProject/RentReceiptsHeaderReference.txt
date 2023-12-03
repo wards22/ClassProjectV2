@@ -1,0 +1,4 @@
+UserID = 0
+PaymentMethod = 1 
+ProgressStatus = 2
+RentReceipt = 4

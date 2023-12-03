@@ -63,6 +63,31 @@ string Notifications::formatDateTime(const char* dt) const {
     return s;
 }
 
+string Notifications::getTitle() const
+{
+    return title;
+}
+
+void Notifications::setTitle(const string& t)
+{
+    title = t;
+}
+
+string Notifications::getContent() const
+{
+    return content;
+}
+
+void Notifications::setContent(const string& c)
+{
+    content = c;
+}
+
+bool Notifications::getPostNoteStatus() const
+{
+    return postNoteStatus;
+}
+
 void Notifications::readNotification() {
     // When reading from notifications file, must replace delimiter (`) with commas
     // Also must replace delimiter (_) with newlines

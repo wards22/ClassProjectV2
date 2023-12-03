@@ -1,0 +1,5 @@
+UserID (staff only) = 0
+PostNoteStatus = 1 
+Title = 2
+Content = 3
+DatePosted = 4

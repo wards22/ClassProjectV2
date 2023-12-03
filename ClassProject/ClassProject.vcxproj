@@ -194,6 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt" />
+    <Text Include="NotificationsHeaderReference.txt" />
+    <Text Include="RentReceiptsHeaderReference.txt" />
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
