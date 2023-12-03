@@ -21,6 +21,7 @@ using namespace std;
 #include "Staff.h"
 #include "Tenant.h"
 #include "ViewApartmentInfo.h"
+#include "ViewApplication.h"
 
 void GeneralUI::displayGeneralUI() {
 
@@ -105,8 +106,6 @@ void GeneralUI::displayGeneralUI() {
             displayGeneralUI();
         }
 }
-
-
 
 
 bool GeneralUI::validateUser(string username, string password) {
@@ -220,6 +219,7 @@ void GeneralUI::viewFloorPlans() {
 
 void GeneralUI::viewApplication() {
 
+    ViewApplicationInfo::submitApplication();
 }
 
 void GeneralUI::viewApartmentComplexInfo() {

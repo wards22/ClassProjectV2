@@ -184,7 +184,7 @@ void DisplayMaintenanceRequestInfo::displayAllMaintenanceForStaff() {
     maintenanceFile.open("MaintenanceRecords.csv", ios::in);
 
     vector<string> row;
-    string line, data, temp;
+    string line, data;
 
     while (getline(maintenanceFile, line)) {
         row.clear();
@@ -209,7 +209,7 @@ void DisplayMaintenanceRequestInfo::displayOpenMaintenceForStaff() {
     maintenanceFile.open("MaintenanceRecords.csv", ios::in);
 
     vector<string> row;
-    string line, data, temp;
+    string line, data;
 
     while (getline(maintenanceFile, line)) {
         row.clear();
@@ -237,7 +237,7 @@ void DisplayMaintenanceRequestInfo::displayClosedMaintenanceForStaff() {
     maintenanceFile.open("MaintenanceRecords.csv", ios::in);
 
     vector<string> row;
-    string line, data, temp;
+    string line, data;
 
     while (getline(maintenanceFile, line)) {
         row.clear();

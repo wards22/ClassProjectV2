@@ -86,6 +86,15 @@
     <Filter Include="BoundaryClasses\DisplayMaintenanceRequestInfo">
       <UniqueIdentifier>{a7484620-eb66-4fd5-9765-636deaceb9f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ControlClasses\ManageApplication">
+      <UniqueIdentifier>{76018e55-db73-4738-8b9f-ca5bedf6c28e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ControlClasses\ManageApartment">
+      <UniqueIdentifier>{72d19b6a-a0fe-46fc-bf46-6563878ebe12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BoundaryClasses\ViewApplicaiton">
+      <UniqueIdentifier>{e3ae4816-254b-4978-8aeb-3ae6f7524d6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneralUI.cpp">
@@ -164,6 +173,15 @@
     <ClCompile Include="ViewTenantInfo.cpp">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClCompile>
+    <ClCompile Include="ManageApartment.cpp">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageApplication.cpp">
+      <Filter>ControlClasses\ManageApplication</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewApplication.cpp">
+      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -177,6 +195,21 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Test.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="MaintenanceRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="LeaseRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="FloorPlanRecords.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Applications.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ApartmentRecords.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -253,12 +286,39 @@
     <ClInclude Include="ViewTenantInfo.h">
       <Filter>BoundaryClasses\ViewTenantInfo</Filter>
     </ClInclude>
+    <ClInclude Include="ManageApplication.h">
+      <Filter>ControlClasses\ManageApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageApartment.h">
+      <Filter>ControlClasses\ManageApartment</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewApplication.h">
+      <Filter>BoundaryClasses\ViewApplicaiton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FloorPlan.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="User-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Maintenance-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Lease-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ApartmentComplexInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Floor-Plan-Records-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Applications-Header-Reference.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Apartment-Records-Header-Reference.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

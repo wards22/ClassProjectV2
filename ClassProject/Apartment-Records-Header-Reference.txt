@@ -1,6 +1,7 @@
-0 = Floor Plan Letter
-1 = Bedrooms
-2 = Bathrooms
-3 = Square Footage
-4 = Rent
-5 = Amenities
+Apartment Name = 0
+Apartment Number = 1
+Bedrooms = 2
+Bathrooms = 3
+Square Footage = 4
+Rent Amount = 5
+Vacant = 6 //Y = vacant | N = Inhabited

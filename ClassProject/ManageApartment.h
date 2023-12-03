@@ -10,19 +10,13 @@
 #ifndef MANAGE_APARTMENT_H
 #define MANAGE_APARTMENT_H
 
-#include <string>
-
-using namespace std;
-
 class ManageApartment {
 
 public:
 
-    void addVacantApartment();
-
-    void removeVacantApartment();
-
-    void displayAllApartments();
+    static void addVacantApartment();
+    static void removeVacantApartment();
+    static void displayApartments(int);
 
 };
 

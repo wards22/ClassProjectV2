@@ -18,6 +18,10 @@ class ViewApartmentInfo {
 
     static void displayApartmentComplexInfo();
 
+    static void displayVacantApartments();
+
+    static void displayInhabitedApartments();
+
 };
 
 #endif

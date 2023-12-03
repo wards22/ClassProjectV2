@@ -8,6 +8,7 @@ using namespace std;
 #include "ManageMaintenance.h"
 #include "DisplayMaintenanceRequestInfo.h"
 
+
 void ManageMaintenance::manageMaintenanceForTenant(int n, int uID) {
 	if (n == 1) {
 		DisplayMaintenanceRequestInfo::displayMaintenanceForTenant(uID);
@@ -23,7 +24,7 @@ void ManageMaintenance::manageMaintenanceForTenant(int n, int uID) {
 		maintenance.setDate(maintenanceUpdates[3]);
 		maintenance.setDescription(maintenanceUpdates[4]);
 		maintenance.setStatus(maintenanceUpdates[5]);
-		maintenance.writeStatus(maintenance.getTenantUserID(), maintenance.getTenantName(), maintenance.getReferenceNum(),
+		maintenance.writeNewRecord(maintenance.getTenantUserID(), maintenance.getTenantName(), maintenance.getReferenceNum(),
 			maintenance.getDate(), maintenance.getDescription(), maintenance.getStatus());
 
 	}

@@ -1,57 +1,59 @@
-#pragma once
-#ifndef APARTMENT_APPLICATION_H
-#define APARTMENT_APPLICATION_H
+/* Prologue
+ * Name: Application
+ * Description: Application Entity class for storing long term info
+ * Contributors: Scott Ward/LaShante StCyr
+ * Date created: Nov 25 2023
+ * Date last modified: Dec 3 2023
+*/
 
-#include <iostream>
-#include <iomanip>
-#include <sstream>
+#pragma once
+#ifndef APPLICATION_H
+#define APPLICATION_H
+
 #include <string>
-#include <chrono>
+
 using namespace std;
 
 class Application {
-    private:
+
+private:
+    string name;
+    string email;
+    string phoneNumber;
+    string floorPlanRequested;
+    string dateSubmitted;
+    string status;
     int month;
     int day;
     int year;
 
-    public:
+public:
+
     Application(int m, int d, int y) : month(m), day(d), year(y) {}
+    Application(string n, string e, string pn, string fp, int m, int d, int y) 
+        : name(n), email(e), phoneNumber(pn), floorPlanRequested(fp), month(m), day(d), year(y) {}
 
-    bool isValidDate() const {
-        if (year > 2006 || year < 0 || month < 1 || month > 12)
-            return false;
-
-        if (day < 1 || day > 31)
-            return false;
-
-        if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-            return false;
-
-        if (month == 2) {
-            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-                if (day > 29)
-                    return false;
-            } else {
-                if (day > 28)
-                    return false;
-            }
-        }
-        return true;
+    Application(string e) {
+        email = e;
+        readStatus(email);
     }
 
-    string formatDate() const {
-        ostringstream oss;
-        oss << setfill('0') << setw(2) << month << "/" << setw(2) << day << "/" << setw(4) << year;
-        return oss.str();
-    }
+    bool isValidDate() const;
 
+    string formatDate() const;
+    string getEmail() const { return email; }
+    void setEmail(const string& em) { email = em; }
+    string getStatus() const { return status; }
+    void setStatus(const string& st) { status = st; }
+    void setFloorPlanRequested(const string& fp) { floorPlanRequested = fp; }
     int getMonth() const { return month; }
     int getDay() const { return day; }
     int getYear() const { return year; }
+
+    bool isApplicantAdult();
+
+    void readStatus(string);
+    void writeApplicationInfo();
+    void writeUpdatedStatus(string, string);
 };
-
-//there's an error in the method below
-//bool isApplicantAdult(const DateOfBirth& dob);
-
 #endif

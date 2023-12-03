@@ -48,7 +48,7 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
     fstream inputFile, outputFile;
     inputFile.open("MaintenanceRecords.csv", ios::in);
     outputFile.open("NewMaintenanceRecords.csv", ios::out);
-    string line, data;
+    string line, data, temp;
     int i;
     vector<string> row;
 
@@ -56,6 +56,7 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
 
         row.clear();
 
+        getline(inputFile, line);
         stringstream s(line);
 
         while (getline(s, data, ',')) {
@@ -66,11 +67,7 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
 
         if (refNum == row[2]) {
 
-
-
             row[5] = str;
-
-
 
             if (!inputFile.eof()) {
                 for (i = 0; i < row_size - 1; i++) {
@@ -99,8 +96,6 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
         }
         if (inputFile.eof())
             break;
-
-
     }
 
     inputFile.close();
@@ -110,7 +105,7 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
     rename("NewMaintenanceRecords.csv", "MaintenanceRecords.csv");
 }
 
-void MaintenanceRequest::writeStatus(string user_ID, string tenant_name, string refNum, string date, string description, string status) {
+void MaintenanceRequest::writeNewRecord(string user_ID, string tenant_name, string refNum, string date, string description, string status) {
     fstream outputFile;
 
     outputFile.open("MaintenanceRecords.csv", ios::out | ios::app);

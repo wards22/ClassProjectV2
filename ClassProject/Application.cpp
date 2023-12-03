@@ -3,51 +3,46 @@
 #include <sstream>
 #include <string>
 #include <ctime>
+#include <fstream>
+#include <vector>
+
 using namespace std;
 
-class Application {
-    private:
-    int month;
-    int day;
-    int year;
+#include "Application.h"
 
-    public:
-    Application(int m, int d, int y) : month(m), day(d), year(y) {}
+bool Application::isValidDate() const {
 
-    bool isValidDate() const {
-        if (year > 2006 || year < 0 || month < 1 || month > 12)
-            return false;
+    if (year < 0 || month < 1 || month > 12)
+        return false;
 
-        if (day < 1 || day > 31)
-            return false;
+    if (day < 1 || day > 31)
+        return false;
 
-        if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-            return false;
-
-        if (month == 2) {
-            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-                if (day > 29)
-                    return false;
-            } else {
-                if (day > 28)
-                    return false;
-            }
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+        return false;
+    
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            if (day > 29)
+                return false;
+        } else {
+            if (day > 28)
+                return false;
         }
-        return true;
     }
+    return true;
+}
 
-    string formatDate() const {
-        ostringstream oss;
-        oss << setfill('0') << setw(2) << month << "/" << setw(2) << day << "/" << setw(4) << year;
-        return oss.str();
-    }
+string Application::formatDate() const {
+    ostringstream oss;
+    
+    oss << setfill('0') << setw(2) << month << "/" << setw(2) << day << "/" << setw(4) << year;
+    
+    return oss.str();
+}
 
-    int getMonth() const { return month; }
-    int getDay() const { return day; }
-    int getYear() const { return year; }
-};
 
-bool isApplicantAdult(const Application& dob) {
+bool Application::isApplicantAdult() {
 
     struct tm current_time;
     time_t now = time(0);
@@ -57,71 +52,119 @@ bool isApplicantAdult(const Application& dob) {
     int currentDay = current_time.tm_mday;
     int currentYear = current_time.tm_year + 1900;
 
-    int age = currentYear - dob.getYear();
-    if (currentMonth < dob.getMonth() || (currentMonth == dob.getMonth() && currentDay < dob.getDay())) {
+    int age = currentYear - year;
+    if (currentMonth < month || (currentMonth == month && currentDay < day)) {
         age--;
     }
+    
     return age >= 18;
 }
-/*
-int main() {
-    string name, phoneNumber, email;
-    int year, month, day;
 
-    cout << "Welcome to the apartment application!" << endl;
+void Application::readStatus(string e) {
+    fstream applicationFile;
+    applicationFile.open("Applications.csv", ios::in);
 
-    cout << "Please enter your name: ";
-    getline(cin, name);
+    string line, data, ref_ID_in_file;
+    vector<string> row;
 
-    cout << "Please provide your phone number: ";
-    cin >> phoneNumber;
+    while (getline(applicationFile, line)) {
+        row.clear();
+        stringstream s(line);
 
-    // Validate phone number length
-    while (phoneNumber.length() != 10) {
-        cout << "Invalid phone number length. Please enter a 10-digit number: ";
-        cin >> phoneNumber;
-    }
-
-    cout << "Please enter your email address: ";
-    cin >> email;
-
-    bool dobValid = false;
-    while (!dobValid) {
-        cout << "Please enter your date of birth in the format MM/DD/YYYY: ";
-        string dobInput;
-        cin >> dobInput;
-
-        // Extract month, day, and year from input string
-        istringstream(dobInput.substr(0, 2)) >> month;
-        istringstream(dobInput.substr(3, 2)) >> day;
-        istringstream(dobInput.substr(6, 4)) >> year;
-
-        // Create DateOfBirth object and validate the date
-        DateOfBirth dob(year, month, day);
-
-        if (!dob.isValidDate()) {
-            cout << "Invalid date of birth. Please try again: " << endl;
+        while (getline(s, data, ',')) {
+            row.push_back(data);
         }
-        else {
-            dobValid = true;
-            if (!isApplicantAdult(dob)) {
-                cout << "Sorry, only individuals that are 18 years of age and older can apply." << endl;
-                return 1; // Exit the program due to age restriction
+
+        if (e == row[1]) {
+            this->name = row[0];
+            this->email = row[1];
+            this->phoneNumber = row[2];
+            this->floorPlanRequested = row[3];
+            this->dateSubmitted = row[4];
+            this->status = row[5];
+            applicationFile.close();
+            break;
+        }
+    }
+}
+void Application::writeApplicationInfo() {
+    fstream outputFile;
+
+    outputFile.open("Applications.csv", ios::out | ios::app);
+    
+    struct tm newtime;
+    time_t now = time(0);
+    localtime_s(&newtime, &now);
+
+    dateSubmitted = to_string(1 + newtime.tm_mon) + "/" + to_string(newtime.tm_mday) + "/" + to_string(1900 + newtime.tm_year);
+
+    outputFile << "\n" << name << "," << email << "," << phoneNumber << "," << floorPlanRequested << "," << dateSubmitted << "," << status;
+
+    outputFile.close();
+}
+
+void Application::writeUpdatedStatus(string eMail, string str) {
+    fstream applicationFile, newApplicationFile;
+    applicationFile.open("Applications.csv", ios::in);
+    newApplicationFile.open("NewApplications.csv", ios::out);
+    string line, data;
+    int i;
+    vector<string> row;
+
+    while (getline(applicationFile, line)) {
+
+        row.clear();
+
+        stringstream s(line);
+
+        while (getline(s, data, ',')) {
+            row.push_back(data);
+        }
+
+        int row_size = row.size();
+
+        if (eMail == row[1]) {
+
+
+
+            row[5] = str;
+
+
+
+            if (!applicationFile.eof()) {
+                for (i = 0; i < row_size - 1; i++) {
+
+                    // write the updated data 
+                    // into a new file 'NewUserRecords.csv' 
+                    // using fout 
+                    newApplicationFile << row[i] << ",";
+                }
+
+                newApplicationFile << row[row_size - 1] << "\n";
             }
         }
+        else {
+            if (!applicationFile.eof()) {
+                for (i = 0; i < row_size - 1; i++) {
+
+                    // writing other existing records 
+                    // into the new file using fout. 
+                    newApplicationFile << row[i] << ",";
+                }
+
+                // the last column data ends with a '\n' 
+                newApplicationFile << row[row_size - 1] << "\n";
+            }
+        }
+        if (applicationFile.eof())
+            break;
+
+
     }
 
-    cout << "Thank you for your application, " << name << "!" << endl;
-    // Review of the application
-    cout << "Here is a review of your application:" << endl;
-    cout << "------------------------------------" << endl;
-    cout << "Name: " << name << endl;
-    cout << "Phone Number: " << phoneNumber << endl;
-    cout << "Email Address: " << email << endl;
-    cout << "Date of Birth: " << setw(2) << setfill('0') << month << "/" << setw(2) << day << "/" << setw(4) << year << endl;
+    applicationFile.close();
+    newApplicationFile.close();
 
-    // Further processing of the application...
-
-    return 0;
+    remove("Applications.csv");
+    rename("NewApplications.csv", "Applications.csv");
 }
-*/

@@ -69,7 +69,7 @@ class MaintenanceRequest {
 
         void writeStatus(string, string);
 
-        void writeStatus(string, string, string, string, string, string);
+        void writeNewRecord(string, string, string, string, string, string);
 };
 
 #endif

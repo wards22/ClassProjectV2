@@ -1,0 +1,7 @@
+Name = 0
+Email = 1
+Phone Number = 2
+Requested Floor Plan = 3
+Date Submitted = 4
+Status = 5	//Upon submission will = "Pending Review"
+			//Staff can change to "Approved" or "Denied"

@@ -66,8 +66,7 @@ public:
 
     string getPhoneNum() const { return phoneNum; }
 
-    void setPhoneNum(const string& pn)
-    { phoneNum = pn; }
+    void setPhoneNum(const string& pn) { phoneNum = pn; }
 
     string getEmail() const { return email; }
 
