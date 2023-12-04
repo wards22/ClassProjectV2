@@ -27,7 +27,7 @@ class Rent {
     float amount;
     float balanceDue;
     float remainingBalanceDue;
-    bool isInProgress;
+    bool inProgress;
     vector<vector<string>> rentReceipts;
 
     string formatDate(const string&, const string&, const string&);
@@ -39,6 +39,8 @@ class Rent {
     Rent();
 
     Rent(int);
+
+    Rent(int, string);
 
     string getPaymentMethod() const;
 
@@ -80,7 +82,9 @@ class Rent {
 
     void readRentReceipt(int);
 
-    void writeRentReceipt(int);
+    void readRentReceipt(int, string);
+
+    void writeRentReceipt(int, float, string);
 
 };
 

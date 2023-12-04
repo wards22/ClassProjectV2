@@ -357,7 +357,6 @@ void StaffUI::displayRentMenu(int user_ID) {
 
         ManageRent::manageRentForStaff(user_ID, tenant_id, "createRentReceipt");
 
-
     } // [3] Edit Rent Receipt
     else if (option == 3) {
         int tenant_id;
@@ -387,8 +386,6 @@ void StaffUI::displayRentMenu(int user_ID) {
         cout << "\nYou have successfully edited the receipt.\n\n";
 
         displayRentMenu(user_ID);
-
-
 
     } // [4] Delete Rent Receipt
     else if (option == 4) {

@@ -63,3 +63,32 @@ void ViewRentReceipts::displayRentReceipts(const vector<vector<string>>& rentRec
         cout << endl << endl;
     }
 }
+
+
+
+void ViewRentReceipts::displayRentReceipts_inProgress(const vector<vector<string>>& rentReceipts) {
+    
+    cout << left << setw(40) << "Rent Receipt In Progress" << endl;
+    cout << left << setw(40) << "-------------------------------" << endl;
+
+    if (rentReceipts.size() == 0)
+        cout << "There are no unsubmitted receipts.\n\n";
+
+    for (auto i = rentReceipts.begin(); i != rentReceipts.end(); i++) {
+
+        for (auto j = i->begin(); ;) {
+            cout << left << setw(16) << "UserID:" << setw(30) << *j << endl;
+            // Date Posted
+            cout << left << setw(16) << "" << setw(30) << *(j + 2) << endl << endl;
+            // Reference #
+            cout << left << setw(16) << "" << *(j + 3) << endl << endl;
+            // Receipt
+            cout << left << setw(16) << "" << *(j + 4) << endl << endl;
+            // Amount
+            cout << left << setw(16) << "" << *(j + 3) << endl << endl;
+            cout << left << setw(40) << "-------------------------------" << endl;
+            break;
+        }
+        cout << endl;
+    }
+}

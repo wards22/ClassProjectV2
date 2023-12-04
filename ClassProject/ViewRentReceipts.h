@@ -26,7 +26,9 @@ using namespace std;
 class ViewRentReceipts {
 	public:
 	// Should reference be used here if this is boundary class?
-	static void displayRentReceipts(const vector<vector<string>>&);         
+	static void displayRentReceipts(const vector<vector<string>>&);    
+
+	static void displayRentReceipts_inProgress(const vector<vector<string>>&);
 
 };
 

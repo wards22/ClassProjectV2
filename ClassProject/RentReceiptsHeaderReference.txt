@@ -1,4 +1,4 @@
 UserID (tenant only) = 0
 PaymentMethod = 1 
 ProgressStatus = 2
-RentReceipt = 4
+RentReceipts = 3

@@ -21,6 +21,10 @@ class ManageRent {
 
     static void manageRentForStaff(int, int);
 
+    static void manageRentForStaff(int, int, string);
+
+    static void manageRentForStaff(int, int, float, string);
+
 };
 
 #endif

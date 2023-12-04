@@ -9,6 +9,7 @@
 #include "ManageRent.h"
 #include "Rent.h"
 #include "ViewRentReceipts.h"
+#include "StaffUI.h"
 #include <string>
 #include <iostream>
 
@@ -134,4 +135,41 @@ void ManageRent::manageRentForStaff(int uid, int option) {
         cout << "Current Rent Due: $" << rent.getBalanceDue() << endl;
     }
     */
+}
+
+void ManageRent::manageRentForStaff(int uid, int tid, string option) {
+    Rent rent(tid, "inProgress"); 
+
+    if(option == "balanceDue") {
+        cout << "Current Rent Due: $" << rent.getBalanceDue() << endl;
+    
+    } else if (option == "createRentReceipt") {
+        ViewRentReceipts::displayRentReceipts_inProgress(rent.getRentReceipts());
+
+        if (rent.getRentReceipts().size() == 0) {
+            StaffUI::displayRentMenu(uid);
+        }
+
+    } else if(option == "editRentReceipt") {
+        ViewRentReceipts::displayRentReceipts_inProgress(rent.getRentReceipts());
+
+        if(rent.getRentReceipts().size() == 0) {
+            StaffUI::displayRentMenu(uid);
+        }
+ 
+    } else if (option == "deleteRentReceipt") {
+        ViewRentReceipts::displayRentReceipts_inProgress(rent.getRentReceipts());
+
+        if (rent.getRentReceipts().size() == 0) {
+            StaffUI::displayRentMenu(uid);
+        }    
+    }
+}
+
+
+void ManageRent::manageRentForStaff(int sid, int tid, float amount, string refNum) {
+    // Create object to get tenant receipts
+    Rent rent(sid);
+
+    rent.writeRentReceipt(tid, amount, refNum);
 }
