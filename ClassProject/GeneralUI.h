@@ -28,11 +28,7 @@ class GeneralUI {
 
     static string getUserType(int userID);
 
-    static void viewFloorPlans();
-
-    static void viewApplication();
-
-    static void viewApartmentComplexInfo();
+    static void viewApartmentInfo();
 };
 
 #endif

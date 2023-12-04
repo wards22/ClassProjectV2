@@ -22,6 +22,10 @@ class ViewApartmentInfo {
 
     static void displayInhabitedApartments();
 
+    static void createNewApartment();
+
+    static void removeVacantApartment();
+
 };
 
 #endif

@@ -25,18 +25,16 @@ using namespace std;
 
 void GeneralUI::displayGeneralUI() {
 
-    int choice = 0, userID = 0;
+    int userID = 0;
     int getch();
     string username, password, userType;
 
     cout << "Welcome to UHD Apartments!" << endl;
     cout << "--------------------------" << endl;
     cout << "[1] User Login" << endl;
-    cout << "[2] View Floor Plans" << endl;
-    cout << "[3] Fill Out An Application" << endl;
-    cout << "[4] View Apartment Complex Information" << endl;
-    cout << "[5] Quit" << endl << endl;
-    cout << "Please make a selection by entering a number 1 through 5: ";
+    cout << "[2] View Apartment Information" << endl;
+    cout << "[3] Quit" << endl << endl;
+    cout << "Please make a selection by entering a number 1 through 3: ";
 
     int option = 0;
     cin >> option;
@@ -65,48 +63,20 @@ void GeneralUI::displayGeneralUI() {
             TenantUI::displayTenantMenu(tenant.getUserID());
         }
     }
-        else if (option == 2) {
-            cout << endl;
-            cout << "Here are the available floor plans" << endl << endl;
-            viewFloorPlans();
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            displayGeneralUI();
-        }
-        else if (option == 3) {
-            cout << endl;
-            cout << "Enter your information to fill out an application." << endl << endl;
-            viewApplication();
-            cout << endl;
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            displayGeneralUI();
-        }
-        else if (option == 4) {
-            cout << endl;
-            viewApartmentComplexInfo();
-            cout << "Press any key to return to the main menu." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            getch();
-            displayGeneralUI();
-        }
-        else if (option == 5) {
-            cout << "Thank you for visitng UHD Apartments. Have a nice day!" << endl;
-            exit(0);
-        }
-        else {
-            cout << "Please enter a number 1 through 5." << endl << endl;
-            cin.clear();
-            cin.ignore();
-            displayGeneralUI();
-        }
+    else if (option == 2) {
+        viewApartmentInfo();
+    }
+    else if (option == 3) {
+        cout << "Thank you for visiting UHD Apartments!!" << endl;
+        exit(0);
+    }
+    else {
+        cout << "Please enter a number 1 through 3." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayGeneralUI();
+    }
 }
-
 
 bool GeneralUI::validateUser(string username, string password) {
 
@@ -212,17 +182,62 @@ string GeneralUI::getUserType(int userID) {
     return user_Type;
 }
 
-void GeneralUI::viewFloorPlans() {
+void GeneralUI::viewApartmentInfo() {
+    
+    cout << "Apartment Information" << endl;
+    cout << "--------------------------" << endl;
+    cout << "[1] View General Floor Plans" << endl;
+    cout << "[2] View Vacant Apartments" << endl;
+    cout << "[3] Fill Out An Application" << endl;
+    cout << "[4] View Apartment Complex Information" << endl;
+    cout << "[5] Return to Main Menu" << endl;
+    cout << "[6] Quit" << endl << endl;
+    cout << "Please make a selection by entering a number 1 through 6: ";
 
-    ViewApartmentInfo::displayFloorPlans();
-}
+    int option = 0;
+    cin >> option;
+    cout << endl;
 
-void GeneralUI::viewApplication() {
+    if (option == 1) {
 
-    ViewApplicationInfo::submitApplication();
-}
-
-void GeneralUI::viewApartmentComplexInfo() {
-
-    ViewApartmentInfo::displayApartmentComplexInfo();
+        cout << endl;
+        cout << "Here are the available floor plans" << endl << endl;
+        ViewApartmentInfo::displayFloorPlans();
+        cout << endl;
+        viewApartmentInfo();
+    }
+    else if (option == 2) {
+        cout << endl;
+        cout << "Here are the list of Vacant Apartments." << endl << endl;
+        ViewApartmentInfo::displayVacantApartments();
+        cout << endl;
+        viewApartmentInfo();
+    }
+    else if (option == 3) {
+        cout << endl;
+        cout << "Enter your information to fill out an application." << endl << endl;
+        ViewApplicationInfo::submitApplication();
+        cout << endl;
+        viewApartmentInfo();
+    }
+    else if (option == 4) {
+        cout << endl;
+        ViewApartmentInfo::displayApartmentComplexInfo();
+        cout << endl;
+        viewApartmentInfo();
+    }
+    else if (option == 5) {
+        cout << "Returning To Main Menu" << endl;
+        displayGeneralUI();
+    }
+    else if (option == 6) {
+        cout << "Thank you for visiting UHD Apartments!!" << endl << endl;
+        exit(0);
+    }
+    else {
+        cout << "Please enter a number 1 through 6." << endl << endl;
+        cin.clear();
+        cin.ignore();
+        displayGeneralUI();
+    }
 }

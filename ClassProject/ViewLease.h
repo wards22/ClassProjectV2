@@ -25,6 +25,8 @@ class ViewLease {
     static void displayLeaseForTenant(int);
 
     static vector<string> modifyLease();
+
+    static vector<string> createLease();
 };
 
 #endif

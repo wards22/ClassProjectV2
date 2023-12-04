@@ -11,9 +11,11 @@
 
 
 void ManageApartment::addVacantApartment() {
+	ViewApartmentInfo::createNewApartment();
 }
 
 void ManageApartment::removeVacantApartment() {
+	ViewApartmentInfo::removeVacantApartment();
 }
 
 void ManageApartment::displayApartments(int n) {

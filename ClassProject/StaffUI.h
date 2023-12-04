@@ -43,7 +43,6 @@ class StaffUI {
 
     static void viewApplications(int);
 
-    static void logout();
 };
 
 #endif

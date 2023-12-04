@@ -160,7 +160,7 @@ void Tenant::readTenantInfo() {
 void Tenant::writeTenantInfo(int user_ID, int index, string str) {
 
     fstream inputFile, outputFile;
-    inputFile.open("Test.csv", ios::in);
+    inputFile.open("UserRecords.csv", ios::in);
     outputFile.open("NewUserRecords.csv", ios::out);
 
     string line, data;
@@ -217,7 +217,7 @@ void Tenant::writeTenantInfo(int user_ID, int index, string str) {
     inputFile.close();
     outputFile.close();
 
-    remove("Test.csv");
-    rename("NewUserRecords.csv", "Test.csv");
+    remove("UserRecords.csv");
+    rename("NewUserRecords.csv", "UserRecords.csv");
 
 }

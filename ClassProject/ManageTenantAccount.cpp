@@ -104,4 +104,8 @@ void ManageTenantAccount::manageTenantAccountForStaff(int option, int iD, string
             tenant.setEmail(str);
             tenant.writeTenantInfo(tenant.getUserID(), 6, tenant.getEmail());
         }
+        else if (option == 6) {
+            tenant.setAptNum(str);
+            tenant.writeTenantInfo(tenant.getUserID(), 7, tenant.getAptNum());
+        }
    }

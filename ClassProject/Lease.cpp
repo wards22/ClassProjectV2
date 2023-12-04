@@ -28,6 +28,18 @@ Lease::Lease(string refNum) {
     readLease(referenceNum);
 }
 
+Lease::Lease(vector<string> newLease) {
+    tenantUserID = newLease[0];
+    tenantName = newLease[1];
+    referenceNum = newLease[2];
+    beginningDate = newLease[3];
+    endingDate = newLease[4];
+    dateLastModified = newLease[5];
+    aptNumber = newLease[6];
+    rentAmt = newLease[7];
+    leaseText = newLease[8];
+}
+
 Lease::~Lease() {
     cout << "This is the Lease's destructor" << endl;
 }
@@ -181,4 +193,18 @@ void Lease::writeLease(string refNum, string str) {
 
     remove("LeaseRecords.csv");
     rename("NewLeaseRecords.csv", "LeaseRecords.csv");
+}
+
+void Lease::createNewlease() {
+    fstream leaseFile;
+
+    leaseFile.open("LeaseRecords.csv", ios::out | ios::app);
+
+    
+
+    leaseFile << getTenantUserID() << "," << getTenantName() << "," << getReferenceNum() << "," 
+        << getBeginningDate() << "," << getEndingDate() << "," << getDateLastModified() << ","
+        << getApartmentNum() << "," << getRentAmount() << "," << getLeaseText() << "\n";
+
+    leaseFile.close();
 }

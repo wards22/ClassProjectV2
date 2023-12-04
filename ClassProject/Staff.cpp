@@ -200,3 +200,27 @@ void Staff::writeStaffInfo(int user_ID, int index, string str) {
     remove("UserRecords.csv");
     rename("NewUserRecords.csv", "UserRecords.csv");
 }
+
+void Staff::createNewTenantFromLease(string user_ID, string tenantName, string tenantPhone, 
+    string tenantEmail, string tenantApartment) {
+
+    fstream outputFile;
+
+    outputFile.open("UserRecords.csv", ios::out | ios::app);
+
+    vector<string> row;
+    
+    row.push_back(user_ID);
+    row.push_back(tenantName + "1");
+    row.push_back("Ch@nGeMeNoW1");
+    row.push_back("Tenant");
+    row.push_back(tenantName);
+    row.push_back(tenantPhone);
+    row.push_back(tenantEmail);
+    row.push_back(tenantApartment);
+
+    outputFile << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << "," << row[4] << ","
+        << row[5] << "," << row[6] << "," << row[7] << "\n";
+
+    outputFile.close();
+}

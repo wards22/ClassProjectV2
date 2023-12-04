@@ -21,9 +21,8 @@ class Apartment {
         : apartmentName(name), apartmentNumber(number), numBedrooms(bedrooms), numBathrooms(bathrooms), 
         squareFootage(sqFootage), rentAmount(rent), vacancy(vacant) {}
 
-    void displayDetails() const;
 
-    void readApartmentInfo();
+    void writeApartmentInfo();
 };
 
 #endif /* APARTMENT_H */

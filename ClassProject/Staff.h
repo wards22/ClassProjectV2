@@ -67,6 +67,7 @@ public:
 
     void readStaffInfo(int);
 
+    static void createNewTenantFromLease(string, string, string, string, string);
 };
 
 #endif

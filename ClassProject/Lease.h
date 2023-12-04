@@ -35,6 +35,8 @@ class Lease {
 
         Lease(string);
 
+        Lease(vector<string> newLease);
+
         ~Lease();
 
         string getBeginningDate() const;
@@ -74,6 +76,8 @@ class Lease {
         void readLease(string);
 
         void writeLease(string, string);
+
+        void createNewlease();
 };
 
 #endif
