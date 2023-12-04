@@ -37,10 +37,9 @@ void TenantUI::displayTenantMenu(int uid) {
     cout << "[3] Maintenance\n";
     cout << "[4] Notifications\n";
     cout << "[5] Lease\n";
-    cout << "[6] Application\n";
-    cout << "[7] Return to Start Menu\n";
-    cout << "[8] Quit\n";
-    cout << "\nEnter a number 1 through 8: ";
+    cout << "[6] Return to Start Menu\n";
+    cout << "[7] Quit\n";
+    cout << "\nEnter a number 1 through 7: ";
 
 
     int option = -1;
@@ -68,17 +67,13 @@ void TenantUI::displayTenantMenu(int uid) {
     else if (option == 5) {
         displayLeaseMenu(uid);
 
-    } // [6] Application
-    else if (option == 6) {
-        displayApplicationMenu(uid);
-
     } // [7] Return to Start Menu
-    else if (option == 7) {
+    else if (option == 6) {
         sleep_for(microseconds(1000));
         GeneralUI::displayGeneralUI();
 
     } // [8] Quit
-    else if (option == 8) {        
+    else if (option == 7) {        
         quit();
 
     } else {
@@ -86,7 +81,7 @@ void TenantUI::displayTenantMenu(int uid) {
         // Flag has to be removed and buffer cleared (ignore needs size to work)
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Please enter a number 1 through 8.\n\n";
+        cout << "Please enter a number 1 through 7.\n\n";
         
         displayTenantMenu(uid);
     }
@@ -359,20 +354,20 @@ void TenantUI::displayMaintenanceMenu(int uid) {
 
     // [1] View Maintenance Requests
     if (option == 1) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
         
         displayMaintenanceMenu(uid);
 
     } // [2] Request Maintenance
     else if (option == 2) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
         cout << "You have requested maintenance successfully.\n\n";
         
         displayMaintenanceMenu(uid);
 
     } // [3] Edit Maintenance Request
     else if (option == 3) {
-        ManageMaintenance::manageMaintenanceForTenant();
+        ManageMaintenance::manageMaintenanceForTenant(option, uid);
         cout << "You have changed your maintenance request successfully.\n\n";
         
         displayMaintenanceMenu(uid);
@@ -384,13 +379,13 @@ void TenantUI::displayMaintenanceMenu(int uid) {
         displayTenantMenu(uid);
 
     } // [5] Return to General UI
-    else if (option == 7) {
+    else if (option == 5) {
         cout << "Returning to Start Menu\n\n";
         
         GeneralUI::displayGeneralUI();
 
     } // [6] Quit
-    else if (option == 5) {
+    else if (option == 6) {
         
         quit();
 
@@ -510,14 +505,6 @@ void TenantUI::displayLeaseMenu(int uid) {
         
         displayNotificationsMenu(uid);
     }
-}
-
-//-------------------------------------------------------------------------------------------
-
-void TenantUI::displayApplicationMenu(int uid) {
-    sleep_for(microseconds(1000));
-
-    cout << "This is Application" << endl;
 }
 
 //-------------------------------------------------------------------------------------------

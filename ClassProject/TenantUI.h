@@ -28,8 +28,6 @@ static class TenantUI {
 
     static void displayLeaseMenu(int);
 
-    static void displayApplicationMenu(int);
-
     static void quit();
 };
 

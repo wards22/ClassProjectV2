@@ -115,7 +115,7 @@ vector<string> ViewLease::modifyLease()
     cout << "What would you like to change? " << endl;
     cout << "[1] Move-Out Date" << endl;
     cout << "[2] Rent" << endl;
-    cout << "Enter a number 1 - 2";
+    cout << "Enter a number [1] - [2]: ";
     cin >> choice;
 
     while (choice < 1 || choice > 2) {
@@ -180,6 +180,7 @@ vector<string> ViewLease::createLease()
             cout << "\tDate Submitted: " << row[4] << endl;
             cout << "\tStatus: " << row[5] << endl << endl;
             applicantEmail.push_back(row[1]);
+            count++;
         }
     }
 
@@ -319,7 +320,9 @@ vector<string> ViewLease::createLease()
     time_t now = time(0);
     localtime_s(&newtime, &now);
 
+    //todays date for when the lease is finalized
     todaysDate = to_string(1 + newtime.tm_mon) + "/" + to_string(newtime.tm_mday) + "/" + to_string(1900 + newtime.tm_year);
+    //lease expires 1 year after it becomes valid
     leaseExpirationDate = to_string(1 + newtime.tm_mon) + "/" + to_string(newtime.tm_mday) 
         + "/" + to_string((1900 + newtime.tm_year) + 1);
 

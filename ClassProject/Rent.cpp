@@ -396,7 +396,7 @@ void Rent::writeRentReceipt(int uid, float a, string refNum) {
     
     fstream inputFile, outputFile;
     inputFile.open("RentReceipts.csv", ios::in);
-    outputFile.open("Test.csv", ios::out);
+    outputFile.open("NewRentReceipts.csv", ios::out);
 
     string str, data, receipt, field;
     int i, j, user_ID_in_file;
@@ -450,5 +450,8 @@ void Rent::writeRentReceipt(int uid, float a, string refNum) {
 
     inputFile.close();
     outputFile.close();
+
+    remove("RentReceipts.csv");
+    rename("NewRentReceipts.csv", "RentReceipts.csv");
 }
 

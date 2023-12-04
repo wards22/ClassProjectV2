@@ -104,7 +104,7 @@ void MaintenanceRequest::writeStatus(string refNum, string str) {
 
         row.clear();
 
-        getline(inputFile, line);
+        
         stringstream s(line);
 
         while (getline(s, data, ',')) {

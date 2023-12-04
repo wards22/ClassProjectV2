@@ -106,7 +106,7 @@ void Application::writeApplicationInfo() {
 
     dateSubmitted = to_string(1 + newtime.tm_mon) + "/" + to_string(newtime.tm_mday) + "/" + to_string(1900 + newtime.tm_year);
 
-    outputFile << "\n" << name << "," << email << "," << phoneNumber << "," << floorPlanRequested << "," << dateSubmitted << "," << status;
+    outputFile << name << "," << email << "," << phoneNumber << "," << floorPlanRequested << "," << dateSubmitted << "," << status << "\n";
 
     outputFile.close();
 }

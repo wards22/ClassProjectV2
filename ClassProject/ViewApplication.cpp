@@ -268,6 +268,7 @@ vector<string> ViewApplicationInfo::updateApplicationStatus() {
     cout << "Please choose the new status of the application: " << endl;
     cout << "[1] Approved" << endl;
     cout << "[2] Denied" << endl;
+    cout << "Please choose an option from [1] - [2]: ";
     cin >> choice;
 
     while (choice < 1 || choice > 2) {

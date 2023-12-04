@@ -32,24 +32,28 @@ void ManageTenantAccount::manageTenantAccountForTenant(int uid, int option, stri
     // [2] Change Username
     else if (option == 2) {
         tenant.setUsername(s);
+        tenant.writeTenantInfo(tenant.getUserID(), 1, tenant.getUsername());
         //cout << "This is username: " << tenant.getUsername() << endl;
     }
 
     // [3] Change Password
     else if (option == 3) {
         tenant.setPassword(s);
+        tenant.writeTenantInfo(tenant.getUserID(), 2, tenant.getPassword());
         //cout << "This is password: " << tenant.getPassword() << endl;
     }
 
     // [4] Change Phone Number
     else if (option == 4) {
         tenant.setPhoneNum(s);
+        tenant.writeTenantInfo(tenant.getUserID(), 5, tenant.getPhoneNum());
         //cout << "This is phone num: " << tenant.getPhoneNum() << endl;
     }
 
     // [5] Change Email
     else if (option == 5) {
         tenant.setEmail(s);
+        tenant.writeTenantInfo(tenant.getUserID(), 6, tenant.getEmail());
         //cout << "This is email: " << tenant.getEmail() << endl;
     }
 
