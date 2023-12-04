@@ -51,8 +51,6 @@ class Notifications {
 
     void writeNotification(int, int, string, string, string);
 
-    void createNotification();
-
     void editNotification();
 
     void deleteNotification();

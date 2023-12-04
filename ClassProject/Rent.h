@@ -24,8 +24,10 @@ class Rent {
     string date;
     string referenceNum;
     string description;
+    // amount and balance due are about the same?
     float amount;
     float balanceDue;
+    // remove remaining? dead data
     float remainingBalanceDue;
     bool inProgress;
     vector<vector<string>> rentReceipts;

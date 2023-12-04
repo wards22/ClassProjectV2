@@ -159,7 +159,7 @@ void Notifications::writeNotification(int uid, int option, string status, string
     // Also must replace newlines with delimiter (_)
     // Also must append commas to fields
 
-    fstream outputFile("Test.csv", ios::out);
+    fstream outputFile("Notifications.csv", ios::out);
 
     vector<string> row;
 
@@ -225,29 +225,6 @@ void Notifications::writeNotification(int uid, int option, string status, string
     }
 
     outputFile.close();
-
-}
-
-void Notifications::createNotification() {
-    // Check if notification is already created
-    if (title != "" || content != "") {
-        cout << "A notification is waiting to be posted.\n"
-            << "Go to Edit Notification to edit current notification.\n\n";
-
-    } else {
-
-        title = "";
-        content = "";
-        postStatus = false;
-
-        cout << "Enter a title for your notification:\n";
-        getline(cin, title);
-
-        cout << "Enter the content your notification will contain:\n";
-        getline(cin, content);
-
-    }
-
 
 }
 
