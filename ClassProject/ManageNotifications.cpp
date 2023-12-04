@@ -14,7 +14,7 @@
 
 using namespace std;
 
-void ManageNotifications::manageNotifications(int uid, int option) {
+void ManageNotifications::manageNotifications(int uid, int option, string status, string title, string content) {
     Notifications note(uid);
 
     // [1] View Notifications
@@ -26,7 +26,7 @@ void ManageNotifications::manageNotifications(int uid, int option) {
     // Rest of options are only for staff
     // [2] Create Notification
     else if (option == 2) {
-        note.createNotification();
+        note.writeNotification(uid, option, "true", title, content); 
     }
 
     // [3] Edit Notification

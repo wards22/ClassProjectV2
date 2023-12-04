@@ -580,7 +580,6 @@ void StaffUI::displayMaintenanceRequestMenu(int user_ID) {
 //-------------------------------------------------------------------------------------------
 
 void StaffUI::displayNotifications(int user_ID) {
-    cout << "This is where you will view notifications." << endl << endl;
 
     // Display Notifications features for staff
     cout << "Notifications\n";
@@ -603,27 +602,37 @@ void StaffUI::displayNotifications(int user_ID) {
 
     // [1] View Notifications
     if (option == 1) {
-        ManageNotifications::manageNotifications(user_ID, option);
+        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
         displayNotifications(user_ID);
+
 
     } // [2] Create Notifications
     else if (option == 2) {
-        ManageNotifications::manageNotifications(user_ID, option);
+        string title, content;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Enter the title:\n";
+        getline(cin, title);
+        cout << "\nEnter the message you want to post. Enter '~' and press enter when done:\n" ;
+        getline(cin, content, '~');
+
+        ManageNotifications::manageNotifications(user_ID, option, "true", title, content);
         displayNotifications(user_ID);
+
+
 
     } // [3] Edit Notifications
     else if (option == 3) {
-        ManageNotifications::manageNotifications(user_ID, option);
+        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
         displayNotifications(user_ID);
 
     } // [4] Delete Notifications
     else if (option == 4) {
-        ManageNotifications::manageNotifications(user_ID, option);
+        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
         displayNotifications(user_ID);
 
     } // [5] Submit Notifications
     else if (option == 5) {
-        ManageNotifications::manageNotifications(user_ID, option);
+        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
         displayNotifications(user_ID);
 
     } // [6] Return to Staff Menu

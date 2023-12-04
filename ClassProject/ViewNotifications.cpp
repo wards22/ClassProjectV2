@@ -24,11 +24,11 @@ void ViewNotifications::displayNotifications(const vector<vector<string>>& notif
 		for (auto j = i->begin(); ;) {
 			cout << left << setw(16) << "UserID:" << setw(30) << *j << endl;
 			// Date Posted
-			cout << left << setw(16) << "Date Posted: " << setw(30) << *(j + 3) << endl << endl;
+			cout << left << setw(16) << "Date Posted: " << setw(30) << *(j + 4) << endl << endl;
 			// Title
-			cout << left << *(j + 1) << endl << endl;
+			cout << left << *(j + 2) << endl << endl;
 			// Content
-			cout << left << setw(100) << *(j + 2) << endl << endl;
+			cout << left << setw(100) << *(j + 3) << endl << endl;
 			cout << left << setw(40) << "-------------------------------" << endl;
 			break;
 		}

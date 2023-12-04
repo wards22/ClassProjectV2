@@ -74,8 +74,6 @@ void ManageRent::manageRentForStaff(int uid, int option) {
     
     // [2] Create Rent Receipt
     else if (option == 2) {
-        Rent rent(uid);
-
         // Check if rent receipt is in progress
         if (rent.getProgressStatus() == true) {
             cout << "A rent receipt is waiting to be posted.\n"
@@ -167,9 +165,9 @@ void ManageRent::manageRentForStaff(int uid, int tid, string option) {
 }
 
 
-void ManageRent::manageRentForStaff(int sid, int tid, float amount, string refNum) {
+void ManageRent::manageRentForStaff(int sid, int tid, float a, string refNum) {
     // Create object to get tenant receipts
     Rent rent(sid);
 
-    rent.writeRentReceipt(tid, amount, refNum);
+    rent.writeRentReceipt(tid, a, refNum);
 }

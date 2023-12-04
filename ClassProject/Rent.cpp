@@ -392,7 +392,7 @@ void Rent::readRentReceipt(int uid, string ip) {
 
 
 
-void Rent::writeRentReceipt(int uid, float amount, string refNum) {
+void Rent::writeRentReceipt(int uid, float a, string refNum) {
     
     fstream inputFile, outputFile;
     inputFile.open("RentReceipts.csv", ios::in);
@@ -435,7 +435,7 @@ void Rent::writeRentReceipt(int uid, float amount, string refNum) {
                         if(j == 2)
                             outputFile << refNum << ";";
                         else if(j == 4)
-                            outputFile << to_string(formatMoney(amount)) << "\n";
+                            outputFile << to_string(formatMoney(a)) << "\n";
                         else 
                             outputFile << receipt << ";";
                     }
