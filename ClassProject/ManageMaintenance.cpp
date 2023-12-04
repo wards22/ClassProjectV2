@@ -58,7 +58,7 @@ void ManageMaintenance::manageMaintenanceForStaff(int n) {
 		//Allow Staff to pick one
 		//Update that Request
 		maintenanceUpdates = DisplayMaintenanceRequestInfo::updateMaintenanceStatusForStaff();
-		cout << "Refernce Number: " << maintenanceUpdates[0] << endl;
+		cout << "Reference Number: " << maintenanceUpdates[0] << endl;
 		cout << "New Status: " << maintenanceUpdates[1] << endl;
 		MaintenanceRequest maintenance(maintenanceUpdates[0]);
 		maintenance.setStatus(maintenanceUpdates[1]);

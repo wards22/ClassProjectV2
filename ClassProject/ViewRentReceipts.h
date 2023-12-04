@@ -3,7 +3,7 @@
  * Description: Creates and modifies tenant's Rent file
  * Contributors: Crischelle Polley
  * Date created: Dec 1 2023
- * Date last modified: Dec 2 2023
+ * Date last modified: Dec 3 2023
 */
 
 /* References:
@@ -26,9 +26,9 @@ using namespace std;
 class ViewRentReceipts {
 	public:
 	// Should reference be used here if this is boundary class?
-	static void displayTenantRentReceipts(const vector<vector<string>>&);
+	static void displayRentReceipts(const vector<vector<string>>&);    
 
-	static void displayAllTenantsRentReceipts();            
+	static void displayRentReceipts_inProgress(const vector<vector<string>>&);
 
 };
 

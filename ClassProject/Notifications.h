@@ -3,7 +3,7 @@
  * Description: Creates and modifies notification file
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Nov 29 2023
+ * Date last modified: Dec 3 2023
 */
 
 
@@ -29,6 +29,10 @@ class Notifications {
 
 
     public:
+    Notifications();
+
+    Notifications(int);
+
     string getTitle() const;
 
     void setTitle(const string&);
@@ -39,7 +43,11 @@ class Notifications {
 
     bool getPostNoteStatus() const;
 
-    void readNotification();
+    vector<vector<string>> getNotifications() const;
+
+    void setNotifications(const vector<vector<string>>&);
+
+    void readNotifications();
 
     void writeNotification();
 

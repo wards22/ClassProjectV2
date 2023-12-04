@@ -71,12 +71,17 @@ Rent::Rent() {
     balanceDue = NULL;
     // Set to NULL because it can be negative
     remainingBalanceDue = NULL;
-    isInProgress = false;
+    inProgress = false;
 }
 
 Rent::Rent(int uid) {
     balanceDue = -32.65;
     readRentReceipt(uid);
+}
+
+Rent::Rent(int uid, string ip) {
+    balanceDue = -32.65;
+    readRentReceipt(uid, ip);
 }
 
 string Rent::getPaymentMethod() const
@@ -134,7 +139,7 @@ float Rent::getAmount() const {
 }
 
 void Rent::setAmount(const float& a) {
-    amount = a;
+    amount = formatMoney(a);
 }
 
 float Rent::getBalanceDue() const {
@@ -146,7 +151,7 @@ void Rent::setBalanceDue(const float& bd) {
 }
 
 bool Rent::getProgressStatus() const {
-    return isInProgress;
+    return inProgress;
 }
 
 vector<vector<string>> Rent::getRentReceipts() const {
@@ -162,101 +167,288 @@ float Rent::payRentReceipt(const float& r) {
     return formatMoney(remainingBalanceDue);
 }
 
+
+
+
 void Rent::readRentReceipt(int uid) {
     fstream inputFile;
     inputFile.open("RentReceipts.csv", ios::in);
 
-    string line, data, receipt, record, field;
+    string line, data;
+    vector<string> row;
     int user_ID_in_file;
-    vector<string> row, rent;
+    string receipt, record, field;
+    vector<string> rent;
+    int i;            // Keep track of which field is rent receipts
 
+
+    // If tenant, read only this tenant into rentReceipts
     while (getline(inputFile, line)) {
         row.clear();
         stringstream s(line);
 
-        while (getline(s, data, ',')) {
+        while (getline(s, data, ',')) 
             row.push_back(data);
+
+        user_ID_in_file = stoi(row[0]);
+
+        if(uid == user_ID_in_file) {
+            rentReceipts.clear();
+
+            this->paymentMethod = row[1];
+
+            if (row[2] == "true")
+                this->inProgress = true;
+            else
+                this->inProgress = false;
+
+            // Store rent receipts in string to format and remove all but user ID from vector row
+            receipt = row[3];
+            row.pop_back();
+            row.pop_back();
+            row.pop_back();
+
+            stringstream r(receipt);
+            while(getline(r, record, '&')) {
+                stringstream rec(record);
+
+                while (getline(rec, field, ';')) {
+                    row.push_back(field);
+                }
+            }
+
+            inputFile.close();
+
+            // Push row to rentReceipts and return
+            // rentReceipts will contain only 1 vector
+            rentReceipts.push_back(row);
+            return;
         }
+    }
+
+
+    // If staff, read all tenants' rent receipts into rentReceipts
+
+    rentReceipts.clear();
+
+    // Clear eof flag and send read position back to beginning of file
+    inputFile.clear();
+    inputFile.seekg(0);
+
+    // Read through file and store tenants' rent receipts in rentReceipts
+    while (getline(inputFile, line)) {
+        row.clear();
+        stringstream s(line);
+
+        i = 0;
+        while (getline(s, data, ',')) {
+            i++;
+            
+            if(i == 1) {        // Store user ID
+                row.push_back(data);
+
+            } else if(i == 4) {             // Store all rent receipts for one tenant in one row
+                stringstream d(data);
+
+                while (getline(d, record, '&')) {
+                    stringstream rec(record);
+
+                    while (getline(rec, field, ';')) {
+                        row.push_back(field);
+                    }                    
+                }
+
+                rentReceipts.push_back(row);
+
+            } else {
+                continue;
+            }
+        } 
+    }
+    
+    inputFile.close();
+}
+
+
+
+
+void Rent::readRentReceipt(int uid, string ip) {
+    fstream inputFile;
+    inputFile.open("RentReceipts.csv", ios::in);
+
+    string line, data;
+    vector<string> row;
+    int user_ID_in_file;
+    string receipt, record, field;
+    vector<string> rent;
+    int i;            // Keep track of which field is rent receipts
+
+
+    // If tenant, read only this tenant into rentReceipts
+    while (getline(inputFile, line)) {
+        row.clear();
+        stringstream s(line);
+
+        while (getline(s, data, ','))
+            row.push_back(data);
 
         user_ID_in_file = stoi(row[0]);
 
         if (uid == user_ID_in_file) {
+            rentReceipts.clear();
+
             this->paymentMethod = row[1];
-            if(row[2] == "true")
-                this->isInProgress = true;
-            else
-                this->isInProgress = false;
 
-            receipt = row[3];
-            stringstream r(receipt);
+            if (row[2] == "true") {
+                this->inProgress = true;
 
-            // Get each rent receipt and store it in rentReceipts vector
-            while(getline(r, record, '&')) {
-                rent.clear();
-                stringstream rec(record);
+                // Store rent receipts in string to format and remove all but user ID from vector row
+                receipt = row[3];
+                // Largest element must be erased first, otherwise vector size changes and erase goes out of bounds
+                row.erase(row.begin() + 3);
+                row.erase(row.begin() + 1);
 
-                while(getline(rec, field, ';')) {
-                    rent.push_back(field);
+                stringstream r(receipt);
+                while (getline(r, record, '&')) {
+                    stringstream rec(record);
+
+                    while (getline(rec, field, ';')) {
+                        row.push_back(field);
+                    }
                 }
 
-                rentReceipts.push_back(rent);
+                inputFile.close();
 
+                // Delete all rent receipts from row except most recent
+                row.erase(row.begin()+2, row.end()-4);
+
+                // Push row to rentReceipts and return
+                // rentReceipts will contain only 1 vector
+                rentReceipts.push_back(row);
+                return;
+            
+            } else {        // Come back to this for letting staff know that there is no receipt in progress or just check inProgress value
+                this->inProgress = false;
+                inputFile.close();
+                return;
             }
-
-            inputFile.close();
-            break;
         }
     }
-}
 
-void Rent::writeRentReceipt(int uid) {
+    /*
+    // If staff, read all tenants' rent receipts into rentReceipts
 
-}
+    rentReceipts.clear();
 
-void Rent::createRentReceipt() {
-    // Check if rent receipt is in progress
-    if(isInProgress == true) {
-        cout << "A rent receipt is waiting to be posted.\n"
-            << "Go to Edit Rent Receipt to edit current rent receipt.\n\n";
-    } else {
-        date = "";
-        referenceNum = "";
-        description = "";
-        amount = -1;
+    // Clear eof flag and send read position back to beginning of file
+    inputFile.clear();
+    inputFile.seekg(0);
 
-        cout << "Enter the current month (MM): ";
-        cin >> month;
-        cout << "Enter the current month (DD): ";
-        cin >> day;
-        cout << "Enter the current month (YYYY): ";
-        cin >> year;
-        setDate(month, day, year);
+    // Read through file and store tenants' rent receipts in rentReceipts
+    while (getline(inputFile, line)) {
+        row.clear();
+        stringstream s(line);
 
-        cout << "Enter the reference number (LLL NNNN): ";
-        getline(cin, referenceNum);
+        i = 0;
+        while (getline(s, data, ',')) {
+            i++;
 
-        cout << "Enter the description: ";
-        getline(cin, description);
+            if(i == 1) {        // Store user ID
+                row.push_back(data);
 
-        cout << "Enter the amount: $";
-        string temp;
-        getline(cin, temp);
-        amount = stof(temp);
+            } else if(i == 3) {
+                if(data == "true") {
+                    row.push_back(data);
+                } else {
+                    break;
+                }
 
-        //cout << 
+            } else if(i == 4) {             // Store all rent receipts for one tenant in one row
+                stringstream d(data);
+
+                while (getline(d, record, '&')) {
+                    stringstream rec(record);
+
+                    while (getline(rec, field, ';')) {
+                        row.push_back(field);
+                    }
+
+
+                }
+
+                rentReceipts.push_back(row);
+
+            } else {
+                continue;
+            }
+        }
     }
+
+    inputFile.close(); */
 }
 
-void Rent::editRentReceipt() {
-    // Code to edit receipt here
 
-    cout << "Would you like to submit receipt?";
+
+
+
+
+void Rent::writeRentReceipt(int uid, float amount, string refNum) {
+    
+    fstream inputFile, outputFile;
+    inputFile.open("RentReceipts.csv", ios::in);
+    outputFile.open("Test.csv", ios::out);
+
+    string str, data, receipt, field;
+    int i, j, user_ID_in_file;
+
+    while(getline(inputFile, str)) {
+        stringstream s(str);
+
+        i = 0;
+        while (getline(s, data, ',')) {
+            // Tenant ID
+            if(i == 0) {
+                user_ID_in_file = stoi(data);
+                outputFile << data << ",";
+                i++;
+            
+            } else if(i < 3) {              //Payment method, inProgress status
+                outputFile << data << ",";
+                i++;
+
+            } else {
+                if(uid == user_ID_in_file) {
+                    int pos = data.find_last_of("&");
+
+                    string d = data.substr(0, (pos + 1));
+                    outputFile << d;                    
+
+
+                    string strpos = data.substr((pos + 1));
+
+                    stringstream sp(strpos);
+
+                    j = 0;
+                    while (getline(sp, receipt, ';')) {
+                        j++;
+
+                        if(j == 2)
+                            outputFile << refNum << ";";
+                        else if(j == 4)
+                            outputFile << to_string(formatMoney(amount)) << "\n";
+                        else 
+                            outputFile << receipt << ";";
+                    }
+
+                } else {
+                    outputFile << data << "\n";
+                }                
+            }
+
+        }
+    }
+
+    inputFile.close();
+    outputFile.close();
 }
 
-void Rent::deleteRentReceipt() {
-
-}
-
-void Rent::submitReceipt() {
-
-}

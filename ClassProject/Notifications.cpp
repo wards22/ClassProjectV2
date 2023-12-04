@@ -30,6 +30,7 @@ using namespace std;
 using chrono::system_clock;
 
 
+
 string Notifications::getDateTime() const {
     // Read current date and time from system
     system_clock::time_point tp = system_clock::now();
@@ -63,6 +64,16 @@ string Notifications::formatDateTime(const char* dt) const {
     return s;
 }
 
+Notifications::Notifications() {
+    title = "";
+    content = "";
+    postNoteStatus = false;
+}
+
+Notifications::Notifications(int uid) {
+    readNotifications();
+}
+
 string Notifications::getTitle() const
 {
     return title;
@@ -88,18 +99,28 @@ bool Notifications::getPostNoteStatus() const
     return postNoteStatus;
 }
 
-void Notifications::readNotification() {
+vector<vector<string>> Notifications::getNotifications() const {
+    return notifications;
+}
+
+void Notifications::setNotifications(const vector<vector<string>>& note) {
+    notifications = note;
+}
+
+
+void Notifications::readNotifications() {
     // When reading from notifications file, must replace delimiter (`) with commas
     // Also must replace delimiter (_) with newlines
     // Also must append commas to fields
 
-    /*
     fstream inputFile;
     inputFile.open("Notifications.csv", ios::in);
 
     string line, data;
     vector<string> row;
     int i;                 // Keep track of which field is content to format
+    string record, field, content;
+    int j;                 // Parse content data to change '`' and '_' to ',' and '\n'
 
     while (getline(inputFile, line)) {  
         row.clear();
@@ -107,16 +128,34 @@ void Notifications::readNotification() {
 
         i = 0;
         while (getline(s, data, ',')) {
-            //if(
-            row.push_back(data);
+            i++;
+
+            if(i == 2) {            // Skip post status
+                continue;
+
+            } else if(i == 4) {
+                for(j = 0; j < data.size(); j++) {
+                    if(data[j] == '`') {
+                        data[j] = ',';
+
+                    } else if(data[j] == '_') {
+                        data[j] = '\n';
+                    }
+                }
+                row.push_back(data);
+
+            } else {
+                row.push_back(data);
+            }
         }
+        notifications.push_back(row);        
+    }     
 
-        notifications.push_back(row);
-
-        inputFile.close();
-    } */
-
+    inputFile.close();
 }
+
+
+
 
 void Notifications::writeNotification() {
     // When writing to notifications file, must replace commas with other delimiter (`)

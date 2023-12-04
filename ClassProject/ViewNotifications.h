@@ -11,11 +11,15 @@
 #ifndef VIEW_NOTIFICATIONS_H
 #define VIEW_NOTIFICATIONS_H
 
+#include <vector>
+#include <string>
+
+using namespace std;
 
 class ViewNotifications {
 	public:
 
-	static void displayNotifications();
+	static void displayNotifications(const vector<vector<string>>&);
 
 };
 

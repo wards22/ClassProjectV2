@@ -3,7 +3,7 @@
  * Description: Implementation file for TenantUI.h
  * Contributors: Crischelle Polley
  * Date created: Nov 15 2023
- * Date last modified: Dec 2 2023
+ * Date last modified: Dec 3 2023
 */
 
 /* References:
@@ -50,35 +50,43 @@ void TenantUI::displayTenantMenu(int uid) {
 
     // [1] Account
     if (option == 1) {
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [2] Rent
     else if (option == 2) {
+        cout << "---------------------------------------------------------\n";
         displayRentMenu(uid);
 
     } // [3] Maintenance Request
     else if (option == 3) {
+        cout << "---------------------------------------------------------\n";
         displayMaintenanceMenu(uid);
 
     } // [4] Notifications
     else if (option == 4) {
+        cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
 
     } // [5] Lease
     else if (option == 5) {
+        cout << "---------------------------------------------------------\n";
         displayLeaseMenu(uid);
 
     } // [6] Application
     else if (option == 6) {
+        cout << "---------------------------------------------------------\n";
         displayApplicationMenu(uid);
 
     } // [7] Return to Start Menu
     else if (option == 7) {
+        cout << "---------------------------------------------------------\n";
         sleep_for(microseconds(1000));
         GeneralUI::displayGeneralUI();
 
     } // [8] Quit
     else if (option == 8) {
+        cout << "---------------------------------------------------------\n";
         quit();
 
     } else {
@@ -87,6 +95,7 @@ void TenantUI::displayTenantMenu(int uid) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 8.\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantMenu(uid);
     }
 
@@ -98,7 +107,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
     sleep_for(microseconds(1000));
 
     // Display Account features for tenant
-    cout << "Account\n";
+    cout << "Account Menu\n";
     cout << "--------------------------\n";
     cout << "[1] View Account Information\n";
     cout << "[2] Change Username\n";
@@ -120,6 +129,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
     // [1] View Account Information
     if (option == 1) {
         ManageTenantAccount::manageTenantAccountForTenant(uid, option, "NULL");
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [2] Change Username
@@ -133,6 +143,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         ManageTenantAccount::manageTenantAccountForTenant(uid, option, username);
 
         cout << "Your username has been changed successfully\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [3] Change Password
@@ -146,6 +157,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         ManageTenantAccount::manageTenantAccountForTenant(uid, option, password);
 
         cout << "Your password has been changed successfully\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [4] Change Phone Number
@@ -159,6 +171,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         ManageTenantAccount::manageTenantAccountForTenant(uid, option, phoneNum);
 
         cout << "Your phone number has been changed successfully\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [5] Change Email
@@ -172,6 +185,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         ManageTenantAccount::manageTenantAccountForTenant(uid, option, email);
 
         cout << "Your email has been changed successfully\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
 
     } // [6] Return to Tenant Menu
@@ -182,6 +196,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
     } // [7] Return to General UI
     else if (option == 7) {
         cout << "Returning to Start Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         GeneralUI::displayGeneralUI();
 
     } // [8] Quit
@@ -192,6 +207,7 @@ void TenantUI::displayTenantAccountMenu(int uid) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 8. \n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantAccountMenu(uid);
     }
 
@@ -203,7 +219,7 @@ void TenantUI::displayRentMenu(int uid) {
     sleep_for(microseconds(1000));
 
     // Display Rent features for tenant
-    cout << "Rent\n";
+    cout << "Rent Menu\n";
     cout << "--------------------------\n";
     cout << "[1] View Rent Receipts\n";
     cout << "[2] Set Payment Method\n";
@@ -224,6 +240,7 @@ void TenantUI::displayRentMenu(int uid) {
     // [1] View Rent Receipts
     if (option == 1) {
         ManageRent::manageRentForTenant(uid, option, "NULL");
+        cout << "---------------------------------------------------------\n";
         displayRentMenu(uid);
 
     } // [2] Set Payment Method
@@ -246,39 +263,48 @@ void TenantUI::displayRentMenu(int uid) {
         case 1: 
             ManageRent::manageRentForTenant(uid, option, "card");
             cout << "Your payment method has been changed successfully\n\n";
+            cout << "---------------------------------------------------------\n";
             displayRentMenu(uid);
             break;
         case 2: 
             ManageRent::manageRentForTenant(uid, option, "ACH");
             cout << "Your payment method has been changed successfully\n\n";
+            cout << "---------------------------------------------------------\n";
             displayRentMenu(uid);
             break;
         case 3: 
             ManageRent::manageRentForTenant(uid, option, "eCheck");
             cout << "Your payment method has been changed successfully\n\n";
+            cout << "---------------------------------------------------------\n";
             displayRentMenu(uid);
             break;
         case 4: 
             ManageRent::manageRentForTenant(uid, option, "moneyOrder");
             cout << "Your payment method has been changed successfully\n\n";
+            cout << "---------------------------------------------------------\n";
             displayRentMenu(uid);
             break;
         case 5: 
+            cout << "---------------------------------------------------------\n"; 
             displayRentMenu(uid);
             break;
         case 6: 
+            cout << "---------------------------------------------------------\n"; 
             displayTenantMenu(uid);
             break;
         case 7: 
+            cout << "---------------------------------------------------------\n"; 
             GeneralUI::displayGeneralUI();
             break;
         case 8:  
+            cout << "---------------------------------------------------------\n"; 
             quit();
             break;
         default: 
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             cout << "Please enter a number 1 through 8. \n\n";
+            cout << "---------------------------------------------------------\n";
             displayRentMenu(uid);
             break;
         }
@@ -296,15 +322,18 @@ void TenantUI::displayRentMenu(int uid) {
 
         ManageRent::manageRentForTenant(uid, option, paymentAmount);
         cout << "Your rent has been paid successfully.\n\n";
+        cout << "---------------------------------------------------------\n";
         displayRentMenu(uid);
 
     } // [4] Return to Tenant Menu
     else if (option == 4) {
         cout << "Returning to Tenant Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantMenu(uid);
 
     } // [5] Return to General UI
     else if (option == 7) {
+        cout << "---------------------------------------------------------\n";
         GeneralUI::displayGeneralUI();
 
     } // [6] Quit
@@ -315,6 +344,7 @@ void TenantUI::displayRentMenu(int uid) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 6. \n\n";
+        cout << "---------------------------------------------------------\n";
         displayRentMenu(uid);
     }
 }
@@ -325,7 +355,7 @@ void TenantUI::displayMaintenanceMenu(int uid) {
     sleep_for(microseconds(1000));
 
     // Display Maintenance features for tenant
-    cout << "Maintenance\n";
+    cout << "Maintenance Menu\n";
     cout << "--------------------------\n";
     // Status of current maintenance request can be shown in View Maintenance Request
     cout << "[1] View Maintenance Requests (see status)\n";
@@ -346,39 +376,46 @@ void TenantUI::displayMaintenanceMenu(int uid) {
 
     // [1] View Maintenance Requests
     if (option == 1) {
-        ManageMaintenance::manageMaintenanceForTenant(option, uid);
+        ManageMaintenance::manageMaintenanceForTenant();
+        cout << "---------------------------------------------------------\n";
         displayMaintenanceMenu(uid);
 
     } // [2] Request Maintenance
     else if (option == 2) {
-        ManageMaintenance::manageMaintenanceForTenant(option, uid);
+        ManageMaintenance::manageMaintenanceForTenant();
         cout << "You have requested maintenance successfully.\n\n";
+        cout << "---------------------------------------------------------\n";
         displayMaintenanceMenu(uid);
 
     } // [3] Edit Maintenance Request
     else if (option == 3) {
-        ManageMaintenance::manageMaintenanceForTenant(option, uid);
+        ManageMaintenance::manageMaintenanceForTenant();
         cout << "You have changed your maintenance request successfully.\n\n";
+        cout << "---------------------------------------------------------\n";
         displayMaintenanceMenu(uid);
 
     } // [4] Return to Tenant Menu
     else if (option == 4) {
         cout << "Returning to Tenant Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantMenu(uid);
 
     } // [5] Return to General UI
     else if (option == 7) {
         cout << "Returning to Start Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         GeneralUI::displayGeneralUI();
 
     } // [6] Quit
     else if (option == 5) {
+        cout << "---------------------------------------------------------\n";
         quit();
 
     } else {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 6. \n\n";
+        cout << "---------------------------------------------------------\n";
         displayMaintenanceMenu(uid);
     }
 
@@ -391,7 +428,7 @@ void TenantUI::displayNotificationsMenu(int uid) {
 
     // Display Notification features for tenant
     // Tenant can only view notifications (limitation is tenant cannot communicate with staff through system)
-    cout << "Notifications\n";
+    cout << "Notifications Menu\n";
     cout << "--------------------------\n";
     // Status of current maintenance request can be shown in View Maintenance Request
     cout << "[1] View Notifications\n";
@@ -410,26 +447,31 @@ void TenantUI::displayNotificationsMenu(int uid) {
     // [1] View Notifications
     if (option == 1) {
         ManageNotifications::manageNotifications(uid, option);
+        cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
 
     } // [2] Return to Tenant Menu
     else if (option == 2) {
         cout << "Returning to Tenant Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantMenu(uid);
 
     } // [3] Return to General UI
     else if (option == 3) {
         cout << "Returning to Start Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         GeneralUI::displayGeneralUI();
 
     } // [4] Quit
     else if (option == 4) {
+        cout << "---------------------------------------------------------\n";
         quit();
 
     } else {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 4. \n\n";
+        cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
     }
 }
@@ -440,7 +482,7 @@ void TenantUI::displayLeaseMenu(int uid) {
     sleep_for(microseconds(1000));
 
     // Display Lease features for tenant
-    cout << "Lease\n";
+    cout << "Lease Menu\n";
     cout << "--------------------------\n";
     cout << "[1] View Lease\n";
     cout << "[2] Return to Tenant Menu\n";
@@ -458,26 +500,31 @@ void TenantUI::displayLeaseMenu(int uid) {
     // [1] View Lease
     if (option == 1) {
         ManageLease::manageLeaseForTenant(uid);
+        cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
 
     } // [2] Return to Tenant Menu
     else if (option == 2) {
         cout << "Returning to Tenant Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         displayTenantMenu(uid);
 
     } // [3] Return to General UI
     else if (option == 3) {
         cout << "Returning to Start Menu\n\n";
+        cout << "---------------------------------------------------------\n";
         GeneralUI::displayGeneralUI();
 
     } // [4] Quit
     else if (option == 4) {
+        cout << "---------------------------------------------------------\n";
         quit();
 
     } else {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Please enter a number 1 through 4. \n\n";
+        cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
     }
 }

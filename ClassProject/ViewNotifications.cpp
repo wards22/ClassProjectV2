@@ -8,28 +8,31 @@
 
 
 #include "ViewNotifications.h"
+#include <vector>
+#include <string>
 #include <iostream>
 #include <iomanip>
-#include <string>
 
 using namespace std;
 
-void ViewNotifications::displayNotifications()
+void ViewNotifications::displayNotifications(const vector<vector<string>>& notifications)
 {
-	/*
-	cout << left << setw(40) << "Rent Receipts" << endl;
+	cout << left << setw(40) << "Notifications" << endl;
 	cout << left << setw(40) << "-------------------------------" << endl;
 
-	for (auto i = rentReceipts.begin(); i != rentReceipts.end(); i++) {
+	for (auto i = notifications.begin(); i != notifications.end(); i++) {
 		for (auto j = i->begin(); ;) {
-			cout << left << setw(10) << "Date:           " << setw(30) << *j << endl;
-			cout << left << setw(10) << "Reference #:    " << setw(30) << *(j + 1) << endl;
-			cout << left << setw(10) << "Description:    " << setw(30) << *(j + 2) << endl;
-			cout << left << setw(10) << "Amount Due:     " << "$" << setw(29) << *(j + 3) << endl;
-			cout << endl;
+			cout << left << setw(16) << "UserID:" << setw(30) << *j << endl;
+			// Date Posted
+			cout << left << setw(16) << "Date Posted: " << setw(30) << *(j + 3) << endl << endl;
+			// Title
+			cout << left << *(j + 1) << endl << endl;
+			// Content
+			cout << left << setw(100) << *(j + 2) << endl << endl;
+			cout << left << setw(40) << "-------------------------------" << endl;
 			break;
 		}
 		cout << endl;
-	} */
+	}
 
 }
