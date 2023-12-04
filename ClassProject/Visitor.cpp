@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include "Visitor.h"
 
 struct FloorPlan {
     std::string name;
