@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.4.0.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.0.1\build\NUnit.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -199,6 +200,7 @@
     <None Include="LeaseRecords.csv" />
     <None Include="MaintenanceRecords.csv" />
     <None Include="Notifications.csv" />
+    <None Include="packages.config" />
     <None Include="RentReceipts.csv" />
     <None Include="Test.csv" />
     <None Include="UserRecords.csv" />
@@ -216,6 +218,11 @@
     <Text Include="User-Records-Header-Reference.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.4.0.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.4.0.1\build\NUnit.props'))" />
+  </Target>
 </Project>
