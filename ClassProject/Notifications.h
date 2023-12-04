@@ -29,6 +29,10 @@ class Notifications {
 
 
     public:
+    Notifications();
+
+    Notifications(int);
+
     string getTitle() const;
 
     void setTitle(const string&);
@@ -43,7 +47,7 @@ class Notifications {
 
     void setNotifications(const vector<vector<string>>&);
 
-    void readNotification();
+    void readNotifications();
 
     void writeNotification();
 

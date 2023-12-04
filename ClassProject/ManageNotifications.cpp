@@ -15,7 +15,7 @@
 using namespace std;
 
 void ManageNotifications::manageNotifications(int uid, int option) {
-    Notifications note;
+    Notifications note(uid);
 
     // [1] View Notifications
     // This will access View Notifications boundary class

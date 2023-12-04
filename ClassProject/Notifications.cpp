@@ -30,6 +30,7 @@ using namespace std;
 using chrono::system_clock;
 
 
+
 string Notifications::getDateTime() const {
     // Read current date and time from system
     system_clock::time_point tp = system_clock::now();
@@ -61,6 +62,16 @@ string Notifications::formatDateTime(const char* dt) const {
     s = s.substr(0, 11) + s.substr(20, 24) + " " + s.substr(11, 8);
 
     return s;
+}
+
+Notifications::Notifications() {
+    title = "";
+    content = "";
+    postNoteStatus = false;
+}
+
+Notifications::Notifications(int uid) {
+    readNotifications();
 }
 
 string Notifications::getTitle() const
@@ -97,18 +108,18 @@ void Notifications::setNotifications(const vector<vector<string>>& note) {
 }
 
 
-void Notifications::readNotification() {
+void Notifications::readNotifications() {
     // When reading from notifications file, must replace delimiter (`) with commas
     // Also must replace delimiter (_) with newlines
     // Also must append commas to fields
 
-    /*
     fstream inputFile;
     inputFile.open("Notifications.csv", ios::in);
 
     string line, data;
     vector<string> row;
     int i;                 // Keep track of which field is content to format
+    string record, field, content;
     int j;                 // Parse content data to change '`' and '_' to ',' and '\n'
 
     while (getline(inputFile, line)) {  
@@ -117,27 +128,30 @@ void Notifications::readNotification() {
 
         i = 0;
         while (getline(s, data, ',')) {
-            //
-            if(i == 4) {
-                j = 0;
-                while(j < data.length()) {
+            i++;
 
-                }
+            if(i == 2) {            // Skip post status
+                continue;
 
-                for(auto j : data) {
-                    cout 
+            } else if(i == 4) {
+                for(j = 0; j < data.size(); j++) {
+                    if(data[j] == '`') {
+                        data[j] = ',';
+
+                    } else if(data[j] == '_') {
+                        data[j] = '\n';
+                    }
                 }
+                row.push_back(data);
+
             } else {
                 row.push_back(data);
             }
-            
         }
+        notifications.push_back(row);        
+    }     
 
-        notifications.push_back(row);
-
-        inputFile.close();
-    } */
-
+    inputFile.close();
 }
 
 

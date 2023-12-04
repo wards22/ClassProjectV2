@@ -335,8 +335,7 @@ void StaffUI::displayRentMenu(int user_ID) {
     cout << "[4] Delete Rent Receipt\n";
     cout << "[5] Submit Rent Receipt\n";
     cout << "[6] Return to Staff Menu\n";
-    // Did not include logout option since it takes you back to GeneralUI
-    cout << "[7] Return to Start Menu\n";
+    cout << "[7] Logout\n";
     cout << "\nEnter a number 1 through 7: ";
 
 
@@ -378,8 +377,7 @@ void StaffUI::displayRentMenu(int user_ID) {
 
     } // [7] Return to General UI
     else if (option == 7) {
-        cout << "Returning to Main Menu\n\n";
-        GeneralUI::displayGeneralUI();
+        logout();
 
     } else {
         cin.clear();
@@ -453,7 +451,7 @@ void StaffUI::displayNotifications(int user_ID) {
     cout << "This is where you will view notifications." << endl << endl;
 
     // Display Notifications features for staff
-    cout << "Tenant Rent Information\n";
+    cout << "Notifications\n";
     cout << "--------------------------\n";
     cout << "[1] View Notifications\n";
     cout << "[2] Create Notification\n";
@@ -461,15 +459,14 @@ void StaffUI::displayNotifications(int user_ID) {
     cout << "[4] Delete Notification\n";
     cout << "[5] Submit Notification\n";
     cout << "[6] Return to Staff Menu\n";
-    // Did not include logout option since it takes you back to GeneralUI
-    cout << "[7] Return to Start Menu\n";
+    cout << "[7] Logout\n";
     cout << "\nEnter a number 1 through 7: ";
 
 
     // Read in staff option
     int option = -1;
     cin >> option;
-    cout << endl;
+    cout << endl << endl;
 
 
     // [1] View Notifications
@@ -479,23 +476,23 @@ void StaffUI::displayNotifications(int user_ID) {
 
     } // [2] Create Notifications
     else if (option == 2) {
-        int tenant_id;
-        cout << "Enter the user ID of the tenant you want to create a rent receipt for: ";
-        cin >> tenant_id;
-
-        ManageRent::manageRentForStaff(tenant_id, option);
+        ManageNotifications::manageNotifications(user_ID, option);
+        displayNotifications(user_ID);
 
     } // [3] Edit Notifications
     else if (option == 3) {
-        displayRentMenu(user_ID);
+        ManageNotifications::manageNotifications(user_ID, option);
+        displayNotifications(user_ID);
 
     } // [4] Delete Notifications
     else if (option == 4) {
-        displayRentMenu(user_ID);
+        ManageNotifications::manageNotifications(user_ID, option);
+        displayNotifications(user_ID);
 
     } // [5] Submit Notifications
     else if (option == 5) {
-        displayRentMenu(user_ID);
+        ManageNotifications::manageNotifications(user_ID, option);
+        displayNotifications(user_ID);
 
     } // [6] Return to Staff Menu
     else if (option == 6) {
@@ -504,8 +501,7 @@ void StaffUI::displayNotifications(int user_ID) {
 
     } // [7] Return to General UI
     else if (option == 7) {
-        cout << "Returning to Main Menu\n\n";
-        GeneralUI::displayGeneralUI();
+        logout();
 
     } else {
         cin.clear();
