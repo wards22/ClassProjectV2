@@ -5,7 +5,7 @@
  *              to view apartment info and/or submit an application
  * Contributors: Scott Ward
  * Date created: Nov 25 2023
- * Date last modified: Nov 27 2023
+ * Date last modified: Dec 3 2023
 */
 
 #pragma once

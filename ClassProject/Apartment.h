@@ -1,3 +1,11 @@
+/* Prologue
+ * Name: Apartment.h
+ * Description: Apartment Entity class for storing long term info
+ * Contributors: Scott Ward/LaShante StCyr
+ * Date created: Nov 25 2023
+ * Date last modified: Dec 3 2023
+*/
+
 #pragma once
 #ifndef APARTMENT_H
 #define APARTMENT_H

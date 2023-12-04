@@ -1,3 +1,11 @@
+/* Prologue
+ * Name: Application
+ * Description: Implementation of App.h
+ * Contributors: Scott Ward/LaShante StCyr
+ * Date created: Nov 25 2023
+ * Date last modified: Dec 3 2023
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>

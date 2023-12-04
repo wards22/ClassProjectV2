@@ -20,11 +20,8 @@ using namespace std;
 
 class ManageStaff {
     public:
-    static void manageStaff();
 
-    public:
-
-    void manageStaff(int n, int user_ID, string str);
+    void manageStaff(int, int, string);
 
 };
 

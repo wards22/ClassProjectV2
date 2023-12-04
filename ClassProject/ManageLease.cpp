@@ -1,3 +1,11 @@
+/* Prologue
+ * Name: Manage Lease Class
+ * Description: Implementation of ManageLease.h
+ * Contributors: Scott Ward
+ * Date created: Nov 25 2023
+ * Date last modified: Dec 3 2023
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>

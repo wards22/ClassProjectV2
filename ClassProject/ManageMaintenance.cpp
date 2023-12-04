@@ -1,3 +1,11 @@
+/* Prologue
+ * Name: Manage Maintenance Request Class
+ * Description: Implementation of ManageMaintenance.h
+ * Contributors: Scott Ward
+ * Date created: Nov 25 2023
+ * Date last modified: Dec 2 2023
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>

@@ -1,3 +1,11 @@
+/* Prologue
+ * Name: Manage Application
+ * Description: Implementation of ManageApplications.h
+ * Contributors: Scott Ward
+ * Date created: Dec 3 2023
+ * Date last modified: Dec 3 2023
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>
