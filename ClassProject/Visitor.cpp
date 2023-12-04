@@ -1,4 +1,3 @@
-/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,19 +6,16 @@
 
 struct FloorPlan {
     std::string name;
-    // Add more properties related to the floor plan if needed
 };
 
 struct RentPrices {
     int bedrooms;
     double price;
-    // Add more properties related to rent prices if needed
 };
 
 struct Vacancies {
     int bedrooms;
     bool available;
-    // Add more properties related to vacancies if needed
 };
 
 int main() {
@@ -77,4 +73,3 @@ int main() {
 
     return 0;
 }
-/
