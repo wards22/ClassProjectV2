@@ -586,12 +586,9 @@ void StaffUI::displayNotifications(int user_ID) {
     cout << "--------------------------\n";
     cout << "[1] View Notifications\n";
     cout << "[2] Create Notification\n";
-    cout << "[3] Edit Notification\n";
-    cout << "[4] Delete Notification\n";
-    cout << "[5] Submit Notification\n";
-    cout << "[6] Return to Staff Menu\n";
-    cout << "[7] Logout\n";
-    cout << "\nEnter a number 1 through 7: ";
+    cout << "[3] Return to Staff Menu\n";
+    cout << "[4] Logout\n";
+    cout << "\nEnter a number 1 through 5: ";
 
 
     // Read in staff option
@@ -620,35 +617,20 @@ void StaffUI::displayNotifications(int user_ID) {
 
 
 
-    } // [3] Edit Notifications
+    } // [3] Return to Staff Menu
     else if (option == 3) {
-        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
-        displayNotifications(user_ID);
-
-    } // [4] Delete Notifications
-    else if (option == 4) {
-        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
-        displayNotifications(user_ID);
-
-    } // [5] Submit Notifications
-    else if (option == 5) {
-        ManageNotifications::manageNotifications(user_ID, option, "NULL", "NULL", "NULL");
-        displayNotifications(user_ID);
-
-    } // [6] Return to Staff Menu
-    else if (option == 6) {
         cout << "Returning to Staff Menu\n\n";
         displayMainMenu(user_ID);
 
-    } // [7] Return to General UI
-    else if (option == 7) {
+    } // [4] Return to General UI
+    else if (option == 4) {
         cout << "Returning to Start Menu" << endl << endl;
         GeneralUI::displayGeneralUI();
 
     } else {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Please enter a number 1 through 7. \n\n";
+        cout << "Please enter a number 1 through 5. \n\n";
         displayRentMenu(user_ID);
     }
 }
