@@ -67,7 +67,7 @@ string Notifications::formatDateTime(const char* dt) const {
 Notifications::Notifications() {
     title = "";
     content = "";
-    postNoteStatus = false;
+    postStatus = false;
 }
 
 Notifications::Notifications(int uid) {
@@ -96,7 +96,7 @@ void Notifications::setContent(const string& c)
 
 bool Notifications::getPostNoteStatus() const
 {
-    return postNoteStatus;
+    return postStatus;
 }
 
 vector<vector<string>> Notifications::getNotifications() const {
@@ -130,10 +130,7 @@ void Notifications::readNotifications() {
         while (getline(s, data, ',')) {
             i++;
 
-            if(i == 2) {            // Skip post status
-                continue;
-
-            } else if(i == 4) {
+            if(i == 4) {
                 for(j = 0; j < data.size(); j++) {
                     if(data[j] == '`') {
                         data[j] = ',';
@@ -157,10 +154,78 @@ void Notifications::readNotifications() {
 
 
 
-void Notifications::writeNotification() {
+void Notifications::writeNotification(int uid, int option, string status, string t, string c) {
     // When writing to notifications file, must replace commas with other delimiter (`)
     // Also must replace newlines with delimiter (_)
     // Also must append commas to fields
+
+    fstream outputFile("Test.csv", ios::out);
+
+    vector<string> row;
+
+    row.push_back(to_string(uid));
+    row.push_back(status);
+    row.push_back(t);
+    row.push_back(c);
+    row.push_back(getDateTime());
+
+    notifications.push_back(row);
+
+    // Format content for all of vector
+    for(int i = 0; i < notifications.size(); i++) {
+
+        for(int j = 0; j < notifications[i].size(); j++) { 
+
+            if(j == 3) {
+                string str = notifications[i][j];
+
+                for(int k = 0; k < str.size(); k++) {
+                    if (str[k] == ',') {
+                        str[k] = '`';
+
+                    } else if (str[k] == '\n') {
+                        str[k] = '_';
+                    }
+                }
+
+                notifications[i][j] = str;
+
+            }    
+        }
+    }
+
+
+    /*
+    for (auto i = notifications.begin(); i != notifications.end(); i++) {
+
+        for (auto j = i->begin(); j != i->end(); j++) {
+            if (j == i->begin() + 2) {
+
+                for (auto n = j->begin(); n != j->end(); n++) {
+                    if (*n == ',') {
+                        *n = '`';
+
+                    } else if (*n == '\n') {
+                        *n = '_';
+                    }
+                }
+            }
+        }
+    } */
+
+
+    for(auto i = notifications.begin(); i != notifications.end(); i++) {
+        for(auto j = i->begin(); j != i->end(); j++) {
+            if(j == i->end() - 1) {
+                outputFile << *j << "\n";
+                break;
+            }
+            outputFile << *j << ",";
+        }
+    }
+
+    outputFile.close();
+
 }
 
 void Notifications::createNotification() {
@@ -173,7 +238,7 @@ void Notifications::createNotification() {
 
         title = "";
         content = "";
-        postNoteStatus = false;
+        postStatus = false;
 
         cout << "Enter a title for your notification:\n";
         getline(cin, title);
@@ -193,11 +258,11 @@ void Notifications::editNotification() {
 
 void Notifications::deleteNotification() {
     // Code here
-    postNoteStatus = false;
+    postStatus = false;
 }
 
 void Notifications::postNotification() {
     // Write it to file
     // Then access View Notifications boundary class to print
-    postNoteStatus = true;
+    postStatus = true;
 }

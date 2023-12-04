@@ -20,7 +20,7 @@ class Notifications {
     private:
     string title;
     string content;
-    bool postNoteStatus;
+    bool postStatus;
     vector<vector<string>> notifications;
 
     string getDateTime() const;
@@ -49,7 +49,7 @@ class Notifications {
 
     void readNotifications();
 
-    void writeNotification();
+    void writeNotification(int, int, string, string, string);
 
     void createNotification();
 

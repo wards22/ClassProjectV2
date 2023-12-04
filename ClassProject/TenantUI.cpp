@@ -446,7 +446,7 @@ void TenantUI::displayNotificationsMenu(int uid) {
 
     // [1] View Notifications
     if (option == 1) {
-        ManageNotifications::manageNotifications(uid, option);
+        ManageNotifications::manageNotifications(uid, option, NULL, NULL, NULL);
         cout << "---------------------------------------------------------\n";
         displayNotificationsMenu(uid);
 

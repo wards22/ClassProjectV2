@@ -11,10 +11,15 @@
 #ifndef MANAGE_NOTIFICATIONS_H
 #define MANAGE_NOTIFICATIONS_H
 
+#include <string>
+
+using namespace std;
+
+
 class ManageNotifications {
 
 	public:
-	static void manageNotifications(int, int);
+	static void manageNotifications(int, int, string, string, string);
 
 };
 
