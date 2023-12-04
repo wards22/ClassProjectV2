@@ -508,7 +508,8 @@ void StaffUI::displayRentMenu(int user_ID) {
 
     } // [7] Return to General UI
     else if (option == 7) {
-        logout();
+        cout <<"Return to Start Menu" << endl << endl;
+        GeneralUI::displayGeneralUI();
 
     } else {
         cin.clear();
@@ -632,7 +633,8 @@ void StaffUI::displayNotifications(int user_ID) {
 
     } // [7] Return to General UI
     else if (option == 7) {
-        logout();
+        cout << "Returning to Start Menu" << endl << endl;
+        GeneralUI::displayGeneralUI();
 
     } else {
         cin.clear();
